@@ -1,0 +1,434 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10 UI Design Styles — Upwork Outsourcing Brief</title>
+<style>
+:root{
+  --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
+  --ink:#eef2f9; --mut:#9aa7bd; --sub:#c3ccdd;
+  --acc:#6ea8ff; --acc2:#9d7bff; --good:#3ecf8e; --bad:#ff6b6b; --warn:#ffb454;
+  --rad:16px; --mw:1060px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,#1b2438 0,transparent 60%),var(--bg);
+  color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(13,16,23,.72);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.topbar .home{font-weight:600;color:var(--sub);font-size:14px}
+.topbar .pill{font-size:12px;color:var(--mut);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+header.hero{padding:52px 0 26px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);
+  border:1px solid var(--line);padding:5px 12px;border-radius:999px;margin-bottom:18px}
+.num{font-weight:800;font-size:13px;color:#0d1017;background:linear-gradient(120deg,var(--acc),var(--acc2));
+  width:24px;height:24px;border-radius:7px;display:grid;place-items:center;margin-right:2px}
+h1.title{font-size:clamp(32px,6vw,52px);line-height:1.08;margin:6px 0 10px;letter-spacing:-.02em}
+.title .en{color:var(--mut);font-weight:600;font-size:.5em;letter-spacing:0}
+.tag{font-size:clamp(16px,2.4vw,20px);color:var(--sub);max-width:760px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.badge{font-size:12.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
+  padding:6px 12px;border-radius:999px}
+.badge b{color:var(--ink)}
+section{padding:30px 0;border-top:1px solid var(--line)}
+h2{font-size:22px;margin:0 0 4px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;
+  background:var(--bg2);border:1px solid var(--line)}
+.lead{color:var(--mut);margin:0 0 20px;font-size:15px}
+.def{font-size:17.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
+  border-left:3px solid var(--acc);padding:18px 20px;border-radius:12px}
+/* demo stage */
+.stagewrap{border:1px solid var(--line);border-radius:var(--rad);overflow:hidden;background:var(--bg2)}
+.stagebar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);
+  font-size:12px;color:var(--mut);background:rgba(255,255,255,.02)}
+.dot{width:10px;height:10px;border-radius:50%}
+.stagebar .live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--good)}
+.stagebar .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 0 rgba(62,207,142,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,207,142,.55)}70%{box-shadow:0 0 0 8px rgba(62,207,142,0)}100%{box-shadow:0 0 0 0 rgba(62,207,142,0)}}
+.stage{min-height:320px;display:grid;place-items:center;padding:38px 22px}
+/* characteristics */
+.chars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.chip h4{margin:0 0 4px;font-size:14.5px}
+.chip p{margin:0;font-size:13.5px;color:var(--mut)}
+/* pros cons */
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.col{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--card)}
+.col.pro{border-top:3px solid var(--good)}
+.col.con{border-top:3px solid var(--bad)}
+.col h3{margin:0 0 12px;font-size:15px;display:flex;align-items:center;gap:8px}
+.col ul{margin:0;padding:0;list-style:none}
+.col li{position:relative;padding:7px 0 7px 26px;font-size:14px;color:var(--sub);border-bottom:1px dashed var(--line)}
+.col li:last-child{border-bottom:0}
+.col.pro li::before{content:"＋";position:absolute;left:2px;color:var(--good);font-weight:700}
+.col.con li::before{content:"－";position:absolute;left:2px;color:var(--bad);font-weight:700}
+/* usecase */
+.use{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.use .box{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--card)}
+.use .box.yes{background:linear-gradient(180deg,rgba(62,207,142,.06),transparent)}
+.use .box.no{background:linear-gradient(180deg,rgba(255,107,107,.06),transparent)}
+.use h3{margin:0 0 10px;font-size:15px}
+.use ul{margin:0;padding-left:18px}
+.use li{font-size:14px;color:var(--sub);margin:6px 0}
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px}
+.metric .top{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:8px}
+.metric .top b{color:var(--ink)}
+.metric .top span{color:var(--mut)}
+.bar{height:8px;border-radius:999px;background:var(--bg);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.metric.risk .bar i{background:linear-gradient(90deg,var(--warn),var(--bad))}
+.metric small{display:block;color:var(--mut);font-size:12px;margin-top:8px}
+/* examples */
+.ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.ex a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
+  transition:.18s;color:inherit}
+.ex a:hover{border-color:var(--acc);transform:translateY(-3px);text-decoration:none}
+.ex .nm{font-weight:700;font-size:15.5px;margin-bottom:5px;color:var(--ink)}
+.ex .ds{font-size:13.5px;color:var(--mut)}
+.ex .go{font-size:12.5px;color:var(--acc);margin-top:10px;display:inline-block}
+/* dev tip */
+.tip{background:linear-gradient(180deg,rgba(110,168,255,.08),transparent);border:1px solid var(--line);
+  border-radius:14px;padding:20px 22px}
+.tip h3{margin:0 0 10px;font-size:15px;color:var(--acc)}
+.tip ul{margin:0;padding-left:18px}
+.tip li{font-size:14px;color:var(--sub);margin:7px 0}
+.tip code{background:var(--bg);border:1px solid var(--line);padding:2px 7px;border-radius:6px;
+  font-size:12.5px;color:#ffd9a0;font-family:ui-monospace,Menlo,Consolas,monospace}
+/* sources + footer nav */
+.src{font-size:13.5px;color:var(--mut)}
+.src li{margin:6px 0}
+.nav{display:flex;justify-content:space-between;gap:12px;padding:26px 0 60px}
+.nav a{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:var(--sub)}
+.nav a:hover{border-color:var(--acc);text-decoration:none}
+.nav .r{text-align:right}
+.nav small{display:block;color:var(--mut);font-size:12px}
+@media(max-width:720px){.pc,.use{grid-template-columns:1fr}}
+
+.hero-i{padding:56px 0 20px}
+.langtag{display:inline-block;font-size:12px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);padding:5px 12px;border-radius:999px;margin-bottom:16px}
+.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;padding:14px 0 10px}
+.icard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;color:inherit;transition:.18s}
+.icard:hover{border-color:var(--acc);transform:translateY(-4px);text-decoration:none}
+.icard-demo{height:160px;overflow:hidden;position:relative}
+.icard-demo .mini{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.58);pointer-events:none}
+.icard-b{padding:16px 18px 18px;position:relative}
+.inum{position:absolute;top:-16px;right:14px;font-weight:800;font-size:12px;color:#0d1017;background:linear-gradient(120deg,var(--acc),var(--acc2));width:30px;height:30px;border-radius:9px;display:grid;place-items:center;border:3px solid var(--card)}
+.inm{font-weight:700;font-size:17px;margin-bottom:5px}
+.itag{margin:0;font-size:12.8px;color:var(--mut);line-height:1.5}
+table.cmp{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+table.cmp th,table.cmp td{text-align:center;padding:11px 8px;border-bottom:1px solid var(--line)}
+table.cmp th{color:var(--mut);font-weight:600;font-size:12px;position:sticky;top:56px;background:var(--bg)}
+table.cmp td:nth-child(2){text-align:left}
+table.cmp .tnum{color:var(--mut);font-size:12px}
+table.cmp td a{color:var(--ink)} table.cmp td a small{display:block;color:var(--mut);font-size:11px;font-weight:400}
+table.cmp .tsum{text-align:left;color:var(--mut);font-size:12px;max-width:280px}
+.d-on,.d-off,.d-risk{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 1px}
+.d-on{background:var(--acc)} .d-risk{background:var(--warn)} .d-off{background:var(--line)}
+.cmpwrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;padding:6px 14px 10px;background:var(--card)}
+.foot{color:var(--mut);font-size:12.5px;padding:20px 0 60px}
+</style></head><body>
+<div class="topbar"><div class="wrap"><span class="home">🎨 UI Design Styles · 10</span>
+<a class="pill" href="https://github.com" target="_blank" rel="noopener">★ Reference guide</a></div></div>
+<div class="wrap">
+<header class="hero-i">
+  <span class="langtag">A quick UI/UX reference for clients</span>
+  <h1 class="title">UI Design Styles <span class="en">· 10</span></h1>
+  <p class="tag">The 10 styles from Instagram’s ‘UI Design Styles Every Designer Should Know’, organized with current, credible sources as of July 2026. Click a card for a live demo, pros/cons, real examples and an outsourcing brief.</p>
+  <p class="lead" style="margin-top:14px">A neutral, at-a-glance reference to 10 common UI design styles — live demos, honest pros &amp; cons, real-world examples and when to use each. Handy to share with clients who don’t yet have a UI/UX guide.</p>
+</header>
+<section style="border-top:none;padding-top:8px"><div class="igrid"><a class="icard" href="skeuomorphism.html">
+          <div class="icard-demo skeuomorphism-stage" aria-hidden="true"><div class="mini"><div class="sk-panel">
+  <div class="sk-card"><h5>📓 Field Notes</h5><p>Stitched edges, glossy buttons, paper grain — the UI imitates the real object it replaces.</p>
+  <span class="sk-btn">● Record</span></div>
+  <div class="sk-side"><div class="sk-switch"><div class="sk-knob"></div></div>
+  <span class="sk-btn sk-badge">Save</span></div>
+</div></div></div>
+          <div class="icard-b"><span class="inum">01</span>
+          <div class="inm">Skeuomorphism</div>
+          <p class="itag">Design that imitates real-world objects — leather, metal and paper textures with 3D buttons make the screen feel touchable.</p></div></a><a class="icard" href="neumorphism.html">
+          <div class="icard-demo neumorphism-stage" aria-hidden="true"><div class="mini"><div class="nu-wrap">
+  <div class="nu-card"><h5>Soft UI</h5><p>Same color as the background. Edges emerge only from two-direction shadows.</p></div>
+  <div class="nu-col"><div class="nu-btn">▶</div><div class="nu-track"><div class="nu-thumb"></div></div></div>
+</div></div></div>
+          <div class="icard-b"><span class="inum">02</span>
+          <div class="inm">Neumorphism</div>
+          <p class="itag">A soft UI where elements look gently ‘pushed in’ or ‘extruded’ from a same-color background. Dual-direction shadows are the whole trick.</p></div></a><a class="icard" href="glassmorphism.html">
+          <div class="icard-demo glassmorphism-stage" aria-hidden="true"><div class="mini"><div class="gl-blob gl-b1"></div><div class="gl-blob gl-b2"></div><div class="gl-blob gl-b3"></div>
+<div class="gl-card"><h5>🧊 Frosted Glass</h5><p>The color blobs behind show through frosted glass. Translucent fill + blur + light border.</p>
+<span class="gl-btn">Get started →</span></div></div></div>
+          <div class="icard-b"><span class="inum">03</span>
+          <div class="inm">Glassmorphism</div>
+          <p class="itag">A frosted-glass effect where a blurred background shows through translucent panels — delivering depth and polish at once.</p></div></a><a class="icard" href="claymorphism.html">
+          <div class="icard-demo claymorphism-stage" aria-hidden="true"><div class="mini"><div class="cl-wrap">
+  <div class="cl-card"><div class="cl-icon">🧸</div><h5>Claymorphism</h5><p>Puffy 3D as if molded from clay. Outer shadow + double inner shadow.</p></div>
+  <span class="cl-btn">Tap me</span>
+</div></div></div>
+          <div class="icard-b"><span class="inum">04</span>
+          <div class="inm">Claymorphism</div>
+          <p class="itag">A soft-clay 3D look — chunky rounded shapes with inner and outer shadows create a puffy, friendly feel.</p></div></a><a class="icard" href="minimalism.html">
+          <div class="icard-demo minimalism-stage" aria-hidden="true"><div class="mini"><div class="mn-card">
+  <div class="mn-eyebrow">Aperture · 2026</div>
+  <h1 class="mn-h">Less, but better.</h1>
+  <p class="mn-sub">Whitespace, restrained color and type focus all attention on the content.</p>
+  <div class="mn-line"></div>
+  <div class="mn-row"><span>Weight</span><span>182 g</span></div>
+  <div class="mn-row"><span>Material</span><span>Aluminum</span></div>
+  <div class="mn-line"></div>
+  <span class="mn-btn">BUY — $299</span>
+</div></div></div>
+          <div class="icard-b"><span class="inum">05</span>
+          <div class="inm">Minimalism</div>
+          <p class="itag">‘Less is the design’ — whitespace, restrained color and typography focus attention on content. The most durable approach.</p></div></a><a class="icard" href="maximalism.html">
+          <div class="icard-demo maximalism-stage" aria-hidden="true"><div class="mini"><div class="mx-star mx-s1">✦</div><div class="mx-star mx-s2">★</div><div class="mx-star mx-s3">✸</div>
+<div class="mx-card"><h3>MORE IS <em>MORE!</em></h3><span class="mx-tag">NEW DROP ⚡</span>
+<p class="mx-p">Bold color, giant type and overlap explode with personality — planned abundance, not chaos.</p>
+<span class="mx-btn">SHOP NOW →</span></div></div></div>
+          <div class="icard-b"><span class="inum">06</span>
+          <div class="inm">Maximalism</div>
+          <p class="itag">‘More is more’ — bold color, huge type and overlapping elements explode with personality. Minimalism’s opposite.</p></div></a><a class="icard" href="brutalism.html">
+          <div class="icard-demo brutalism-stage" aria-hidden="true"><div class="mini"><div class="br-card"><span class="br-tag">RAW / NO STYLE</span>
+<h2 class="br-h">BRUTALISM.HTML</h2>
+<hr class="br-hr">
+<p class="br-p">System fonts, harsh borders, hard shadow. The <span class="br-a">raw</span>, unpolished look is the attitude.</p>
+<span class="br-btn">CLICK_HERE →</span></div></div></div>
+          <div class="icard-b"><span class="inum">07</span>
+          <div class="inm">Brutalism</div>
+          <p class="itag">Raw, unpolished web — default fonts, harsh borders and stark contrast that break the rules on purpose.</p></div></a><a class="icard" href="liquid-glass.html">
+          <div class="icard-demo liquid-glass-stage" aria-hidden="true"><div class="mini"><div class="lg-wm">iOS 26</div><div class="lg-sub">Liquid Glass · reflection · refraction · fluid motion</div>
+<div class="lg-bar">
+  <div class="lg-item on">🏠</div><div class="lg-item">🔍</div><div class="lg-item">📷</div><div class="lg-item">♥</div><div class="lg-item">👤</div>
+</div></div></div>
+          <div class="icard-b"><span class="inum">08</span>
+          <div class="inm">Liquid Glass</div>
+          <p class="itag">Apple’s 2025 material — reflects and refracts light like glass while flowing like liquid. The evolution of glassmorphism.</p></div></a><a class="icard" href="bento-grid.html">
+          <div class="icard-demo bento-grid-stage" aria-hidden="true"><div class="mini"><div class="bt-grid">
+  <div class="bt bt-a"><small>Featured</small><b class="big">Bento ⬛</b><span style="font-size:12px;opacity:.9">Bigger cell = higher priority</span></div>
+  <div class="bt bt-b"><small>Users</small><b>128K</b></div>
+  <div class="bt bt-c"><small>Uptime</small><b>99.9%</b></div>
+  <div class="bt bt-d"><small>Revenue</small><b>$2.4M ↑</b></div>
+  <div class="bt bt-e"><small>NPS</small><b>72</b></div>
+  <div class="bt bt-f"><small>More</small><b>→</b></div>
+</div></div></div>
+          <div class="icard-b"><span class="inum">09</span>
+          <div class="inm">Bento Grid</div>
+          <p class="itag">A modular grid that packs information into differently-sized cells like a Japanese bento box — popularized by Apple keynotes, a core 2026 layout.</p></div></a><a class="icard" href="spatial-ui.html">
+          <div class="icard-demo spatial-ui-stage" aria-hidden="true"><div class="mini"><div class="sp-scene">
+  <div class="sp-panel sp-1"><small>Layer 0 · base</small><b>Spatial UI</b><span style="font-size:11px;opacity:.85">Depth (z-axis) expresses hierarchy</span></div>
+  <div class="sp-panel sp-2"><small>Layer 1</small><b>Floating ✦</b></div>
+  <div class="sp-panel sp-3"><small>Layer 2</small><b>Depth →</b></div>
+</div>
+<div class="sp-tag">Hover to rotate the space (parallax)</div></div></div>
+          <div class="icard-b"><span class="inum">10</span>
+          <div class="inm">Spatial UI</div>
+          <p class="itag">An interface placed in depth and 3D space, beyond the flat plane — the design language of spatial computing led by Apple Vision Pro (visionOS).</p></div></a></div></section>
+<section><h2><span class="ic">📊</span>At-a-glance comparison (neutral metrics, 0–5)</h2>
+<div class="cmpwrap"><table class="cmp"><thead><tr><th>#</th><th>Style</th><th>Maturity</th><th>2026 demand</th><th>A11y</th><th>Effort</th><th>Support</th><th>One-line summary</th></tr></thead>
+<tbody><tr><td class="tnum">01</td>
+          <td><a href="skeuomorphism.html"><b>Skeuomorphism</b><small></small></a></td>
+          <td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i></td>
+          <td><i class="d-risk"></i><i class="d-risk"></i><i class="d-risk"></i><i class="d-risk"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td>
+          <td class="tsum">Design that imitates real-world objects — leather, metal and paper textures with 3D buttons make the screen feel touchable.</td></tr><tr><td class="tnum">02</td>
+          <td><a href="neumorphism.html"><b>Neumorphism</b><small></small></a></td>
+          <td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td>
+          <td><i class="d-risk"></i><i class="d-risk"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td>
+          <td class="tsum">A soft UI where elements look gently ‘pushed in’ or ‘extruded’ from a same-color background. Dual-direction shadows are the whole trick.</td></tr><tr><td class="tnum">03</td>
+          <td><a href="glassmorphism.html"><b>Glassmorphism</b><small></small></a></td>
+          <td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td>
+          <td><i class="d-risk"></i><i class="d-risk"></i><i class="d-risk"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i></td>
+          <td class="tsum">A frosted-glass effect where a blurred background shows through translucent panels — delivering depth and polish at once.</td></tr><tr><td class="tnum">04</td>
+          <td><a href="claymorphism.html"><b>Claymorphism</b><small></small></a></td>
+          <td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i></td>
+          <td><i class="d-risk"></i><i class="d-risk"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td>
+          <td class="tsum">A soft-clay 3D look — chunky rounded shapes with inner and outer shadows create a puffy, friendly feel.</td></tr><tr><td class="tnum">05</td>
+          <td><a href="minimalism.html"><b>Minimalism</b><small></small></a></td>
+          <td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td>
+          <td><i class="d-risk"></i><i class="d-risk"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td>
+          <td class="tsum">‘Less is the design’ — whitespace, restrained color and typography focus attention on content. The most durable approach.</td></tr><tr><td class="tnum">06</td>
+          <td><a href="maximalism.html"><b>Maximalism</b><small></small></a></td>
+          <td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td>
+          <td><i class="d-risk"></i><i class="d-risk"></i><i class="d-risk"></i><i class="d-risk"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td>
+          <td class="tsum">‘More is more’ — bold color, huge type and overlapping elements explode with personality. Minimalism’s opposite.</td></tr><tr><td class="tnum">07</td>
+          <td><a href="brutalism.html"><b>Brutalism</b><small></small></a></td>
+          <td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i></td>
+          <td><i class="d-risk"></i><i class="d-risk"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td>
+          <td class="tsum">Raw, unpolished web — default fonts, harsh borders and stark contrast that break the rules on purpose.</td></tr><tr><td class="tnum">08</td>
+          <td><a href="liquid-glass.html"><b>Liquid Glass</b><small></small></a></td>
+          <td><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td>
+          <td><i class="d-risk"></i><i class="d-risk"></i><i class="d-risk"></i><i class="d-risk"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i></td>
+          <td class="tsum">Apple’s 2025 material — reflects and refracts light like glass while flowing like liquid. The evolution of glassmorphism.</td></tr><tr><td class="tnum">09</td>
+          <td><a href="bento-grid.html"><b>Bento Grid</b><small></small></a></td>
+          <td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i></td>
+          <td><i class="d-risk"></i><i class="d-risk"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i></td>
+          <td class="tsum">A modular grid that packs information into differently-sized cells like a Japanese bento box — popularized by Apple keynotes, a core 2026 layout.</td></tr><tr><td class="tnum">10</td>
+          <td><a href="spatial-ui.html"><b>Spatial UI</b><small></small></a></td>
+          <td><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i></td>
+          <td><i class="d-risk"></i><i class="d-risk"></i><i class="d-risk"></i><i class="d-risk"></i><i class="d-risk"></i></td><td><i class="d-on"></i><i class="d-on"></i><i class="d-off"></i><i class="d-off"></i><i class="d-off"></i></td>
+          <td class="tsum">An interface placed in depth and 3D space, beyond the flat plane — the design language of spatial computing led by Apple Vision Pro (visionOS).</td></tr></tbody></table></div>
+<p class="foot">All metrics are relative references as of July 13, 2026. Higher ‘Effort’ means greater development cost.</p></section>
+</div>
+<style>
+.skeuomorphism-stage{background:radial-gradient(circle at 30% 15%,#3f8a4a,#2b5e34),#2b5e34}
+.sk-panel{display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:center}
+.sk-card{width:236px;background:linear-gradient(#fdfaf1,#efe6d0);border-radius:10px;padding:20px;
+  box-shadow:0 14px 26px rgba(0,0,0,.45),inset 0 1px 0 #fff;border:1px solid #d8cba8;position:relative;
+  font-family:Georgia,serif;color:#5a4a2a}
+.sk-card::before{content:"";position:absolute;inset:6px;border:1.5px dashed #cbb888;border-radius:6px;pointer-events:none}
+.sk-card h5{margin:0 0 8px;font-size:16px;color:#493a1d}
+.sk-card p{margin:0;font-size:12.5px;line-height:1.55;color:#7a6a45}
+.sk-btn{margin-top:16px;display:inline-block;padding:11px 20px;border-radius:9px;color:#fff;font-weight:700;
+  font-family:-apple-system,sans-serif;font-size:13px;cursor:pointer;background:linear-gradient(#7ec783,#3f9a4a);
+  border:1px solid #2f7d3a;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 4px 0 #2b6e33,0 9px 12px rgba(0,0,0,.32);transition:.08s}
+.sk-btn:active{transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 0 #2b6e33,0 3px 6px rgba(0,0,0,.3)}
+.sk-side{display:flex;flex-direction:column;gap:20px;align-items:center}
+.sk-switch{width:98px;height:46px;border-radius:999px;padding:4px;background:linear-gradient(#c6ccd3,#eef1f4);
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.35),0 1px 0 #fff;display:flex;align-items:center;cursor:pointer}
+.sk-knob{width:38px;height:38px;border-radius:50%;margin-left:auto;background:radial-gradient(circle at 40% 30%,#fff,#c3c8cf);
+  box-shadow:0 2px 4px rgba(0,0,0,.45),inset 0 1px 0 #fff;transition:.22s}
+.sk-switch:hover .sk-knob{margin-left:0}
+.sk-badge{background:linear-gradient(#5a86ff,#3a5fd9);color:#fff}
+
+
+.neumorphism-stage{background:#e0e5ec}
+.nu-wrap{display:flex;gap:34px;align-items:center;flex-wrap:wrap;justify-content:center}
+.nu-card{width:216px;padding:26px;border-radius:26px;background:#e0e5ec;text-align:center;color:#5b6472;
+  box-shadow:9px 9px 18px #b9bec6,-9px -9px 18px #ffffff}
+.nu-card h5{margin:0 0 6px;color:#495060;font-size:15px}
+.nu-card p{margin:0;font-size:12.5px;color:#8993a3;line-height:1.5}
+.nu-col{display:flex;flex-direction:column;gap:22px;align-items:center}
+.nu-btn{width:78px;height:78px;border-radius:50%;background:#e0e5ec;display:grid;place-items:center;cursor:pointer;
+  color:#6d7688;font-size:26px;box-shadow:7px 7px 14px #b9bec6,-7px -7px 14px #ffffff;transition:.15s}
+.nu-btn:active{box-shadow:inset 5px 5px 10px #b9bec6,inset -5px -5px 10px #ffffff}
+.nu-track{width:120px;height:40px;border-radius:999px;background:#e0e5ec;display:flex;align-items:center;padding:5px;cursor:pointer;
+  box-shadow:inset 4px 4px 8px #b9bec6,inset -4px -4px 8px #ffffff}
+.nu-thumb{width:30px;height:30px;border-radius:50%;background:#e0e5ec;box-shadow:3px 3px 6px #b9bec6,-3px -3px 6px #fff;transition:.2s}
+.nu-track:hover .nu-thumb{margin-left:80px}
+
+
+.glassmorphism-stage{position:relative;background:#0b1020;overflow:hidden}
+.gl-blob{position:absolute;width:220px;height:220px;border-radius:50%;filter:blur(30px);opacity:.9}
+.gl-b1{background:#ff5ea3;top:-40px;left:8%}
+.gl-b2{background:#4f9bff;bottom:-50px;right:10%}
+.gl-b3{background:#8b5cf6;top:34%;left:44%}
+.gl-card{position:relative;width:300px;padding:28px;border-radius:22px;color:#fff;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+  border:1px solid rgba(255,255,255,.28);box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.gl-card h5{margin:0 0 8px;font-size:18px}
+.gl-card p{margin:0 0 18px;font-size:13px;opacity:.9;line-height:1.55}
+.gl-btn{display:inline-block;padding:10px 18px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;color:#fff;
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);transition:.2s}
+.gl-btn:hover{background:rgba(255,255,255,.35)}
+
+
+.claymorphism-stage{background:linear-gradient(135deg,#e0c3fc,#8ec5fc)}
+.cl-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
+.cl-card{width:230px;padding:26px;border-radius:34px;background:#ffffff;color:#6b4fa0;text-align:center;
+  box-shadow:0 20px 40px rgba(140,110,200,.4),inset 8px 8px 16px rgba(255,255,255,.9),inset -8px -8px 16px rgba(180,150,220,.35)}
+.cl-icon{width:66px;height:66px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;font-size:30px;color:#fff;
+  background:#a78bfa;box-shadow:inset 6px 6px 10px rgba(255,255,255,.45),inset -6px -6px 10px rgba(90,60,160,.4),0 10px 20px rgba(120,80,200,.35)}
+.cl-card h5{margin:0 0 6px;font-size:16px}
+.cl-card p{margin:0;font-size:12.5px;color:#9a86c0;line-height:1.5}
+.cl-btn{margin-top:10px;display:inline-block;padding:12px 22px;border-radius:20px;font-weight:700;font-size:13px;color:#fff;cursor:pointer;
+  background:#ff9ec6;box-shadow:inset 5px 5px 9px rgba(255,255,255,.5),inset -5px -5px 9px rgba(200,90,150,.45),0 10px 18px rgba(230,120,170,.4);transition:.12s}
+.cl-btn:active{transform:translateY(2px)}
+
+
+.minimalism-stage{background:#ffffff}
+.mn-card{width:360px;color:#111;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif}
+.mn-eyebrow{letter-spacing:.22em;font-size:11px;color:#9a9a9a;text-transform:uppercase}
+.mn-h{font-size:32px;font-weight:300;margin:10px 0 4px;letter-spacing:-.01em;color:#111}
+.mn-sub{font-size:14px;color:#777;margin:0}
+.mn-line{height:1px;background:#ececec;margin:22px 0}
+.mn-row{display:flex;justify-content:space-between;font-size:14px;color:#444;margin:10px 0}
+.mn-row span:last-child{color:#111}
+.mn-btn{margin-top:24px;border:1px solid #111;background:none;padding:13px 26px;display:inline-block;font-size:12.5px;
+  letter-spacing:.06em;color:#111;cursor:pointer;transition:.2s}
+.mn-btn:hover{background:#111;color:#fff}
+
+
+.maximalism-stage{background:#120458;overflow:hidden;position:relative}
+.mx-star{position:absolute;font-size:30px;animation:mxspin 6s linear infinite}
+.mx-s1{top:14%;left:12%}.mx-s2{bottom:16%;right:14%;animation-duration:8s}.mx-s3{top:20%;right:20%;font-size:22px}
+@keyframes mxspin{to{transform:rotate(360deg)}}
+.mx-card{position:relative;background:#ffde00;border:5px solid #000;border-radius:4px;padding:24px 26px;width:330px;
+  transform:rotate(-2deg);box-shadow:14px 14px 0 #ff2e93;font-family:"Arial Black",Impact,sans-serif}
+.mx-card h3{margin:0;font-size:38px;line-height:.95;color:#000;text-transform:uppercase;letter-spacing:-1px}
+.mx-card h3 em{font-style:normal;color:#00c2ff;-webkit-text-stroke:2px #000}
+.mx-tag{display:inline-block;background:#00e5ff;border:3px solid #000;padding:4px 12px;font-weight:900;font-size:13px;
+  transform:rotate(3deg);margin-top:14px;color:#000}
+.mx-p{font-family:-apple-system,sans-serif;font-weight:700;font-size:13px;color:#000;margin:12px 0 0;line-height:1.4}
+.mx-btn{display:inline-block;margin-top:14px;background:#ff2e93;color:#fff;border:3px solid #000;padding:10px 18px;
+  font-weight:900;font-size:14px;cursor:pointer;box-shadow:5px 5px 0 #000;transition:.1s;font-family:-apple-system,sans-serif}
+.mx-btn:active{transform:translate(5px,5px);box-shadow:0 0 0 #000}
+
+
+.brutalism-stage{background:#f2f2f2}
+.br-card{background:#fff;border:3px solid #000;padding:22px;width:360px;box-shadow:10px 10px 0 #000;
+  font-family:"Courier New",ui-monospace,monospace;color:#000}
+.br-tag{display:inline-block;background:#000;color:#fff;font-size:11px;padding:3px 8px;letter-spacing:1px;margin-bottom:10px}
+.br-h{font-size:30px;font-weight:900;margin:0 0 8px;text-transform:uppercase;line-height:1;letter-spacing:-1px}
+.br-p{font-size:13px;line-height:1.5;margin:0 0 14px}
+.br-p .br-a{color:#0000ee;text-decoration:underline}
+.br-btn{display:inline-block;background:#ffee00;border:3px solid #000;padding:11px 16px;font-family:inherit;font-weight:700;font-size:14px;
+  cursor:pointer;box-shadow:5px 5px 0 #000;transition:.1s}
+.br-btn:active{transform:translate(5px,5px);box-shadow:0 0 0 #000}
+.br-hr{border:0;border-top:3px solid #000;margin:14px 0}
+
+
+.liquid-glass-stage{position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#ff7e5f 0%,#feb47b 35%,#7a6ff0 100%)}
+.lg-wm{position:absolute;top:22px;left:0;right:0;text-align:center;color:rgba(255,255,255,.9);
+  font-size:52px;font-weight:800;letter-spacing:2px;font-family:-apple-system,sans-serif}
+.lg-sub{position:absolute;top:88px;left:0;right:0;text-align:center;color:rgba(255,255,255,.85);font-size:13px}
+.lg-bar{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;gap:8px;padding:9px;border-radius:28px;
+  background:rgba(255,255,255,.18);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow:0 10px 34px rgba(0,0,0,.28),inset 0 1px 1px rgba(255,255,255,.85),inset 0 -8px 14px rgba(255,255,255,.14)}
+.lg-item{width:54px;height:54px;border-radius:20px;display:grid;place-items:center;font-size:23px;color:#fff;cursor:pointer;
+  background:rgba(255,255,255,.14);transition:.22s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
+.lg-item::after{content:"";position:absolute;top:0;left:-40%;width:40%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg)}
+.lg-item:hover{background:rgba(255,255,255,.4);transform:translateY(-6px) scale(1.08)}
+.lg-item.on{background:rgba(255,255,255,.5)}
+
+
+.bento-grid-stage{width:100%}
+.bt-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:82px;gap:12px;width:100%;max-width:520px}
+.bt{border-radius:18px;padding:15px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;
+  border:1px solid rgba(255,255,255,.14);transition:.2s;overflow:hidden}
+.bt:hover{transform:translateY(-3px);filter:brightness(1.08)}
+.bt small{font-size:11px;opacity:.85;text-transform:uppercase;letter-spacing:.5px}
+.bt b{font-size:22px;line-height:1}
+.bt .big{font-size:30px}
+.bt-a{grid-column:span 2;grid-row:span 2;background:linear-gradient(135deg,#6366f1,#8b5cf6)}
+.bt-b{background:linear-gradient(135deg,#ec4899,#f43f5e)}
+.bt-c{background:linear-gradient(135deg,#14b8a6,#0ea5e9)}
+.bt-d{grid-column:span 2;background:linear-gradient(135deg,#f59e0b,#ef4444)}
+.bt-e{background:linear-gradient(135deg,#22c55e,#16a34a)}
+.bt-f{background:linear-gradient(135deg,#334155,#475569)}
+
+
+.spatial-ui-stage{perspective:1100px;background:radial-gradient(circle at 50% 35%,#1c2b47,#0a0f1c)}
+.sp-scene{position:relative;width:380px;height:250px;transform-style:preserve-3d;
+  transform:rotateX(12deg) rotateY(-16deg);transition:.5s ease}
+.spatial-ui-stage:hover .sp-scene{transform:rotateX(6deg) rotateY(-6deg)}
+.sp-panel{position:absolute;border-radius:22px;color:#fff;padding:18px;
+  background:rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.25);box-shadow:0 40px 70px rgba(0,0,0,.55)}
+.sp-1{width:210px;height:150px;left:14px;top:44px;transform:translateZ(0)}
+.sp-2{width:170px;height:120px;left:150px;top:14px;transform:translateZ(70px);
+  background:rgba(120,150,255,.22)}
+.sp-3{width:120px;height:80px;left:250px;top:130px;transform:translateZ(130px);
+  background:rgba(255,170,220,.22)}
+.sp-panel small{font-size:10px;opacity:.8;text-transform:uppercase;letter-spacing:1px}
+.sp-panel b{display:block;font-size:20px;margin-top:6px}
+.sp-tag{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-size:12px}
+
+.icard-demo .stage,.icard-demo .mini{min-height:0}
+</style>
+</body></html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03. Glassmorphism — UI Style Guide</title>
+<style>
+:root{
+  --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
+  --ink:#eef2f9; --mut:#9aa7bd; --sub:#c3ccdd;
+  --acc:#6ea8ff; --acc2:#9d7bff; --good:#3ecf8e; --bad:#ff6b6b; --warn:#ffb454;
+  --rad:16px; --mw:1060px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,#1b2438 0,transparent 60%),var(--bg);
+  color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(13,16,23,.72);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.topbar .home{font-weight:600;color:var(--sub);font-size:14px}
+.topbar .pill{font-size:12px;color:var(--mut);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+header.hero{padding:52px 0 26px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);
+  border:1px solid var(--line);padding:5px 12px;border-radius:999px;margin-bottom:18px}
+.num{font-weight:800;font-size:13px;color:#0d1017;background:linear-gradient(120deg,var(--acc),var(--acc2));
+  width:24px;height:24px;border-radius:7px;display:grid;place-items:center;margin-right:2px}
+h1.title{font-size:clamp(32px,6vw,52px);line-height:1.08;margin:6px 0 10px;letter-spacing:-.02em}
+.title .en{color:var(--mut);font-weight:600;font-size:.5em;letter-spacing:0}
+.tag{font-size:clamp(16px,2.4vw,20px);color:var(--sub);max-width:760px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.badge{font-size:12.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
+  padding:6px 12px;border-radius:999px}
+.badge b{color:var(--ink)}
+section{padding:30px 0;border-top:1px solid var(--line)}
+h2{font-size:22px;margin:0 0 4px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;
+  background:var(--bg2);border:1px solid var(--line)}
+.lead{color:var(--mut);margin:0 0 20px;font-size:15px}
+.def{font-size:17.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
+  border-left:3px solid var(--acc);padding:18px 20px;border-radius:12px}
+/* demo stage */
+.stagewrap{border:1px solid var(--line);border-radius:var(--rad);overflow:hidden;background:var(--bg2)}
+.stagebar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);
+  font-size:12px;color:var(--mut);background:rgba(255,255,255,.02)}
+.dot{width:10px;height:10px;border-radius:50%}
+.stagebar .live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--good)}
+.stagebar .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 0 rgba(62,207,142,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,207,142,.55)}70%{box-shadow:0 0 0 8px rgba(62,207,142,0)}100%{box-shadow:0 0 0 0 rgba(62,207,142,0)}}
+.stage{min-height:320px;display:grid;place-items:center;padding:38px 22px}
+/* characteristics */
+.chars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.chip h4{margin:0 0 4px;font-size:14.5px}
+.chip p{margin:0;font-size:13.5px;color:var(--mut)}
+/* pros cons */
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.col{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--card)}
+.col.pro{border-top:3px solid var(--good)}
+.col.con{border-top:3px solid var(--bad)}
+.col h3{margin:0 0 12px;font-size:15px;display:flex;align-items:center;gap:8px}
+.col ul{margin:0;padding:0;list-style:none}
+.col li{position:relative;padding:7px 0 7px 26px;font-size:14px;color:var(--sub);border-bottom:1px dashed var(--line)}
+.col li:last-child{border-bottom:0}
+.col.pro li::before{content:"＋";position:absolute;left:2px;color:var(--good);font-weight:700}
+.col.con li::before{content:"－";position:absolute;left:2px;color:var(--bad);font-weight:700}
+/* usecase */
+.use{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.use .box{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--card)}
+.use .box.yes{background:linear-gradient(180deg,rgba(62,207,142,.06),transparent)}
+.use .box.no{background:linear-gradient(180deg,rgba(255,107,107,.06),transparent)}
+.use h3{margin:0 0 10px;font-size:15px}
+.use ul{margin:0;padding-left:18px}
+.use li{font-size:14px;color:var(--sub);margin:6px 0}
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px}
+.metric .top{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:8px}
+.metric .top b{color:var(--ink)}
+.metric .top span{color:var(--mut)}
+.bar{height:8px;border-radius:999px;background:var(--bg);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.metric.risk .bar i{background:linear-gradient(90deg,var(--warn),var(--bad))}
+.metric small{display:block;color:var(--mut);font-size:12px;margin-top:8px}
+/* examples */
+.ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.ex a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
+  transition:.18s;color:inherit}
+.ex a:hover{border-color:var(--acc);transform:translateY(-3px);text-decoration:none}
+.ex .nm{font-weight:700;font-size:15.5px;margin-bottom:5px;color:var(--ink)}
+.ex .ds{font-size:13.5px;color:var(--mut)}
+.ex .go{font-size:12.5px;color:var(--acc);margin-top:10px;display:inline-block}
+/* dev tip */
+.tip{background:linear-gradient(180deg,rgba(110,168,255,.08),transparent);border:1px solid var(--line);
+  border-radius:14px;padding:20px 22px}
+.tip h3{margin:0 0 10px;font-size:15px;color:var(--acc)}
+.tip ul{margin:0;padding-left:18px}
+.tip li{font-size:14px;color:var(--sub);margin:7px 0}
+.tip code{background:var(--bg);border:1px solid var(--line);padding:2px 7px;border-radius:6px;
+  font-size:12.5px;color:#ffd9a0;font-family:ui-monospace,Menlo,Consolas,monospace}
+/* sources + footer nav */
+.src{font-size:13.5px;color:var(--mut)}
+.src li{margin:6px 0}
+.nav{display:flex;justify-content:space-between;gap:12px;padding:26px 0 60px}
+.nav a{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:var(--sub)}
+.nav a:hover{border-color:var(--acc);text-decoration:none}
+.nav .r{text-align:right}
+.nav small{display:block;color:var(--mut);font-size:12px}
+@media(max-width:720px){.pc,.use{grid-template-columns:1fr}}
+
+/* ===== live demo css ===== */
+
+.glassmorphism-stage{position:relative;background:#0b1020;overflow:hidden}
+.gl-blob{position:absolute;width:220px;height:220px;border-radius:50%;filter:blur(30px);opacity:.9}
+.gl-b1{background:#ff5ea3;top:-40px;left:8%}
+.gl-b2{background:#4f9bff;bottom:-50px;right:10%}
+.gl-b3{background:#8b5cf6;top:34%;left:44%}
+.gl-card{position:relative;width:300px;padding:28px;border-radius:22px;color:#fff;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+  border:1px solid rgba(255,255,255,.28);box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.gl-card h5{margin:0 0 8px;font-size:18px}
+.gl-card p{margin:0 0 18px;font-size:13px;opacity:.9;line-height:1.55}
+.gl-btn{display:inline-block;padding:10px 18px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;color:#fff;
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);transition:.2s}
+.gl-btn:hover{background:rgba(255,255,255,.35)}
+
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
+<span class="pill">03 / 10 · preview</span></div></div>
+
+<div class="wrap">
+<header class="hero">
+  <span class="kicker"><span class="num">03</span> UI Design Style</span>
+  <h1 class="title">Glassmorphism </h1>
+  <p class="tag">A frosted-glass effect where a blurred background shows through translucent panels — delivering depth and polish at once.</p>
+  <div class="meta"><span class="badge">Emerged: 2020 (macOS Big Sur)</span><span class="badge">Mature · mainstream</span><span class="badge">Still strong in 2026 (Glassmorphism 2.0)</span></div>
+</header>
+
+<section>
+  <h2><span class="ic">👁</span>At a glance</h2>
+  <p class="def">Glassmorphism applies a translucent fill and blur (&lt;code&gt;backdrop-filter&lt;/code&gt;) so background content shows through like frosted glass. A light border and shadow make the pane feel like it floats in layers. Popularized by Apple, it evolved further into Apple’s 2025 ‘Liquid Glass’ and remains a core 2026 trend.</p>
+</section>
+
+<section>
+  <h2><span class="ic">🎬</span>Live demo</h2>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <div class="stagewrap">
+    <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
+    <span style="margin-left:8px">Glassmorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage glassmorphism-stage"><div class="gl-blob gl-b1"></div><div class="gl-blob gl-b2"></div><div class="gl-blob gl-b3"></div>
+<div class="gl-card"><h5>🧊 Frosted Glass</h5><p>The color blobs behind show through frosted glass. Translucent fill + blur + light border.</p>
+<span class="gl-btn">Get started →</span></div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">🧬</span>Key characteristics</h2>
+  <div class="chars"><div class="chip"><h4>Background blur</h4><p>&lt;code&gt;backdrop-filter: blur()&lt;/code&gt; softens content behind</p></div><div class="chip"><h4>Translucent fill</h4><p>A white/color overlay at ~10–20% opacity</p></div><div class="chip"><h4>Light border</h4><p>A 1px translucent-white border marks the glass edge</p></div><div class="chip"><h4>Layering &amp; depth</h4><p>Stacked panes build a sense of z-axis depth</p></div></div>
+</section>
+
+<section>
+  <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
+  <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
+  <div class="pc">
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Modern, premium impression — suits high-end brands</li><li>Transparency conveys hierarchy naturally</li><li>Keeps some readability over busy backgrounds</li><li>On-trend in 2026, so it reads as current</li><li>Attractive in both dark and light modes</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Hard to guarantee text contrast over blur — mind accessibility</li><li>&lt;code&gt;backdrop-filter&lt;/code&gt; is GPU-heavy and can stutter on low-end devices</li><li>An overly busy background destroys readability</li><li>Overuse makes the screen hazy and distracting</li><li>Needs fallbacks for older browsers / some environments</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
+  <div class="use">
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Premium / fintech / SaaS landing and card UIs</li><li>Overlay panels over image or gradient backgrounds</li><li>Modals, notifications, navigation bars</li><li>Widgets in dark-theme dashboards</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Content-heavy, text-long screens</li><li>Products targeting low-end / low-power devices</li><li>Accessibility-first public services</li><li>Brands using only flat/solid backgrounds (effect won’t show)</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
+  <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>2/5</span></div>
+        <div class="bar"><i style="width:40%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div></div>
+</section>
+
+<section>
+  <h2><span class="ic">🏆</span>Notable real-world examples</h2>
+  <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
+  <div class="ex"><a href="https://www.apple.com/macos/" target="_blank" rel="noopener">
+        <div class="nm">Apple — macOS design</div><div class="ds">The origin that popularized glassmorphism</div>
+        <span class="go">www.apple.com ↗</span></a><a href="https://hype4.academy/tools/glassmorphism-generator" target="_blank" rel="noopener">
+        <div class="nm">Glassmorphism Generator (Hype4)</div><div class="ds">Live generator — handy for dev specs</div>
+        <span class="go">hype4.academy ↗</span></a><a href="https://www.zignuts.com/blog/neumorphism-vs-glassmorphism" target="_blank" rel="noopener">
+        <div class="nm">Zignuts — vs Neumorphism (2026)</div><div class="ds">2026 comparison of the two styles</div>
+        <span class="go">www.zignuts.com ↗</span></a><a href="https://dribbble.com/tags/glassmorphism" target="_blank" rel="noopener">
+        <div class="nm">Dribbble — Glassmorphism</div><div class="ds">Gallery of current applied work</div>
+        <span class="go">dribbble.com ↗</span></a></div>
+</section>
+
+<section>
+  <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
+  <div class="tip"><h3>Glassmorphism — Outsourcing brief (Upwork)</h3><ul><li>Key spec: &lt;code&gt;background:rgba()&lt;/code&gt; + &lt;code&gt;backdrop-filter:blur()&lt;/code&gt; + translucent &lt;code&gt;border&lt;/code&gt; — give the dev exact px/opacity values</li><li>Require &lt;code&gt;-webkit-backdrop-filter&lt;/code&gt; prefix and an opaque-background fallback for unsupported browsers</li><li>Performance: cap the number of blur layers; forbid overuse inside scroll areas</li><li>Make contrast reinforcement (shadow / stronger opaque fill) behind text a contract term</li><li>Ask for AA-4.5:1-passing screenshots as a QA deliverable</li></ul></div>
+</section>
+
+<section>
+  <h2><span class="ic">🔗</span>Sources</h2>
+  <ul class="src"><li><a href="https://www.apple.com/macos/" target="_blank" rel="noopener">Apple — macOS</a></li><li><a href="https://hype4.academy/tools/glassmorphism-generator" target="_blank" rel="noopener">Hype4 Academy — Glassmorphism generator</a></li><li><a href="https://www.zignuts.com/blog/neumorphism-vs-glassmorphism" target="_blank" rel="noopener">Zignuts — Neumorphism vs Glassmorphism 2026</a></li></ul>
+</section>
+
+<div class="nav"><a href="neumorphism.html">← Neumorphism<small>Prev</small></a><a class="r" href="claymorphism.html">Claymorphism →<small>Next</small></a></div>
+</div>
+</body>
+</html>

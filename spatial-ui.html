@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10. Spatial UI — UI Style Guide</title>
+<style>
+:root{
+  --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
+  --ink:#eef2f9; --mut:#9aa7bd; --sub:#c3ccdd;
+  --acc:#6ea8ff; --acc2:#9d7bff; --good:#3ecf8e; --bad:#ff6b6b; --warn:#ffb454;
+  --rad:16px; --mw:1060px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,#1b2438 0,transparent 60%),var(--bg);
+  color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(13,16,23,.72);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.topbar .home{font-weight:600;color:var(--sub);font-size:14px}
+.topbar .pill{font-size:12px;color:var(--mut);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+header.hero{padding:52px 0 26px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);
+  border:1px solid var(--line);padding:5px 12px;border-radius:999px;margin-bottom:18px}
+.num{font-weight:800;font-size:13px;color:#0d1017;background:linear-gradient(120deg,var(--acc),var(--acc2));
+  width:24px;height:24px;border-radius:7px;display:grid;place-items:center;margin-right:2px}
+h1.title{font-size:clamp(32px,6vw,52px);line-height:1.08;margin:6px 0 10px;letter-spacing:-.02em}
+.title .en{color:var(--mut);font-weight:600;font-size:.5em;letter-spacing:0}
+.tag{font-size:clamp(16px,2.4vw,20px);color:var(--sub);max-width:760px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.badge{font-size:12.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
+  padding:6px 12px;border-radius:999px}
+.badge b{color:var(--ink)}
+section{padding:30px 0;border-top:1px solid var(--line)}
+h2{font-size:22px;margin:0 0 4px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;
+  background:var(--bg2);border:1px solid var(--line)}
+.lead{color:var(--mut);margin:0 0 20px;font-size:15px}
+.def{font-size:17.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
+  border-left:3px solid var(--acc);padding:18px 20px;border-radius:12px}
+/* demo stage */
+.stagewrap{border:1px solid var(--line);border-radius:var(--rad);overflow:hidden;background:var(--bg2)}
+.stagebar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);
+  font-size:12px;color:var(--mut);background:rgba(255,255,255,.02)}
+.dot{width:10px;height:10px;border-radius:50%}
+.stagebar .live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--good)}
+.stagebar .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 0 rgba(62,207,142,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,207,142,.55)}70%{box-shadow:0 0 0 8px rgba(62,207,142,0)}100%{box-shadow:0 0 0 0 rgba(62,207,142,0)}}
+.stage{min-height:320px;display:grid;place-items:center;padding:38px 22px}
+/* characteristics */
+.chars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.chip h4{margin:0 0 4px;font-size:14.5px}
+.chip p{margin:0;font-size:13.5px;color:var(--mut)}
+/* pros cons */
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.col{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--card)}
+.col.pro{border-top:3px solid var(--good)}
+.col.con{border-top:3px solid var(--bad)}
+.col h3{margin:0 0 12px;font-size:15px;display:flex;align-items:center;gap:8px}
+.col ul{margin:0;padding:0;list-style:none}
+.col li{position:relative;padding:7px 0 7px 26px;font-size:14px;color:var(--sub);border-bottom:1px dashed var(--line)}
+.col li:last-child{border-bottom:0}
+.col.pro li::before{content:"＋";position:absolute;left:2px;color:var(--good);font-weight:700}
+.col.con li::before{content:"－";position:absolute;left:2px;color:var(--bad);font-weight:700}
+/* usecase */
+.use{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.use .box{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--card)}
+.use .box.yes{background:linear-gradient(180deg,rgba(62,207,142,.06),transparent)}
+.use .box.no{background:linear-gradient(180deg,rgba(255,107,107,.06),transparent)}
+.use h3{margin:0 0 10px;font-size:15px}
+.use ul{margin:0;padding-left:18px}
+.use li{font-size:14px;color:var(--sub);margin:6px 0}
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px}
+.metric .top{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:8px}
+.metric .top b{color:var(--ink)}
+.metric .top span{color:var(--mut)}
+.bar{height:8px;border-radius:999px;background:var(--bg);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.metric.risk .bar i{background:linear-gradient(90deg,var(--warn),var(--bad))}
+.metric small{display:block;color:var(--mut);font-size:12px;margin-top:8px}
+/* examples */
+.ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.ex a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
+  transition:.18s;color:inherit}
+.ex a:hover{border-color:var(--acc);transform:translateY(-3px);text-decoration:none}
+.ex .nm{font-weight:700;font-size:15.5px;margin-bottom:5px;color:var(--ink)}
+.ex .ds{font-size:13.5px;color:var(--mut)}
+.ex .go{font-size:12.5px;color:var(--acc);margin-top:10px;display:inline-block}
+/* dev tip */
+.tip{background:linear-gradient(180deg,rgba(110,168,255,.08),transparent);border:1px solid var(--line);
+  border-radius:14px;padding:20px 22px}
+.tip h3{margin:0 0 10px;font-size:15px;color:var(--acc)}
+.tip ul{margin:0;padding-left:18px}
+.tip li{font-size:14px;color:var(--sub);margin:7px 0}
+.tip code{background:var(--bg);border:1px solid var(--line);padding:2px 7px;border-radius:6px;
+  font-size:12.5px;color:#ffd9a0;font-family:ui-monospace,Menlo,Consolas,monospace}
+/* sources + footer nav */
+.src{font-size:13.5px;color:var(--mut)}
+.src li{margin:6px 0}
+.nav{display:flex;justify-content:space-between;gap:12px;padding:26px 0 60px}
+.nav a{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:var(--sub)}
+.nav a:hover{border-color:var(--acc);text-decoration:none}
+.nav .r{text-align:right}
+.nav small{display:block;color:var(--mut);font-size:12px}
+@media(max-width:720px){.pc,.use{grid-template-columns:1fr}}
+
+/* ===== live demo css ===== */
+
+.spatial-ui-stage{perspective:1100px;background:radial-gradient(circle at 50% 35%,#1c2b47,#0a0f1c)}
+.sp-scene{position:relative;width:380px;height:250px;transform-style:preserve-3d;
+  transform:rotateX(12deg) rotateY(-16deg);transition:.5s ease}
+.spatial-ui-stage:hover .sp-scene{transform:rotateX(6deg) rotateY(-6deg)}
+.sp-panel{position:absolute;border-radius:22px;color:#fff;padding:18px;
+  background:rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.25);box-shadow:0 40px 70px rgba(0,0,0,.55)}
+.sp-1{width:210px;height:150px;left:14px;top:44px;transform:translateZ(0)}
+.sp-2{width:170px;height:120px;left:150px;top:14px;transform:translateZ(70px);
+  background:rgba(120,150,255,.22)}
+.sp-3{width:120px;height:80px;left:250px;top:130px;transform:translateZ(130px);
+  background:rgba(255,170,220,.22)}
+.sp-panel small{font-size:10px;opacity:.8;text-transform:uppercase;letter-spacing:1px}
+.sp-panel b{display:block;font-size:20px;margin-top:6px}
+.sp-tag{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-size:12px}
+
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
+<span class="pill">10 / 10 · preview</span></div></div>
+
+<div class="wrap">
+<header class="hero">
+  <span class="kicker"><span class="num">10</span> UI Design Style</span>
+  <h1 class="title">Spatial UI </h1>
+  <p class="tag">An interface placed in depth and 3D space, beyond the flat plane — the design language of spatial computing led by Apple Vision Pro (visionOS).</p>
+  <div class="meta"><span class="badge">Emerged: since 2024 (visionOS)</span><span class="badge">Emerging · growing</span><span class="badge">Future-facing for AR/VR & spatial computing</span></div>
+</header>
+
+<section>
+  <h2><span class="ic">👁</span>At a glance</h2>
+  <p class="def">Spatial UI places the interface in a 3D space with depth rather than on a 2D plane. Translucent panels float in the space around the user, and interaction/hierarchy are expressed through gaze, hands, depth (z-axis), shadow and parallax. Apple Vision Pro’s visionOS defined this language, and the concept is spreading to ‘depth-aware’ layered UI on web and mobile too.</p>
+</section>
+
+<section>
+  <h2><span class="ic">🎬</span>Live demo</h2>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <div class="stagewrap">
+    <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
+    <span style="margin-left:8px">Spatial UI · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage spatial-ui-stage"><div class="sp-scene">
+  <div class="sp-panel sp-1"><small>Layer 0 · base</small><b>Spatial UI</b><span style="font-size:11px;opacity:.85">Depth (z-axis) expresses hierarchy</span></div>
+  <div class="sp-panel sp-2"><small>Layer 1</small><b>Floating ✦</b></div>
+  <div class="sp-panel sp-3"><small>Layer 2</small><b>Depth →</b></div>
+</div>
+<div class="sp-tag">Hover to rotate the space (parallax)</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">🧬</span>Key characteristics</h2>
+  <div class="chars"><div class="chip"><h4>Depth / z-axis</h4><p>Elements placed front-to-back to form 3D spatial feel</p></div><div class="chip"><h4>Floating panels</h4><p>Translucent glass panels hover in space</p></div><div class="chip"><h4>Light, shadow, parallax</h4><p>Depth-based shadows and parallax create dimensionality</p></div><div class="chip"><h4>Gaze &amp; hand input</h4><p>Assumes spatial input like eye contact and pinch gestures</p></div></div>
+</section>
+
+<section>
+  <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
+  <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
+  <div class="pc">
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Delivers a new experience through strong immersion and presence</li><li>Uses depth as hierarchy to express information structure intuitively</li><li>Optimized for the next-gen platform of spatial computing / AR-VR</li><li>Organizes content naturally, like physical space</li><li>Lends the brand a future-facing, innovative image</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Heavy dependence on dedicated hardware (headsets) limits reach/accessibility</li><li>High difficulty and cost to design/develop 3D spatial interaction</li><li>Long sessions can cause fatigue or motion sickness</li><li>Conventions and best practices are still forming</li><li>Ported to web/mobile it often becomes only a ‘depth imitation’</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
+  <div class="use">
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>visionOS / AR/VR immersive apps</li><li>3D product viewers and spatial data visualization</li><li>Fields where spatial understanding matters (education, medical, design)</li><li>Future-facing concepts and showcases</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>General info services on mainstream web/mobile</li><li>Projects aiming for low cost / fast launch</li><li>Mass-market services for users without headsets</li><li>Simple content-consumption apps</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
+  <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>2/5</span></div>
+        <div class="bar"><i style="width:40%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>2/5</span></div>
+        <div class="bar"><i style="width:40%"></i></div></div></div>
+</section>
+
+<section>
+  <h2><span class="ic">🏆</span>Notable real-world examples</h2>
+  <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
+  <div class="ex"><a href="https://developer.apple.com/design/human-interface-guidelines/designing-for-visionos" target="_blank" rel="noopener">
+        <div class="nm">Apple HIG — Designing for visionOS</div><div class="ds">Official spatial design guidelines</div>
+        <span class="go">developer.apple.com ↗</span></a><a href="https://developer.apple.com/design/human-interface-guidelines/spatial-layout" target="_blank" rel="noopener">
+        <div class="nm">Apple HIG — Spatial layout</div><div class="ds">Depth and layout principles in detail</div>
+        <span class="go">developer.apple.com ↗</span></a><a href="https://developer.apple.com/visionos/" target="_blank" rel="noopener">
+        <div class="nm">Apple — visionOS Overview</div><div class="ds">Platform and development overview</div>
+        <span class="go">developer.apple.com ↗</span></a></div>
+</section>
+
+<section>
+  <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
+  <div class="tip"><h3>Spatial UI — Outsourcing brief (Upwork)</h3><ul><li>For native spatial apps, explicitly require devs with visionOS (SwiftUI/RealityKit) skills</li><li>For web/mobile ‘depth’ imitation, scope tightly to CSS &lt;code&gt;perspective&lt;/code&gt; / &lt;code&gt;transform:translateZ&lt;/code&gt; / parallax range in the contract</li><li>Accessibility: include &lt;code&gt;reduced-motion&lt;/code&gt; and motion-sickness mitigation (avoid abrupt depth shifts)</li><li>Performance: set a frame-rate target (e.g. 60fps) for 3D-layer + blur combos as QA criteria</li><li>Given hardware dependence, always define fallback UX for non-headset environments</li></ul></div>
+</section>
+
+<section>
+  <h2><span class="ic">🔗</span>Sources</h2>
+  <ul class="src"><li><a href="https://developer.apple.com/design/human-interface-guidelines/designing-for-visionos" target="_blank" rel="noopener">Apple HIG — Designing for visionOS</a></li><li><a href="https://developer.apple.com/design/human-interface-guidelines/spatial-layout" target="_blank" rel="noopener">Apple HIG — Spatial layout</a></li><li><a href="https://developer.apple.com/visionos/" target="_blank" rel="noopener">Apple — visionOS overview</a></li></ul>
+</section>
+
+<div class="nav"><a href="bento-grid.html">← Bento Grid<small>Prev</small></a><a class="r" href="index.html">All styles →<small>&nbsp;</small></a></div>
+</div>
+</body>
+</html>

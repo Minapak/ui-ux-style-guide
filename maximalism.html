@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>06. Maximalism — UI Style Guide</title>
+<style>
+:root{
+  --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
+  --ink:#eef2f9; --mut:#9aa7bd; --sub:#c3ccdd;
+  --acc:#6ea8ff; --acc2:#9d7bff; --good:#3ecf8e; --bad:#ff6b6b; --warn:#ffb454;
+  --rad:16px; --mw:1060px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,#1b2438 0,transparent 60%),var(--bg);
+  color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(13,16,23,.72);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.topbar .home{font-weight:600;color:var(--sub);font-size:14px}
+.topbar .pill{font-size:12px;color:var(--mut);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+header.hero{padding:52px 0 26px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);
+  border:1px solid var(--line);padding:5px 12px;border-radius:999px;margin-bottom:18px}
+.num{font-weight:800;font-size:13px;color:#0d1017;background:linear-gradient(120deg,var(--acc),var(--acc2));
+  width:24px;height:24px;border-radius:7px;display:grid;place-items:center;margin-right:2px}
+h1.title{font-size:clamp(32px,6vw,52px);line-height:1.08;margin:6px 0 10px;letter-spacing:-.02em}
+.title .en{color:var(--mut);font-weight:600;font-size:.5em;letter-spacing:0}
+.tag{font-size:clamp(16px,2.4vw,20px);color:var(--sub);max-width:760px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.badge{font-size:12.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
+  padding:6px 12px;border-radius:999px}
+.badge b{color:var(--ink)}
+section{padding:30px 0;border-top:1px solid var(--line)}
+h2{font-size:22px;margin:0 0 4px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;
+  background:var(--bg2);border:1px solid var(--line)}
+.lead{color:var(--mut);margin:0 0 20px;font-size:15px}
+.def{font-size:17.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
+  border-left:3px solid var(--acc);padding:18px 20px;border-radius:12px}
+/* demo stage */
+.stagewrap{border:1px solid var(--line);border-radius:var(--rad);overflow:hidden;background:var(--bg2)}
+.stagebar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);
+  font-size:12px;color:var(--mut);background:rgba(255,255,255,.02)}
+.dot{width:10px;height:10px;border-radius:50%}
+.stagebar .live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--good)}
+.stagebar .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 0 rgba(62,207,142,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,207,142,.55)}70%{box-shadow:0 0 0 8px rgba(62,207,142,0)}100%{box-shadow:0 0 0 0 rgba(62,207,142,0)}}
+.stage{min-height:320px;display:grid;place-items:center;padding:38px 22px}
+/* characteristics */
+.chars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.chip h4{margin:0 0 4px;font-size:14.5px}
+.chip p{margin:0;font-size:13.5px;color:var(--mut)}
+/* pros cons */
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.col{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--card)}
+.col.pro{border-top:3px solid var(--good)}
+.col.con{border-top:3px solid var(--bad)}
+.col h3{margin:0 0 12px;font-size:15px;display:flex;align-items:center;gap:8px}
+.col ul{margin:0;padding:0;list-style:none}
+.col li{position:relative;padding:7px 0 7px 26px;font-size:14px;color:var(--sub);border-bottom:1px dashed var(--line)}
+.col li:last-child{border-bottom:0}
+.col.pro li::before{content:"＋";position:absolute;left:2px;color:var(--good);font-weight:700}
+.col.con li::before{content:"－";position:absolute;left:2px;color:var(--bad);font-weight:700}
+/* usecase */
+.use{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.use .box{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--card)}
+.use .box.yes{background:linear-gradient(180deg,rgba(62,207,142,.06),transparent)}
+.use .box.no{background:linear-gradient(180deg,rgba(255,107,107,.06),transparent)}
+.use h3{margin:0 0 10px;font-size:15px}
+.use ul{margin:0;padding-left:18px}
+.use li{font-size:14px;color:var(--sub);margin:6px 0}
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px}
+.metric .top{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:8px}
+.metric .top b{color:var(--ink)}
+.metric .top span{color:var(--mut)}
+.bar{height:8px;border-radius:999px;background:var(--bg);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.metric.risk .bar i{background:linear-gradient(90deg,var(--warn),var(--bad))}
+.metric small{display:block;color:var(--mut);font-size:12px;margin-top:8px}
+/* examples */
+.ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.ex a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
+  transition:.18s;color:inherit}
+.ex a:hover{border-color:var(--acc);transform:translateY(-3px);text-decoration:none}
+.ex .nm{font-weight:700;font-size:15.5px;margin-bottom:5px;color:var(--ink)}
+.ex .ds{font-size:13.5px;color:var(--mut)}
+.ex .go{font-size:12.5px;color:var(--acc);margin-top:10px;display:inline-block}
+/* dev tip */
+.tip{background:linear-gradient(180deg,rgba(110,168,255,.08),transparent);border:1px solid var(--line);
+  border-radius:14px;padding:20px 22px}
+.tip h3{margin:0 0 10px;font-size:15px;color:var(--acc)}
+.tip ul{margin:0;padding-left:18px}
+.tip li{font-size:14px;color:var(--sub);margin:7px 0}
+.tip code{background:var(--bg);border:1px solid var(--line);padding:2px 7px;border-radius:6px;
+  font-size:12.5px;color:#ffd9a0;font-family:ui-monospace,Menlo,Consolas,monospace}
+/* sources + footer nav */
+.src{font-size:13.5px;color:var(--mut)}
+.src li{margin:6px 0}
+.nav{display:flex;justify-content:space-between;gap:12px;padding:26px 0 60px}
+.nav a{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:var(--sub)}
+.nav a:hover{border-color:var(--acc);text-decoration:none}
+.nav .r{text-align:right}
+.nav small{display:block;color:var(--mut);font-size:12px}
+@media(max-width:720px){.pc,.use{grid-template-columns:1fr}}
+
+/* ===== live demo css ===== */
+
+.maximalism-stage{background:#120458;overflow:hidden;position:relative}
+.mx-star{position:absolute;font-size:30px;animation:mxspin 6s linear infinite}
+.mx-s1{top:14%;left:12%}.mx-s2{bottom:16%;right:14%;animation-duration:8s}.mx-s3{top:20%;right:20%;font-size:22px}
+@keyframes mxspin{to{transform:rotate(360deg)}}
+.mx-card{position:relative;background:#ffde00;border:5px solid #000;border-radius:4px;padding:24px 26px;width:330px;
+  transform:rotate(-2deg);box-shadow:14px 14px 0 #ff2e93;font-family:"Arial Black",Impact,sans-serif}
+.mx-card h3{margin:0;font-size:38px;line-height:.95;color:#000;text-transform:uppercase;letter-spacing:-1px}
+.mx-card h3 em{font-style:normal;color:#00c2ff;-webkit-text-stroke:2px #000}
+.mx-tag{display:inline-block;background:#00e5ff;border:3px solid #000;padding:4px 12px;font-weight:900;font-size:13px;
+  transform:rotate(3deg);margin-top:14px;color:#000}
+.mx-p{font-family:-apple-system,sans-serif;font-weight:700;font-size:13px;color:#000;margin:12px 0 0;line-height:1.4}
+.mx-btn{display:inline-block;margin-top:14px;background:#ff2e93;color:#fff;border:3px solid #000;padding:10px 18px;
+  font-weight:900;font-size:14px;cursor:pointer;box-shadow:5px 5px 0 #000;transition:.1s;font-family:-apple-system,sans-serif}
+.mx-btn:active{transform:translate(5px,5px);box-shadow:0 0 0 #000}
+
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
+<span class="pill">06 / 10 · preview</span></div></div>
+
+<div class="wrap">
+<header class="hero">
+  <span class="kicker"><span class="num">06</span> UI Design Style</span>
+  <h1 class="title">Maximalism </h1>
+  <p class="tag">‘More is more’ — bold color, huge type and overlapping elements explode with personality. Minimalism’s opposite.</p>
+  <div class="meta"><span class="badge">Emerged: resurging since ~2022</span><span class="badge">Growing · trending</span><span class="badge">Strong in branding & creative</span></div>
+</header>
+
+<section>
+  <h2><span class="ic">👁</span>At a glance</h2>
+  <p class="def">Maximalism is a reaction to minimalism: bold color, oversized type, rich graphics and overlapping layers deliberately fill the screen to convey strong personality and emotion. ‘Excess’ becomes the expressive tool — but the key is planned abundance, not chaos. It’s resurgent in 2026 branding, fashion and culture.</p>
+</section>
+
+<section>
+  <h2><span class="ic">🎬</span>Live demo</h2>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <div class="stagewrap">
+    <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
+    <span style="margin-left:8px">Maximalism · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage maximalism-stage"><div class="mx-star mx-s1">✦</div><div class="mx-star mx-s2">★</div><div class="mx-star mx-s3">✸</div>
+<div class="mx-card"><h3>MORE IS <em>MORE!</em></h3><span class="mx-tag">NEW DROP ⚡</span>
+<p class="mx-p">Bold color, giant type and overlap explode with personality — planned abundance, not chaos.</p>
+<span class="mx-btn">SHOP NOW →</span></div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">🧬</span>Key characteristics</h2>
+  <div class="chars"><div class="chip"><h4>Intense color</h4><p>High-saturation, high-contrast colors clashed on purpose</p></div><div class="chip"><h4>Giant typography</h4><p>Screen-dominating type and experimental fonts</p></div><div class="chip"><h4>Overlap &amp; layers</h4><p>Elements overlapped and rotated for density and energy</p></div><div class="chip"><h4>Rich graphics</h4><p>Patterns, illustration and texture packed in</p></div></div>
+</section>
+
+<section>
+  <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
+  <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
+  <div class="pc">
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Strong personality makes it memorable and brand-defining</li><li>Clearly differentiates from competitors</li><li>Instantly conveys energy, emotion and fun</li><li>Great for expressing creative/cultural brand attitude</li><li>Can surface a lot of content/info on one screen</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Overdone, it’s distracting and fatiguing (high cognitive load)</li><li>Lots of color/contrast/motion makes accessibility hard</li><li>If hierarchy breaks, the key CTA gets buried</li><li>Heavy graphics/animation strain performance</li><li>Without strong art direction it looks messy</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
+  <div class="use">
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Fashion, music, entertainment, creative brands</li><li>Campaign / event / limited-edition landings</li><li>Personality-forward products for younger audiences</li><li>Portfolio and agency sites</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Finance, healthcare, work tools needing trust/focus</li><li>Dashboards and forms where hierarchy is critical</li><li>Accessibility-mandatory public services</li><li>Low-end device / low-bandwidth targets</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
+  <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>2/5</span></div>
+        <div class="bar"><i style="width:40%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div></div>
+</section>
+
+<section>
+  <h2><span class="ic">🏆</span>Notable real-world examples</h2>
+  <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
+  <div class="ex"><a href="https://www.awwwards.com/awwwards/collections/maximalism/" target="_blank" rel="noopener">
+        <div class="nm">Awwwards — Maximalism</div><div class="ds">Award-winning example collection</div>
+        <span class="go">www.awwwards.com ↗</span></a><a href="https://www.toptal.com/designers/web/maximalism-web-design" target="_blank" rel="noopener">
+        <div class="nm">Toptal — Maximalism in Design</div><div class="ds">Principles and conditions for success</div>
+        <span class="go">www.toptal.com ↗</span></a><a href="https://dribbble.com/tags/maximalism" target="_blank" rel="noopener">
+        <div class="nm">Dribbble — Maximalism</div><div class="ds">Gallery of applied work</div>
+        <span class="go">dribbble.com ↗</span></a></div>
+</section>
+
+<section>
+  <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
+  <div class="tip"><h3>Maximalism — Outsourcing brief (Upwork)</h3><ul><li>Stress it is ‘planned abundance’ — provide mockups first, or it turns messy</li><li>Performance: require optimization of large images/multiple animations (lazy-load, &lt;code&gt;will-change&lt;/code&gt; hygiene)</li><li>Protect hierarchy: however busy the background, keep the key CTA on top via size/contrast</li><li>Accessibility: add &lt;code&gt;prefers-reduced-motion&lt;/code&gt; support and text-contrast handling to the contract</li><li>Confirm web-font size and licensing for experimental typefaces in advance</li></ul></div>
+</section>
+
+<section>
+  <h2><span class="ic">🔗</span>Sources</h2>
+  <ul class="src"><li><a href="https://www.awwwards.com/awwwards/collections/maximalism/" target="_blank" rel="noopener">Awwwards — Maximalism collection</a></li><li><a href="https://www.toptal.com/designers/web/maximalism-web-design" target="_blank" rel="noopener">Toptal — Maximalism in web design</a></li><li><a href="https://dribbble.com/tags/maximalism" target="_blank" rel="noopener">Dribbble — Maximalism</a></li></ul>
+</section>
+
+<div class="nav"><a href="minimalism.html">← Minimalism<small>Prev</small></a><a class="r" href="brutalism.html">Brutalism →<small>Next</small></a></div>
+</div>
+</body>
+</html>
