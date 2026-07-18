@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>04. Claymorphism — UI Style Guide</title>
+<title>18. Memphis Design — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,69 +115,116 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.claymorphism-stage{background:linear-gradient(135deg,#e0c3fc,#8ec5fc)}
-.cl-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
-.cl-card{width:230px;padding:26px;border-radius:34px;background:#ffffff;color:#6b4fa0;text-align:center;
-  box-shadow:0 20px 40px rgba(140,110,200,.4),inset 8px 8px 16px rgba(255,255,255,.9),inset -8px -8px 16px rgba(180,150,220,.35)}
-.cl-icon{width:66px;height:66px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;font-size:30px;color:#fff;
-  background:#a78bfa;box-shadow:inset 6px 6px 10px rgba(255,255,255,.45),inset -6px -6px 10px rgba(90,60,160,.4),0 10px 20px rgba(120,80,200,.35)}
-.cl-card h5{margin:0 0 6px;font-size:16px}
-.cl-card p{margin:0;font-size:12.5px;color:#9a86c0;line-height:1.5}
-.cl-btn{margin-top:10px;display:inline-block;padding:12px 22px;border-radius:20px;font-weight:700;font-size:13px;color:#fff;cursor:pointer;
-  background:#ff9ec6;box-shadow:inset 5px 5px 9px rgba(255,255,255,.5),inset -5px -5px 9px rgba(200,90,150,.45),0 10px 18px rgba(230,120,170,.4);transition:.12s}
-.cl-btn:active{transform:translateY(2px)}
+.memphis-stage{background:#2b2b3a}
+.mp-scene{position:relative;width:360px;height:248px;background:#fdf6ec;border-radius:10px;
+  overflow:hidden;border:3px solid #1a1a1a;
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+/* polka dot field */
+.mp-dots{position:absolute;top:0;left:0;width:120px;height:120px;
+  background-image:radial-gradient(#ff5c8a 26%,transparent 27%);
+  background-size:22px 22px;background-position:6px 6px;opacity:.9}
+/* zigzag strip bottom */
+.mp-zig{position:absolute;left:0;bottom:0;width:100%;height:20px;
+  background:linear-gradient(-45deg,#16c2c2 25%,transparent 25%) 0 0/16px 20px,
+            linear-gradient(45deg,#16c2c2 25%,transparent 25%) 0 0/16px 20px;
+  background-color:transparent}
+/* teal triangle */
+.mp-tri{position:absolute;top:14px;right:20px;width:0;height:0;
+  border-left:24px solid transparent;border-right:24px solid transparent;
+  border-bottom:42px solid #16c2c2;transform:rotate(15deg)}
+/* yellow squiggle */
+.mp-squig{position:absolute;bottom:34px;left:16px;width:70px;height:22px;
+  border:5px solid #ffd23f;border-top:none;border-bottom:none;
+  border-radius:0 0 40px 40px/0 0 26px 26px;
+  box-shadow:22px -22px 0 -5px #ffd23f}
+/* black plus */
+.mp-plus{position:absolute;top:120px;right:26px;width:30px;height:30px}
+.mp-plus::before,.mp-plus::after{content:"";position:absolute;background:#1a1a1a}
+.mp-plus::before{left:12px;top:0;width:6px;height:30px}
+.mp-plus::after{top:12px;left:0;width:30px;height:6px}
+/* small pink circle outline */
+.mp-ring{position:absolute;bottom:44px;right:16px;width:34px;height:34px;
+  border-radius:50%;border:5px solid #ff5c8a}
+/* yellow dot */
+.mp-blob{position:absolute;top:96px;left:8px;width:26px;height:26px;border-radius:50%;background:#ffd23f}
+/* center card */
+.mp-card{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:216px;background:#ffffff;border:3px solid #1a1a1a;border-radius:8px;
+  box-shadow:7px 7px 0 #1a1a1a;padding:18px 18px 16px;text-align:center;z-index:5}
+.mp-tape{position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-4deg);
+  background:#16c2c2;color:#fff;font-size:10px;font-weight:800;letter-spacing:.12em;
+  padding:3px 12px;border:2px solid #1a1a1a;border-radius:4px}
+.mp-h{margin:6px 0 4px;font-size:22px;font-weight:900;color:#1a1a1a;line-height:1.05;letter-spacing:-.01em}
+.mp-h em{font-style:normal;color:#ff5c8a}
+.mp-p{margin:0 0 12px;font-size:12px;color:#444;line-height:1.4}
+.mp-btn{border:2px solid #1a1a1a;background:#ffd23f;color:#1a1a1a;font-weight:800;
+  font-size:13px;padding:9px 20px;border-radius:6px;cursor:pointer;
+  box-shadow:3px 3px 0 #1a1a1a;transition:.12s;letter-spacing:.02em}
+.mp-btn:hover{background:#ff5c8a;color:#fff;transform:translate(-1px,-1px);box-shadow:4px 4px 0 #1a1a1a}
+.mp-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1a1a1a}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">04 / 19 · preview</span></div></div>
+<span class="pill">18 / 19 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">04</span> UI Design Style</span>
-  <h1 class="title">Claymorphism </h1>
-  <p class="tag">A soft-clay 3D look — chunky rounded shapes with inner and outer shadows create a puffy, friendly feel.</p>
-  <div class="meta"><span class="badge">Emerged: 2021 (coined by Hype4)</span><span class="badge">Growing · niche</span><span class="badge">Pairs well with illustration & 3D</span></div>
+  <span class="kicker"><span class="num">18</span> UI Design Style</span>
+  <h1 class="title">Memphis Design </h1>
+  <p class="tag">Playful 80s rebellion — clashing colors, squiggles, zigzags, polka dots and geometric confetti arranged with joyful, deliberate chaos.</p>
+  <div class="meta"><span class="badge">Origin: 1981 (Memphis Group, Milan)</span><span class="badge">Retro · recognizable</span><span class="badge">Used in branding & illustration</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Claymorphism renders elements as if molded from clay — plump and soft. Large radii, an outer drop shadow, and two inner &lt;code&gt;inset&lt;/code&gt; shadows (one light, one dark) create the 3D clay texture. Combined with bright pastels and 3D illustration, it’s popular for friendly, playful brands.</p>
+  <p class="def">Memphis design is the 1981 Milan movement led by Ettore Sottsass (the Memphis Group) that rejected “good taste” minimalism with bright clashing colors, bold geometric shapes, squiggles (“bacterio”), zigzags, polka dots and terrazzo patterns. In digital design it appears as playful decorative graphics — scattered geometric confetti behind clean UI — common in branding, illustration and youthful products.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering the button.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Claymorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage claymorphism-stage"><div class="cl-wrap">
-  <div class="cl-card"><div class="cl-icon">🧸</div><h5>Claymorphism</h5><p>Puffy 3D as if molded from clay. Outer shadow + double inner shadow.</p></div>
-  <span class="cl-btn">Tap me</span>
+    <span style="margin-left:8px">Memphis Design · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage memphis-stage"><div class="mp-scene">
+  <div class="mp-dots"></div>
+  <div class="mp-zig"></div>
+  <div class="mp-tri"></div>
+  <div class="mp-squig"></div>
+  <div class="mp-plus"></div>
+  <div class="mp-ring"></div>
+  <div class="mp-blob"></div>
+  <div class="mp-card">
+    <span class="mp-tape">NEW DROP</span>
+    <h2 class="mp-h">Say <em>hello</em> loud</h2>
+    <p class="mp-p">Bold shapes, brighter energy. A little chaos, on purpose.</p>
+    <button class="mp-btn">Get funky →</button>
+  </div>
 </div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Puffy 3D</h4><p>Thick, rounded forms emphasize volume</p></div><div class="chip"><h4>Double inner shadow</h4><p>Light + dark &lt;code&gt;inset&lt;/code&gt; shadows make the clay texture</p></div><div class="chip"><h4>Large radius</h4><p>Generous &lt;code&gt;border-radius&lt;/code&gt; for soft silhouettes</p></div><div class="chip"><h4>Pastel &amp; lively</h4><p>Bright pastels paired with 3D icons</p></div></div>
+  <div class="chars"><div class="chip"><h4>Geometric confetti</h4><p>Squiggles, zigzags, triangles and dots scattered across the canvas</p></div><div class="chip"><h4>Clashing bright color</h4><p>Bold, anti-minimal palettes that deliberately fight for attention</p></div><div class="chip"><h4>Playful pattern</h4><p>Terrazzo, stripes and grids layered for texture and fun</p></div><div class="chip"><h4>Decorative energy</h4><p>Fun over restraint — expression valued above quiet order</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Friendly, playful mood — great for youthful/lifestyle brands</li><li>Strong depth makes elements easy to distinguish</li><li>Bright colors evoke joy and positivity</li><li>Blends naturally with 3D illustration and emoji</li><li>Higher contrast than neumorphism, so friendlier for a11y</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Playful tone doesn’t suit serious or professional services</li><li>Chunky forms eat space, lowering information density</li><li>Multiple shadows make CSS complex and can cost performance</li><li>Trend-driven — risk of looking dated quickly</li><li>Producing consistent 3D assets needs design resources</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Fun, energetic and highly memorable</li><li>Builds a strong, youthful brand personality</li><li>Flexible decorative system that scales across assets</li><li>Stands out sharply from minimal competitors</li><li>Pairs with clean UI as an accent layer</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Busy — decoration can overwhelm the content</li><li>Clashing colors risk contrast and readability issues</li><li>Polarizing and can quickly feel dated</li><li>Hard to keep tasteful and consistent at scale</li><li>Wrong tone for serious or enterprise products</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Bright services for kids, education, games, playful fintech</li><li>Onboarding and illustration-led landing pages</li><li>Marketing using emoji / 3D icons</li><li>App-icon and illustration systems</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Finance, legal, B2B where trust/authority matters</li><li>Data- and table-heavy productivity screens</li><li>Minimal / luxury brand tones</li><li>Performance-sensitive low-end targets</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Youth, creative, events and food & lifestyle brands</li><li>Playful marketing and illustration work</li><li>Brand systems that want decorative flair</li><li>Social-first content that needs to pop</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Enterprise, finance or health products</li><li>Dense functional or data-heavy UIs</li><li>Accessibility-critical text sitting over patterns</li><li>Minimalist or luxury brand positioning</li></ul></div>
   </div>
 </section>
 
@@ -187,34 +234,34 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
   <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>3/5</span></div>
         <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
         <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
-        <div class="bar"><i style="width:40%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div><small>Keep decoration away from text; check contrast over patterns</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
         <div class="bar"><i style="width:100%"></i></div></div></div>
 </section>
 
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">
-        <div class="nm">Hype4 — Claymorphism article</div><div class="ds">The origin article that named it</div>
-        <span class="go">hype4.academy ↗</span></a><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">
-        <div class="nm">Dribbble — Claymorphism</div><div class="ds">Gallery of applied work</div>
-        <span class="go">dribbble.com ↗</span></a><a href="https://uxdesign.cc/" target="_blank" rel="noopener">
-        <div class="nm">UX Collective (Medium)</div><div class="ds">Trend analysis of claymorphism</div>
-        <span class="go">uxdesign.cc ↗</span></a></div>
+  <div class="ex"><a href="https://en.wikipedia.org/wiki/Memphis_Group" target="_blank" rel="noopener">
+        <div class="nm">Memphis Group</div><div class="ds">The 1981 Milan collective that launched the style</div>
+        <span class="go">en.wikipedia.org ↗</span></a><a href="https://en.wikipedia.org/wiki/Ettore_Sottsass" target="_blank" rel="noopener">
+        <div class="nm">Ettore Sottsass</div><div class="ds">Founder and leading figure of the movement</div>
+        <span class="go">en.wikipedia.org ↗</span></a><a href="https://www.interaction-design.org/literature" target="_blank" rel="noopener">
+        <div class="nm">Interaction Design Foundation</div><div class="ds">Design history reference and background reading</div>
+        <span class="go">www.interaction-design.org ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Claymorphism — Outsourcing brief (Upwork)</h3><ul><li>Key spec: large &lt;code&gt;border-radius&lt;/code&gt; + one outer drop shadow + two inner &lt;code&gt;inset&lt;/code&gt; shadows (light &amp; dark)</li><li>Give the dev a pastel palette and 3D icon assets (or a library)</li><li>Performance: cap shadow layers at 3–4 per component</li><li>Define radius/shadow values as design tokens for consistency</li><li>Require a separate dark-mode palette since pastels lose contrast</li></ul></div>
+  <div class="tip"><h3>Memphis Design — Outsourcing brief (Upwork)</h3><ul><li>Deliver a shape/pattern library (squiggle, zigzag, dot, triangle) and a bright palette as reusable <code>tokens</code>/SVGs</li><li>Keep decoration as a background layer, never behind body text (contrast)</li><li>Define spacing rules so it reads intentional, not messy</li><li>Provide reduced / plain variants for dense screens</li><li>Set AA contrast checks for any text near patterns</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">Hype4 Academy — Claymorphism in UI</a></li><li><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">Dribbble — Claymorphism</a></li><li><a href="https://uxdesign.cc/" target="_blank" rel="noopener">UX Collective</a></li></ul>
+  <ul class="src"><li><a href="https://en.wikipedia.org/wiki/Memphis_Group" target="_blank" rel="noopener">Memphis Group — Wikipedia</a></li><li><a href="https://en.wikipedia.org/wiki/Ettore_Sottsass" target="_blank" rel="noopener">Ettore Sottsass — Wikipedia</a></li><li><a href="https://www.interaction-design.org/literature" target="_blank" rel="noopener">Interaction Design Foundation — Design history literature</a></li></ul>
 </section>
 
-<div class="nav"><a href="glassmorphism.html">← Glassmorphism<small>Prev</small></a><a class="r" href="minimalism.html">Minimalism →<small>Next</small></a></div>
+<div class="nav"><a href="y2k-frutiger-aero.html">← Y2K / Frutiger Aero<small>Prev</small></a><a class="r" href="retro-pixel.html">Retro / Pixel →<small>Next</small></a></div>
 </div>
 </body>
 </html>

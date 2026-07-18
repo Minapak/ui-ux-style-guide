@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>03. Glassmorphism — UI Style Guide</title>
+<title>16. Aurora Gradient — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,109 +115,136 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.glassmorphism-stage{position:relative;background:#0b1020;overflow:hidden}
-.gl-blob{position:absolute;width:220px;height:220px;border-radius:50%;filter:blur(30px);opacity:.9}
-.gl-b1{background:#ff5ea3;top:-40px;left:8%}
-.gl-b2{background:#4f9bff;bottom:-50px;right:10%}
-.gl-b3{background:#8b5cf6;top:34%;left:44%}
-.gl-card{position:relative;width:300px;padding:28px;border-radius:22px;color:#fff;
-  background:rgba(255,255,255,.12);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
-  border:1px solid rgba(255,255,255,.28);box-shadow:0 8px 32px rgba(0,0,0,.35)}
-.gl-card h5{margin:0 0 8px;font-size:18px}
-.gl-card p{margin:0 0 18px;font-size:13px;opacity:.9;line-height:1.55}
-.gl-btn{display:inline-block;padding:10px 18px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;color:#fff;
-  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);transition:.2s}
-.gl-btn:hover{background:rgba(255,255,255,.35)}
+.aurora-stage{background:#0a0a14;padding:0}
+.au-scene{position:relative;width:360px;height:240px;border-radius:14px;overflow:hidden;
+  background:#0a0a14;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.au-blob{position:absolute;border-radius:50%;filter:blur(46px);opacity:.85;will-change:transform}
+.au-b1{width:230px;height:230px;top:-70px;left:-50px;background:#7c3aed;
+  animation:au-drift1 14s ease-in-out infinite alternate}
+.au-b2{width:210px;height:210px;top:-40px;right:-60px;background:#2563eb;
+  animation:au-drift2 16s ease-in-out infinite alternate}
+.au-b3{width:220px;height:220px;bottom:-80px;left:-30px;background:#ec4899;
+  animation:au-drift3 15s ease-in-out infinite alternate}
+.au-b4{width:200px;height:200px;bottom:-70px;right:-40px;background:#14b8a6;
+  animation:au-drift4 18s ease-in-out infinite alternate}
+.au-grain{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,transparent 40%,rgba(10,10,20,.55) 100%)}
+.au-fg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:24px;gap:11px}
+.au-eyebrow{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+  color:rgba(255,255,255,.72)}
+.au-h{margin:0;font-size:27px;line-height:1.1;font-weight:800;letter-spacing:-.02em;
+  background:linear-gradient(100deg,#fff 20%,#d9c7ff 55%,#a5e8ff 90%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#fff}
+.au-sub{margin:0;font-size:12.5px;color:rgba(233,236,247,.82);max-width:250px}
+.au-btn{margin-top:5px;display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
+  color:#fff;font-weight:700;font-size:12.5px;padding:9px 18px;border-radius:999px;
+  cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:.15s}
+.au-btn:hover{background:rgba(255,255,255,.2)}
+.au-btn i{width:6px;height:6px;border-radius:50%;background:#3ecf8e;box-shadow:0 0 8px #3ecf8e}
+@keyframes au-drift1{from{transform:translate(0,0)}to{transform:translate(34px,26px)}}
+@keyframes au-drift2{from{transform:translate(0,0)}to{transform:translate(-30px,32px)}}
+@keyframes au-drift3{from{transform:translate(0,0)}to{transform:translate(28px,-24px)}}
+@keyframes au-drift4{from{transform:translate(0,0)}to{transform:translate(-26px,-28px)}}
+@media(prefers-reduced-motion:reduce){.au-blob{animation:none}}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">03 / 19 · preview</span></div></div>
+<span class="pill">16 / 19 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">03</span> UI Design Style</span>
-  <h1 class="title">Glassmorphism </h1>
-  <p class="tag">A frosted-glass effect where a blurred background shows through translucent panels — delivering depth and polish at once.</p>
-  <div class="meta"><span class="badge">Emerged: 2020 (macOS Big Sur)</span><span class="badge">Mature · mainstream</span><span class="badge">Still strong in 2026 (Glassmorphism 2.0)</span></div>
+  <span class="kicker"><span class="num">16</span> UI Design Style</span>
+  <h1 class="title">Aurora Gradient <span class="en">Mesh Gradient</span></h1>
+  <p class="tag">Soft, luminous color fields — blurred multi-color mesh gradients that glow behind clean typography, the signature look of modern SaaS and AI products.</p>
+  <div class="meta"><span class="badge">Popularized: ~2020–2023</span><span class="badge">Trend · widespread</span><span class="badge">Common in SaaS &amp; AI landing pages</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Glassmorphism applies a translucent fill and blur (&lt;code&gt;backdrop-filter&lt;/code&gt;) so background content shows through like frosted glass. A light border and shadow make the pane feel like it floats in layers. Popularized by Apple, it evolved further into Apple’s 2025 ‘Liquid Glass’ and remains a core 2026 trend.</p>
+  <p class="def">Aurora — or “mesh” — gradient is a look built from large, soft, blurred blobs of blended color (violet, blue, pink, teal) that overlap into a luminous “aurora” field, usually placed behind clean, minimal typography and a simple card. Popularized by Stripe, Linear, Vercel and a wave of AI products in the early 2020s, it adds depth, mood and brand-color energy without any ornament — the color itself does the work.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. The blurred color blobs slowly drift behind the text.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Glassmorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage glassmorphism-stage"><div class="gl-blob gl-b1"></div><div class="gl-blob gl-b2"></div><div class="gl-blob gl-b3"></div>
-<div class="gl-card"><h5>🧊 Frosted Glass</h5><p>The color blobs behind show through frosted glass. Translucent fill + blur + light border.</p>
-<span class="gl-btn">Get started →</span></div></div>
+    <span style="margin-left:8px">Aurora Gradient · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage aurora-stage"><div class="au-scene">
+  <div class="au-blob au-b1"></div>
+  <div class="au-blob au-b2"></div>
+  <div class="au-blob au-b3"></div>
+  <div class="au-blob au-b4"></div>
+  <div class="au-grain"></div>
+  <div class="au-fg">
+    <span class="au-eyebrow">Introducing</span>
+    <h3 class="au-h">Build at the speed of thought</h3>
+    <p class="au-sub">A calmer workspace for modern teams — designed to feel effortless.</p>
+    <button class="au-btn"><i></i>Get early access</button>
+  </div>
+</div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Background blur</h4><p>&lt;code&gt;backdrop-filter: blur()&lt;/code&gt; softens content behind</p></div><div class="chip"><h4>Translucent fill</h4><p>A white/color overlay at ~10–20% opacity</p></div><div class="chip"><h4>Light border</h4><p>A 1px translucent-white border marks the glass edge</p></div><div class="chip"><h4>Layering &amp; depth</h4><p>Stacked panes build a sense of z-axis depth</p></div></div>
+  <div class="chars"><div class="chip"><h4>Blended color fields</h4><p>Multiple soft radial blobs bleed into one another</p></div><div class="chip"><h4>Heavy blur &amp; glow</h4><p>Dreamy, luminous edges with no hard boundaries</p></div><div class="chip"><h4>Minimal foreground</h4><p>Clean, sparse type sitting over the rich color</p></div><div class="chip"><h4>Motion optional</h4><p>Slow drifting or animated gradients add life</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Modern, premium impression — suits high-end brands</li><li>Transparency conveys hierarchy naturally</li><li>Keeps some readability over busy backgrounds</li><li>On-trend in 2026, so it reads as current</li><li>Attractive in both dark and light modes</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Hard to guarantee text contrast over blur — mind accessibility</li><li>&lt;code&gt;backdrop-filter&lt;/code&gt; is GPU-heavy and can stutter on low-end devices</li><li>An overly busy background destroys readability</li><li>Overuse makes the screen hazy and distracting</li><li>Needs fallbacks for older browsers / some environments</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Eye-catching, modern and premium in feel</li><li>Strong expression of brand color and mood</li><li>Pairs well with minimal type and glassmorphism</li><li>Cheap to produce with pure CSS gradients</li><li>Flexible mood — swap the palette to reset the tone</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Text contrast over bright gradients is risky</li><li>Can look trendy and samey across products</li><li>Animated gradients cost performance and battery</li><li>Hard to keep tightly brand-consistent</li><li>Overuse reads as generic “AI startup”</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Premium / fintech / SaaS landing and card UIs</li><li>Overlay panels over image or gradient backgrounds</li><li>Modals, notifications, navigation bars</li><li>Widgets in dark-theme dashboards</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Content-heavy, text-long screens</li><li>Products targeting low-end / low-power devices</li><li>Accessibility-first public services</li><li>Brands using only flat/solid backgrounds (effect won’t show)</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>SaaS / AI landing and hero sections</li><li>Product launches and marketing pages</li><li>Brands with vivid, expressive color identities</li><li>Dark backgrounds where the glow really pops</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Dense functional UIs and long-form reading</li><li>Accessibility-critical text sitting over imagery</li><li>Conservative or enterprise contexts</li><li>Low-power or performance-sensitive contexts (if animated)</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
-  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>4/5</span></div>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity &amp; stability</b><span>4/5</span></div>
         <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>4/5</span></div>
-        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>2/5</span></div>
-        <div class="bar"><i style="width:40%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div><small>Guarantee text contrast — put type on solid/overlay, not raw gradient</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
+        <div class="bar"><i style="width:40%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>4/5</span></div>
         <div class="bar"><i style="width:80%"></i></div></div></div>
 </section>
 
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://www.apple.com/macos/" target="_blank" rel="noopener">
-        <div class="nm">Apple — macOS design</div><div class="ds">The origin that popularized glassmorphism</div>
-        <span class="go">www.apple.com ↗</span></a><a href="https://hype4.academy/tools/glassmorphism-generator" target="_blank" rel="noopener">
-        <div class="nm">Glassmorphism Generator (Hype4)</div><div class="ds">Live generator — handy for dev specs</div>
-        <span class="go">hype4.academy ↗</span></a><a href="https://www.zignuts.com/blog/neumorphism-vs-glassmorphism" target="_blank" rel="noopener">
-        <div class="nm">Zignuts — vs Neumorphism (2026)</div><div class="ds">2026 comparison of the two styles</div>
-        <span class="go">www.zignuts.com ↗</span></a><a href="https://dribbble.com/tags/glassmorphism" target="_blank" rel="noopener">
-        <div class="nm">Dribbble — Glassmorphism</div><div class="ds">Gallery of current applied work</div>
-        <span class="go">dribbble.com ↗</span></a></div>
+  <div class="ex"><a href="https://stripe.com" target="_blank" rel="noopener">
+        <div class="nm">Stripe</div><div class="ds">Signature animated mesh-gradient hero backdrops</div>
+        <span class="go">stripe.com ↗</span></a><a href="https://linear.app" target="_blank" rel="noopener">
+        <div class="nm">Linear</div><div class="ds">Dark aurora glows behind minimal product type</div>
+        <span class="go">linear.app ↗</span></a><a href="https://vercel.com" target="_blank" rel="noopener">
+        <div class="nm">Vercel</div><div class="ds">Luminous gradient fields across marketing pages</div>
+        <span class="go">vercel.com ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Glassmorphism — Outsourcing brief (Upwork)</h3><ul><li>Key spec: &lt;code&gt;background:rgba()&lt;/code&gt; + &lt;code&gt;backdrop-filter:blur()&lt;/code&gt; + translucent &lt;code&gt;border&lt;/code&gt; — give the dev exact px/opacity values</li><li>Require &lt;code&gt;-webkit-backdrop-filter&lt;/code&gt; prefix and an opaque-background fallback for unsupported browsers</li><li>Performance: cap the number of blur layers; forbid overuse inside scroll areas</li><li>Make contrast reinforcement (shadow / stronger opaque fill) behind text a contract term</li><li>Ask for AA-4.5:1-passing screenshots as a QA deliverable</li></ul></div>
+  <div class="tip"><h3>Aurora Gradient — Outsourcing brief (Upwork)</h3><ul><li>Specify the gradient palette and blob positions up front as <code>tokens</code></li><li>Require foreground text to sit on a solid, overlay or card so contrast passes <code>AA</code> — never raw over a bright gradient</li><li>Cap or disable animation and honor <code>prefers-reduced-motion</code></li><li>Export a static image fallback of the gradient for performance</li><li>Keep the foreground minimal so the gradient does the work</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://www.apple.com/macos/" target="_blank" rel="noopener">Apple — macOS</a></li><li><a href="https://hype4.academy/tools/glassmorphism-generator" target="_blank" rel="noopener">Hype4 Academy — Glassmorphism generator</a></li><li><a href="https://www.zignuts.com/blog/neumorphism-vs-glassmorphism" target="_blank" rel="noopener">Zignuts — Neumorphism vs Glassmorphism 2026</a></li></ul>
+  <ul class="src"><li><a href="https://www.joshwcomeau.com/css/backgrounds/" target="_blank" rel="noopener">Josh W. Comeau — The Magic of CSS Backgrounds &amp; Gradients</a></li><li><a href="https://stripe.com" target="_blank" rel="noopener">Stripe — mesh-gradient hero design in practice</a></li><li><a href="https://linear.app" target="_blank" rel="noopener">Linear — dark aurora-gradient marketing design</a></li></ul>
 </section>
 
-<div class="nav"><a href="neumorphism.html">← Neumorphism<small>Prev</small></a><a class="r" href="claymorphism.html">Claymorphism →<small>Next</small></a></div>
+<div class="nav"><a href="dark-mode.html">← Dark Mode<small>Prev</small></a><a class="r" href="y2k-frutiger-aero.html">Y2K / Frutiger Aero →<small>Next</small></a></div>
 </div>
 </body>
 </html>

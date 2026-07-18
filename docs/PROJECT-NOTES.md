@@ -17,7 +17,7 @@ neutral 0–5 metrics, and an outsourcing brief.
 
 ## Current contents (as of 2026-07-19)
 
-11 style pages, linked from `index.html`:
+19 style pages, linked from `index.html`:
 
 | # | Style | File |
 |---|-------|------|
@@ -32,6 +32,14 @@ neutral 0–5 metrics, and an outsourcing brief.
 | 09 | Bento Grid | `bento-grid.html` |
 | 10 | Spatial UI | `spatial-ui.html` |
 | 11 | Flat Design | `flat-design.html` |
+| 12 | Material Design 3 | `material-3.html` |
+| 13 | Neo-Brutalism | `neo-brutalism.html` |
+| 14 | Swiss Style | `swiss-style.html` |
+| 15 | Dark Mode UI | `dark-mode.html` |
+| 16 | Aurora Gradient | `aurora-gradient.html` |
+| 17 | Y2K / Frutiger Aero | `y2k-frutiger-aero.html` |
+| 18 | Memphis | `memphis.html` |
+| 19 | Retro / Pixel | `retro-pixel.html` |
 
 Supporting files: `index.html` (landing + full grid), `README.md`, `LICENSE` (MIT),
 `.nojekyll` (so GitHub Pages serves files as-is).
@@ -53,8 +61,10 @@ Supporting files: `index.html` (landing + full grid), `README.md`, `LICENSE` (MI
 ## Roadmap / ideas for later
 
 - [x] Flat Design — added 2026-07-19 as #11 (`flat-design.html`).
-- [ ] Candidate styles to add: Material 3 / Material You, Swiss / International
-      Typographic, Y2K / Frutiger Aero, Dark Mode patterns, Retro / Pixel, Memphis.
+- [x] Batch added 2026-07-19 as #12–#19: Material Design 3, Neo-Brutalism, Swiss Style,
+      Dark Mode UI, Aurora / Mesh Gradient, Y2K / Frutiger Aero, Memphis, Retro / Pixel.
+- [ ] Candidate styles still to add: Fluent (Microsoft), iOS / Apple HIG, Corporate
+      Memphis / flat illustration, Duotone, Kinetic typography / motion UI, Vaporwave.
 - [ ] Optional: a shared print/PDF export for handing the whole guide to a client offline.
 - [ ] Optional: light-theme toggle.
 - [ ] Optional: per-style "starter CSS" download button.
@@ -77,3 +87,7 @@ the page itself so clients can verify.
   GitHub under `Minapak`.
 - **2026-07-19** — Added Flat Design as style #11; bumped all page counts to /11 and wired
   Spatial UI → Flat Design nav.
+- **2026-07-19** — Batch-added styles #12–#19 (Material Design 3, Neo-Brutalism, Swiss
+  Style, Dark Mode UI, Aurora Gradient, Y2K / Frutiger Aero, Memphis, Retro / Pixel).
+  Bumped all page counts to /19, chained nav Flat Design → … → Retro/Pixel → index, and
+  added their cards, comparison rows and mini-demo CSS to `index.html`.

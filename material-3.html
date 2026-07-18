@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>04. Claymorphism — UI Style Guide</title>
+<title>12. Material Design 3 — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,106 +115,131 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.claymorphism-stage{background:linear-gradient(135deg,#e0c3fc,#8ec5fc)}
-.cl-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
-.cl-card{width:230px;padding:26px;border-radius:34px;background:#ffffff;color:#6b4fa0;text-align:center;
-  box-shadow:0 20px 40px rgba(140,110,200,.4),inset 8px 8px 16px rgba(255,255,255,.9),inset -8px -8px 16px rgba(180,150,220,.35)}
-.cl-icon{width:66px;height:66px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;font-size:30px;color:#fff;
-  background:#a78bfa;box-shadow:inset 6px 6px 10px rgba(255,255,255,.45),inset -6px -6px 10px rgba(90,60,160,.4),0 10px 20px rgba(120,80,200,.35)}
-.cl-card h5{margin:0 0 6px;font-size:16px}
-.cl-card p{margin:0;font-size:12.5px;color:#9a86c0;line-height:1.5}
-.cl-btn{margin-top:10px;display:inline-block;padding:12px 22px;border-radius:20px;font-weight:700;font-size:13px;color:#fff;cursor:pointer;
-  background:#ff9ec6;box-shadow:inset 5px 5px 9px rgba(255,255,255,.5),inset -5px -5px 9px rgba(200,90,150,.45),0 10px 18px rgba(230,120,170,.4);transition:.12s}
-.cl-btn:active{transform:translateY(2px)}
+.material3-stage{background:#F7F2FA;background:radial-gradient(120% 120% at 15% 0,#F3EDF7 0,#EADDFF 100%)}
+.md-card{width:360px;background:#FEF7FF;border-radius:28px;padding:22px 22px 20px;
+  font-family:Roboto,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color:#1D1B20;
+  box-shadow:0 1px 3px rgba(29,25,43,.10),0 1px 2px rgba(29,25,43,.06)}
+.md-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.md-avatar{width:40px;height:40px;border-radius:50%;background:#6750A4;color:#fff;flex:none;
+  display:grid;place-items:center;font-size:17px;font-weight:600}
+.md-headline{font-size:18px;font-weight:600;letter-spacing:.01em;line-height:1.2}
+.md-sub{font-size:12.5px;color:#49454F}
+.md-support{font-size:13.5px;color:#49454F;margin:0 0 16px;line-height:1.5}
+.md-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.md-chip{font-size:12.5px;font-weight:500;padding:7px 14px;border-radius:999px;cursor:pointer;
+  border:1px solid #CAC4D0;background:transparent;color:#49454F;transition:.15s}
+.md-chip:hover{background:#ECE6F0}
+.md-chip.md-sel{background:#EADDFF;border-color:transparent;color:#21005D}
+.md-actions{display:flex;align-items:center;gap:14px}
+.md-btn{border:0;background:#EADDFF;color:#21005D;font-family:inherit;font-weight:600;font-size:14px;
+  padding:12px 26px;border-radius:999px;cursor:pointer;transition:.15s;flex:1}
+.md-btn:hover{background:#E0D0FA;box-shadow:0 1px 2px rgba(29,25,43,.14)}
+.md-fab{width:56px;height:56px;border-radius:18px;border:0;flex:none;cursor:pointer;
+  background:#6750A4;color:#fff;font-size:26px;line-height:1;font-weight:400;transition:.15s;
+  box-shadow:0 1px 3px rgba(103,80,164,.4),0 2px 6px rgba(103,80,164,.28);display:grid;place-items:center}
+.md-fab:hover{background:#5B4791;box-shadow:0 2px 6px rgba(103,80,164,.5),0 4px 12px rgba(103,80,164,.35)}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">04 / 19 · preview</span></div></div>
+<span class="pill">12 / 19 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">04</span> UI Design Style</span>
-  <h1 class="title">Claymorphism </h1>
-  <p class="tag">A soft-clay 3D look — chunky rounded shapes with inner and outer shadows create a puffy, friendly feel.</p>
-  <div class="meta"><span class="badge">Emerged: 2021 (coined by Hype4)</span><span class="badge">Growing · niche</span><span class="badge">Pairs well with illustration & 3D</span></div>
+  <span class="kicker"><span class="num">12</span> UI Design Style</span>
+  <h1 class="title">Material Design 3 <span class="en">Material You</span></h1>
+  <p class="tag">Google&#x27;s open design system — dynamic color from the user&#x27;s wallpaper, large rounded shapes, tonal elevation and clear, accessible components.</p>
+  <div class="meta"><span class="badge">Released: 2021 (Material You)</span><span class="badge">Mature · system</span><span class="badge">Ubiquitous on Android &amp; Google apps</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Claymorphism renders elements as if molded from clay — plump and soft. Large radii, an outer drop shadow, and two inner &lt;code&gt;inset&lt;/code&gt; shadows (one light, one dark) create the 3D clay texture. Combined with bright pastels and 3D illustration, it’s popular for friendly, playful brands.</p>
+  <p class="def">Material Design 3 (aka Material You) is Google&#x27;s 2021 evolution of Material Design. Its signatures are dynamic color — tonal palettes generated from a seed color or the user&#x27;s wallpaper — plus larger corner radii, tonal surfaces and elevation, refreshed components and strong built-in accessibility. It is a full design system, not just a look, backed by official libraries for Android (Jetpack Compose), Flutter and the Web.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering the chips, the button and the FAB.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Claymorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage claymorphism-stage"><div class="cl-wrap">
-  <div class="cl-card"><div class="cl-icon">🧸</div><h5>Claymorphism</h5><p>Puffy 3D as if molded from clay. Outer shadow + double inner shadow.</p></div>
-  <span class="cl-btn">Tap me</span>
+    <span style="margin-left:8px">Material Design 3 · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage material3-stage"><div class="md-card">
+  <div class="md-head">
+    <div class="md-avatar">M</div>
+    <div><div class="md-headline">Today&#x27;s plan</div><div class="md-sub">Updated 2 min ago</div></div>
+  </div>
+  <p class="md-support">Dynamic color and tonal surfaces give this card depth through hue, not heavy shadows.</p>
+  <div class="md-chips">
+    <span class="md-chip md-sel">✓ All</span>
+    <span class="md-chip">Work</span>
+    <span class="md-chip">Personal</span>
+    <span class="md-chip">Later</span>
+  </div>
+  <div class="md-actions">
+    <button class="md-btn">Add task</button>
+    <button class="md-fab" aria-label="Create">+</button>
+  </div>
 </div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Puffy 3D</h4><p>Thick, rounded forms emphasize volume</p></div><div class="chip"><h4>Double inner shadow</h4><p>Light + dark &lt;code&gt;inset&lt;/code&gt; shadows make the clay texture</p></div><div class="chip"><h4>Large radius</h4><p>Generous &lt;code&gt;border-radius&lt;/code&gt; for soft silhouettes</p></div><div class="chip"><h4>Pastel &amp; lively</h4><p>Bright pastels paired with 3D icons</p></div></div>
+  <div class="chars"><div class="chip"><h4>Dynamic color</h4><p>Tonal palettes generated from a single seed or the user&#x27;s wallpaper</p></div><div class="chip"><h4>Tonal elevation &amp; surfaces</h4><p>Color, not just shadow, conveys depth and layering</p></div><div class="chip"><h4>Large rounded shapes</h4><p>Generous corner radii, pill-shaped buttons and FABs</p></div><div class="chip"><h4>Systematic components &amp; tokens</h4><p>Documented components backed by reusable design tokens</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Friendly, playful mood — great for youthful/lifestyle brands</li><li>Strong depth makes elements easy to distinguish</li><li>Bright colors evoke joy and positivity</li><li>Blends naturally with 3D illustration and emoji</li><li>Higher contrast than neumorphism, so friendlier for a11y</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Playful tone doesn’t suit serious or professional services</li><li>Chunky forms eat space, lowering information density</li><li>Multiple shadows make CSS complex and can cost performance</li><li>Trend-driven — risk of looking dated quickly</li><li>Producing consistent 3D assets needs design resources</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Comprehensive, thoroughly documented design system</li><li>Official cross-platform libraries speed up delivery</li><li>Strong accessibility built in — contrast, touch targets, motion</li><li>Consistent, familiar UX for Android users</li><li>Theming and personalization via dynamic color</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Can look generically “Google” without customization</li><li>Dynamic color adds real theming complexity</li><li>A heavy system to fully adopt end-to-end</li><li>Opinionated — hard to stray far without fighting it</li><li>Web support is less mature than Android</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Bright services for kids, education, games, playful fintech</li><li>Onboarding and illustration-led landing pages</li><li>Marketing using emoji / 3D icons</li><li>App-icon and illustration systems</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Finance, legal, B2B where trust/authority matters</li><li>Data- and table-heavy productivity screens</li><li>Minimal / luxury brand tones</li><li>Performance-sensitive low-end targets</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Android apps and cross-platform (Flutter) products</li><li>Teams wanting a ready-made, accessible system</li><li>Products that value personalization and theming</li><li>Large apps needing consistency at scale</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>The brand needs a highly distinctive, custom look</li><li>Tiny projects where the full system is overkill</li><li>The team can&#x27;t maintain tokens and theming over time</li><li>You must match a non-Material platform (e.g., strict iOS HIG)</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
-  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
-        <div class="bar"><i style="width:40%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
         <div class="bar"><i style="width:100%"></i></div></div></div>
 </section>
 
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">
-        <div class="nm">Hype4 — Claymorphism article</div><div class="ds">The origin article that named it</div>
-        <span class="go">hype4.academy ↗</span></a><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">
-        <div class="nm">Dribbble — Claymorphism</div><div class="ds">Gallery of applied work</div>
-        <span class="go">dribbble.com ↗</span></a><a href="https://uxdesign.cc/" target="_blank" rel="noopener">
-        <div class="nm">UX Collective (Medium)</div><div class="ds">Trend analysis of claymorphism</div>
-        <span class="go">uxdesign.cc ↗</span></a></div>
+  <div class="ex"><a href="https://m3.material.io" target="_blank" rel="noopener">
+        <div class="nm">Google Material Design 3</div><div class="ds">The official system, guidelines and libraries</div>
+        <span class="go">m3.material.io ↗</span></a><a href="https://www.android.com" target="_blank" rel="noopener">
+        <div class="nm">Android</div><div class="ds">Material You theming across the OS and apps</div>
+        <span class="go">www.android.com ↗</span></a><a href="https://workspace.google.com" target="_blank" rel="noopener">
+        <div class="nm">Google Workspace &amp; Gmail</div><div class="ds">Material 3 components across Google&#x27;s apps</div>
+        <span class="go">workspace.google.com ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Claymorphism — Outsourcing brief (Upwork)</h3><ul><li>Key spec: large &lt;code&gt;border-radius&lt;/code&gt; + one outer drop shadow + two inner &lt;code&gt;inset&lt;/code&gt; shadows (light &amp; dark)</li><li>Give the dev a pastel palette and 3D icon assets (or a library)</li><li>Performance: cap shadow layers at 3–4 per component</li><li>Define radius/shadow values as design tokens for consistency</li><li>Require a separate dark-mode palette since pastels lose contrast</li></ul></div>
+  <div class="tip"><h3>Material Design 3 — Outsourcing brief (Upwork)</h3><ul><li>Specify M3 and which library up front — Jetpack Compose, Flutter or Material Web</li><li>Provide the seed / brand color and let the tool generate the tonal palette as <code>tokens</code></li><li>Require documented component usage — don&#x27;t hand-roll what M3 already ships</li><li>Set touch-target and contrast acceptance criteria (M3 accessibility)</li><li>Decide light / dark and dynamic-color scope before build starts</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">Hype4 Academy — Claymorphism in UI</a></li><li><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">Dribbble — Claymorphism</a></li><li><a href="https://uxdesign.cc/" target="_blank" rel="noopener">UX Collective</a></li></ul>
+  <ul class="src"><li><a href="https://m3.material.io" target="_blank" rel="noopener">Material Design 3</a></li><li><a href="https://m3.material.io/foundations/accessible-design/overview" target="_blank" rel="noopener">Material Design — Accessibility</a></li><li><a href="https://developer.android.com/design" target="_blank" rel="noopener">Android UI</a></li></ul>
 </section>
 
-<div class="nav"><a href="glassmorphism.html">← Glassmorphism<small>Prev</small></a><a class="r" href="minimalism.html">Minimalism →<small>Next</small></a></div>
+<div class="nav"><a href="flat-design.html">← Flat Design<small>Prev</small></a><a class="r" href="neo-brutalism.html">Neo-Brutalism →<small>Next</small></a></div>
 </div>
 </body>
 </html>

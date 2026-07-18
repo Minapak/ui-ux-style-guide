@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>04. Claymorphism — UI Style Guide</title>
+<title>14. Swiss Style — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,79 +115,94 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.claymorphism-stage{background:linear-gradient(135deg,#e0c3fc,#8ec5fc)}
-.cl-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
-.cl-card{width:230px;padding:26px;border-radius:34px;background:#ffffff;color:#6b4fa0;text-align:center;
-  box-shadow:0 20px 40px rgba(140,110,200,.4),inset 8px 8px 16px rgba(255,255,255,.9),inset -8px -8px 16px rgba(180,150,220,.35)}
-.cl-icon{width:66px;height:66px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;font-size:30px;color:#fff;
-  background:#a78bfa;box-shadow:inset 6px 6px 10px rgba(255,255,255,.45),inset -6px -6px 10px rgba(90,60,160,.4),0 10px 20px rgba(120,80,200,.35)}
-.cl-card h5{margin:0 0 6px;font-size:16px}
-.cl-card p{margin:0;font-size:12.5px;color:#9a86c0;line-height:1.5}
-.cl-btn{margin-top:10px;display:inline-block;padding:12px 22px;border-radius:20px;font-weight:700;font-size:13px;color:#fff;cursor:pointer;
-  background:#ff9ec6;box-shadow:inset 5px 5px 9px rgba(255,255,255,.5),inset -5px -5px 9px rgba(200,90,150,.45),0 10px 18px rgba(230,120,170,.4);transition:.12s}
-.cl-btn:active{transform:translateY(2px)}
+.swiss-stage{background:#3a3f47}
+.sw-poster{width:360px;background:#ffffff;color:#111111;padding:22px 22px 18px;
+  font-family:"Helvetica Neue",Helvetica,Arial,"Inter",sans-serif;
+  background-image:repeating-linear-gradient(90deg,rgba(17,17,17,.05) 0 1px,transparent 1px 60px);
+  background-position:22px 0;background-size:auto 100%;background-repeat:repeat-x}
+.sw-rule{border-top:2px solid #111111;padding-top:6px}
+.sw-meta{display:flex;justify-content:space-between;align-items:baseline;
+  font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#111}
+.sw-meta .sw-red{color:#e2231a}
+.sw-head{font-size:40px;line-height:.96;font-weight:800;letter-spacing:-.03em;
+  margin:20px 0 4px;text-transform:none}
+.sw-head .sw-em{color:#e2231a}
+.sw-num{display:inline-block;background:#e2231a;color:#fff;font-size:11px;font-weight:800;
+  letter-spacing:.05em;padding:2px 7px;margin-bottom:14px}
+.sw-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.sw-cols p{margin:0;font-size:9px;line-height:1.38;color:#111;text-align:left}
+.sw-cols p b{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.sw-foot{border-top:1px solid #111111;margin-top:16px;padding-top:6px;
+  display:flex;justify-content:space-between;font-size:8.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:#111}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">04 / 19 · preview</span></div></div>
+<span class="pill">14 / 19 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">04</span> UI Design Style</span>
-  <h1 class="title">Claymorphism </h1>
-  <p class="tag">A soft-clay 3D look — chunky rounded shapes with inner and outer shadows create a puffy, friendly feel.</p>
-  <div class="meta"><span class="badge">Emerged: 2021 (coined by Hype4)</span><span class="badge">Growing · niche</span><span class="badge">Pairs well with illustration & 3D</span></div>
+  <span class="kicker"><span class="num">14</span> UI Design Style</span>
+  <h1 class="title">Swiss Style <span class="en">International Typographic Style</span></h1>
+  <p class="tag">Order through the grid — objective, typography-led design with strict grids, generous whitespace, Helvetica-style type and a spare red/black/white palette.</p>
+  <div class="meta"><span class="badge">Emerged: 1950s (Switzerland)</span><span class="badge">Foundational · timeless</span><span class="badge">Backbone of editorial & brand UI</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Claymorphism renders elements as if molded from clay — plump and soft. Large radii, an outer drop shadow, and two inner &lt;code&gt;inset&lt;/code&gt; shadows (one light, one dark) create the 3D clay texture. Combined with bright pastels and 3D illustration, it’s popular for friendly, playful brands.</p>
+  <p class="def">The International Typographic Style — better known as Swiss Style — emerged in 1950s Switzerland through designers such as Josef Müller-Brockmann and Armin Hofmann. It is built on mathematical grid systems, asymmetric layout, sans-serif typography (Helvetica, Akzidenz-Grotesk), flush-left / ragged-right text, objective photography and the conviction that clarity and legibility are paramount. Content is placed on a rational underlying structure rather than decorated, and the result is calm, credible and highly readable. Its principles underpin much of modern minimal and editorial UI.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. A typographic poster fragment on a visible grid.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Claymorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage claymorphism-stage"><div class="cl-wrap">
-  <div class="cl-card"><div class="cl-icon">🧸</div><h5>Claymorphism</h5><p>Puffy 3D as if molded from clay. Outer shadow + double inner shadow.</p></div>
-  <span class="cl-btn">Tap me</span>
+    <span style="margin-left:8px">Swiss Style · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage swiss-stage"><div class="sw-poster">
+  <div class="sw-rule"><div class="sw-meta"><span>01 — GRID / TYPE / ORDER</span><span class="sw-red">CH · 1957</span></div></div>
+  <div class="sw-head">Grid.<br>Type. <span class="sw-em">Order.</span></div>
+  <span class="sw-num">14</span>
+  <div class="sw-cols">
+    <p><b>Structure</b>The grid is not a cage but a proportional system that carries content with rational, repeatable clarity across the page.</p>
+    <p><b>Legibility</b>Objective sans-serif type, flush-left and ragged-right, sets a firm hierarchy so meaning reads before decoration ever does.</p>
+  </div>
+  <div class="sw-foot"><span>Helvetica · Akzidenz</span><span>Müller-Brockmann</span></div>
 </div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Puffy 3D</h4><p>Thick, rounded forms emphasize volume</p></div><div class="chip"><h4>Double inner shadow</h4><p>Light + dark &lt;code&gt;inset&lt;/code&gt; shadows make the clay texture</p></div><div class="chip"><h4>Large radius</h4><p>Generous &lt;code&gt;border-radius&lt;/code&gt; for soft silhouettes</p></div><div class="chip"><h4>Pastel &amp; lively</h4><p>Bright pastels paired with 3D icons</p></div></div>
+  <div class="chars"><div class="chip"><h4>Grid systems</h4><p>Mathematical columns and a baseline grid organize every element</p></div><div class="chip"><h4>Sans-serif typography</h4><p>Helvetica-like type carrying a strong, deliberate hierarchy</p></div><div class="chip"><h4>Asymmetric balance</h4><p>Dynamic yet ordered layouts tensioned across the grid</p></div><div class="chip"><h4>Objective clarity</h4><p>Content over decoration with a spare, disciplined palette</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Friendly, playful mood — great for youthful/lifestyle brands</li><li>Strong depth makes elements easy to distinguish</li><li>Bright colors evoke joy and positivity</li><li>Blends naturally with 3D illustration and emoji</li><li>Higher contrast than neumorphism, so friendlier for a11y</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Playful tone doesn’t suit serious or professional services</li><li>Chunky forms eat space, lowering information density</li><li>Multiple shadows make CSS complex and can cost performance</li><li>Trend-driven — risk of looking dated quickly</li><li>Producing consistent 3D assets needs design resources</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Exceptional clarity and legibility</li><li>Timeless — ages well and rarely looks dated</li><li>Scales gracefully to complex, editorial content</li><li>Accessible by nature — strong contrast and hierarchy</li><li>Reads as strong, credible and professional</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Can feel cold or impersonal</li><li>Demands real typographic discipline to do well</li><li>Little room for playful personality</li><li>Rigid grids can constrain unconventional layouts</li><li>Easy to look generic if the hierarchy is weak</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Bright services for kids, education, games, playful fintech</li><li>Onboarding and illustration-led landing pages</li><li>Marketing using emoji / 3D icons</li><li>App-icon and illustration systems</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Finance, legal, B2B where trust/authority matters</li><li>Data- and table-heavy productivity screens</li><li>Minimal / luxury brand tones</li><li>Performance-sensitive low-end targets</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Editorial, news, documentation and portfolios</li><li>Corporate / brand sites needing credibility</li><li>Content-heavy and data-dense layouts</li><li>Design systems that value consistency</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Playful consumer brands needing warmth</li><li>Experiences built on rich imagery or texture</li><li>Strong differentiation from competitors is the goal</li><li>The team lacks typographic craft</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
-  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
         <div class="bar"><i style="width:40%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
         <div class="bar"><i style="width:100%"></i></div></div></div>
 </section>
@@ -195,26 +210,26 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">
-        <div class="nm">Hype4 — Claymorphism article</div><div class="ds">The origin article that named it</div>
-        <span class="go">hype4.academy ↗</span></a><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">
-        <div class="nm">Dribbble — Claymorphism</div><div class="ds">Gallery of applied work</div>
-        <span class="go">dribbble.com ↗</span></a><a href="https://uxdesign.cc/" target="_blank" rel="noopener">
-        <div class="nm">UX Collective (Medium)</div><div class="ds">Trend analysis of claymorphism</div>
-        <span class="go">uxdesign.cc ↗</span></a></div>
+  <div class="ex"><a href="https://www.interaction-design.org/literature/topics/swiss-style" target="_blank" rel="noopener">
+        <div class="nm">Interaction Design Foundation — Swiss Style</div><div class="ds">A clear primer on the style and its principles</div>
+        <span class="go">www.interaction-design.org ↗</span></a><a href="https://en.wikipedia.org/wiki/Josef_M%C3%BCller-Brockmann" target="_blank" rel="noopener">
+        <div class="nm">Josef Müller-Brockmann</div><div class="ds">The defining figure of grid-based Swiss design</div>
+        <span class="go">en.wikipedia.org ↗</span></a><a href="https://www.smashingmagazine.com" target="_blank" rel="noopener">
+        <div class="nm">Smashing Magazine</div><div class="ds">Swiss-influenced editorial layout on the modern web</div>
+        <span class="go">www.smashingmagazine.com ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Claymorphism — Outsourcing brief (Upwork)</h3><ul><li>Key spec: large &lt;code&gt;border-radius&lt;/code&gt; + one outer drop shadow + two inner &lt;code&gt;inset&lt;/code&gt; shadows (light &amp; dark)</li><li>Give the dev a pastel palette and 3D icon assets (or a library)</li><li>Performance: cap shadow layers at 3–4 per component</li><li>Define radius/shadow values as design tokens for consistency</li><li>Require a separate dark-mode palette since pastels lose contrast</li></ul></div>
+  <div class="tip"><h3>Swiss Style — Outsourcing brief (Upwork)</h3><ul><li>Deliver a grid spec (columns / gutters / baseline) and a type scale as <code>tokens</code></li><li>Require a disciplined typographic hierarchy — few sizes, strong weight contrast</li><li>Limit the palette (e.g. black / white + one accent) as a hard rule</li><li>Set explicit alignment and spacing QA criteria for review</li><li>Specify Helvetica / Inter / Neue Haas–style fonts with clear fallbacks</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">Hype4 Academy — Claymorphism in UI</a></li><li><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">Dribbble — Claymorphism</a></li><li><a href="https://uxdesign.cc/" target="_blank" rel="noopener">UX Collective</a></li></ul>
+  <ul class="src"><li><a href="https://www.interaction-design.org/literature/topics/swiss-style" target="_blank" rel="noopener">Interaction Design Foundation — Swiss Style</a></li><li><a href="https://en.wikipedia.org/wiki/International_Typographic_Style" target="_blank" rel="noopener">Wikipedia — International Typographic Style</a></li><li><a href="https://en.wikipedia.org/wiki/Josef_M%C3%BCller-Brockmann" target="_blank" rel="noopener">Josef Müller-Brockmann — Grid Systems in Graphic Design</a></li></ul>
 </section>
 
-<div class="nav"><a href="glassmorphism.html">← Glassmorphism<small>Prev</small></a><a class="r" href="minimalism.html">Minimalism →<small>Next</small></a></div>
+<div class="nav"><a href="neo-brutalism.html">← Neo-Brutalism<small>Prev</small></a><a class="r" href="dark-mode.html">Dark Mode →<small>Next</small></a></div>
 </div>
 </body>
 </html>

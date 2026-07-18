@@ -1,6 +1,6 @@
 # UI Design Styles — A Quick Reference Guide
 
-A neutral, at-a-glance reference to **11 common UI design styles**, built to share with
+A neutral, at-a-glance reference to **19 common UI design styles**, built to share with
 clients who don't yet have a UI/UX guide. Each style page includes a **live demo rendered
 with real CSS** (not a screenshot), honest **pros & cons**, real-world examples, neutral
 0–5 metrics, and a short note on when to use it.
@@ -34,6 +34,14 @@ Open `index.html` to start.
 | 09 | [Bento Grid](bento-grid.html) | Modular grid of differently-sized cells, like a Japanese bento box. |
 | 10 | [Spatial UI](spatial-ui.html) | Interface placed in 3D depth — the language of spatial computing (visionOS). |
 | 11 | [Flat Design](flat-design.html) | No shadows, gradients or textures — bold solid color and simple shapes. The reaction to skeuomorphism. |
+| 12 | [Material Design 3](material-3.html) | Google's system — dynamic color, large rounded shapes, tonal elevation and accessible components. |
+| 13 | [Neo-Brutalism](neo-brutalism.html) | Thick black borders, hard offset shadows and clashing flat color — a usable take on raw brutalism. |
+| 14 | [Swiss Style](swiss-style.html) | International Typographic Style — strict grids, sans-serif type and a spare red/black/white palette. |
+| 15 | [Dark Mode UI](dark-mode.html) | Dark surfaces done right — layered elevation by lightness, restrained accents, tuned contrast. |
+| 16 | [Aurora Gradient](aurora-gradient.html) | Soft blurred mesh-gradient color fields glowing behind clean type — the SaaS/AI signature look. |
+| 17 | [Y2K / Frutiger Aero](y2k-frutiger-aero.html) | Glossy early-2000s revival — aqua gloss, water droplets, bubbles and chrome. |
+| 18 | [Memphis](memphis.html) | Playful 80s design — clashing color, squiggles, zigzags and polka-dot geometric confetti. |
+| 19 | [Retro / Pixel](retro-pixel.html) | Blocky pixel type, hard edges and chunky bordered panels evoking 8- and 16-bit game UI. |
 
 Each page also carries an **outsourcing brief**: what to specify to a developer and which
 accessibility / performance conditions to put in the contract.

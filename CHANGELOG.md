@@ -7,6 +7,21 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
 - _Add new styles and changes here before publishing._
 
+## [1.2.0] — 2026-07-19
+
+### Added
+- **8 new style pages (#12–#19):** Material Design 3 (`material-3.html`), Neo-Brutalism
+  (`neo-brutalism.html`), Swiss Style (`swiss-style.html`), Dark Mode UI (`dark-mode.html`),
+  Aurora Gradient (`aurora-gradient.html`), Y2K / Frutiger Aero (`y2k-frutiger-aero.html`),
+  Memphis (`memphis.html`), Retro / Pixel (`retro-pixel.html`).
+- Each has a bespoke live CSS demo, pros & cons, 0–5 metrics, real-world examples and an
+  outsourcing brief. Added their cards, comparison-table rows and mini-demo CSS to
+  `index.html`.
+
+### Changed
+- Bumped all page counts from `/11` to `/19`; index title/hero now read 19 styles.
+- Chained "Next/Prev" nav across all 19 pages (Flat Design → Material 3 → … → Retro/Pixel).
+
 ## [1.1.0] — 2026-07-19
 
 ### Added

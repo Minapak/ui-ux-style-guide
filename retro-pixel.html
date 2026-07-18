@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>04. Claymorphism — UI Style Guide</title>
+<title>19. Retro / Pixel — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,106 +115,129 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.claymorphism-stage{background:linear-gradient(135deg,#e0c3fc,#8ec5fc)}
-.cl-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
-.cl-card{width:230px;padding:26px;border-radius:34px;background:#ffffff;color:#6b4fa0;text-align:center;
-  box-shadow:0 20px 40px rgba(140,110,200,.4),inset 8px 8px 16px rgba(255,255,255,.9),inset -8px -8px 16px rgba(180,150,220,.35)}
-.cl-icon{width:66px;height:66px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;font-size:30px;color:#fff;
-  background:#a78bfa;box-shadow:inset 6px 6px 10px rgba(255,255,255,.45),inset -6px -6px 10px rgba(90,60,160,.4),0 10px 20px rgba(120,80,200,.35)}
-.cl-card h5{margin:0 0 6px;font-size:16px}
-.cl-card p{margin:0;font-size:12.5px;color:#9a86c0;line-height:1.5}
-.cl-btn{margin-top:10px;display:inline-block;padding:12px 22px;border-radius:20px;font-weight:700;font-size:13px;color:#fff;cursor:pointer;
-  background:#ff9ec6;box-shadow:inset 5px 5px 9px rgba(255,255,255,.5),inset -5px -5px 9px rgba(200,90,150,.45),0 10px 18px rgba(230,120,170,.4);transition:.12s}
-.cl-btn:active{transform:translateY(2px)}
+.retropixel-stage{background:#1a1c2c;
+  background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0,rgba(0,0,0,.28) 1px,transparent 1px,transparent 3px)}
+.rt-screen{width:360px;padding:22px 20px;image-rendering:pixelated;
+  font-family:ui-monospace,"Courier New",monospace;color:#f4f4f4;text-align:center;
+  text-transform:uppercase;letter-spacing:2px}
+.rt-box{background:#29366f;padding:24px 20px 26px;
+  /* stepped pixel border via layered box-shadows (no radius, hard edges) */
+  box-shadow:0 0 0 4px #1a1c2c,0 0 0 8px #f4f4f4,0 0 0 12px #1a1c2c,
+    8px 8px 0 12px rgba(0,0,0,.45)}
+.rt-title{font-size:22px;font-weight:700;line-height:1.1;color:#a7f070;
+  text-shadow:3px 3px 0 #1a1c2c;letter-spacing:3px;margin-bottom:4px}
+.rt-sub{font-size:9px;color:#41a6f6;letter-spacing:3px;margin-bottom:20px}
+.rt-menu{list-style:none;margin:0 0 20px;padding:0;text-align:left;display:inline-block}
+.rt-menu li{font-size:12px;padding:5px 0;color:#f4f4f4}
+.rt-menu li.rt-active{color:#ff5277;text-shadow:2px 2px 0 #1a1c2c}
+.rt-menu li.rt-dim{color:#8b8fb0}
+.rt-btn{display:inline-block;border:0;cursor:pointer;
+  font-family:inherit;text-transform:uppercase;letter-spacing:2px;
+  font-size:12px;font-weight:700;color:#1a1c2c;background:#f4f4f4;
+  padding:11px 18px;image-rendering:pixelated;
+  box-shadow:0 0 0 4px #1a1c2c,6px 6px 0 4px #ff5277;
+  animation:rt-blink 1.1s steps(1) infinite}
+.rt-btn:hover{background:#a7f070}
+@keyframes rt-blink{0%,60%{opacity:1}61%,100%{opacity:.35}}
+@media(prefers-reduced-motion:reduce){.rt-btn{animation:none}}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">04 / 19 · preview</span></div></div>
+<span class="pill">19 / 19 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">04</span> UI Design Style</span>
-  <h1 class="title">Claymorphism </h1>
-  <p class="tag">A soft-clay 3D look — chunky rounded shapes with inner and outer shadows create a puffy, friendly feel.</p>
-  <div class="meta"><span class="badge">Emerged: 2021 (coined by Hype4)</span><span class="badge">Growing · niche</span><span class="badge">Pairs well with illustration & 3D</span></div>
+  <span class="kicker"><span class="num">19</span> UI Design Style</span>
+  <h1 class="title">Retro / Pixel <span class="en">8-bit UI</span></h1>
+  <p class="tag">Deliberately low-res charm — blocky pixel type, hard edges, limited palettes and chunky bordered panels that evoke 8- and 16-bit game interfaces.</p>
+  <div class="meta"><span class="badge">Roots: 1980s–90s games</span><span class="badge">Niche · nostalgic</span><span class="badge">Popular in indie games & dev culture</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Claymorphism renders elements as if molded from clay — plump and soft. Large radii, an outer drop shadow, and two inner &lt;code&gt;inset&lt;/code&gt; shadows (one light, one dark) create the 3D clay texture. Combined with bright pastels and 3D illustration, it’s popular for friendly, playful brands.</p>
+  <p class="def">Retro / Pixel (8-bit) is a deliberately low-resolution, blocky visual style that evokes 1980s–90s video games and early-computer interfaces. It leans on pixel/bitmap fonts, hard-edged shapes with no anti-aliasing (<code>image-rendering: pixelated</code>), limited high-contrast palettes, chunky bordered panels and dialog boxes, and blocky buttons. The look is common in indie games, game tooling, developer culture and nostalgic branding, where its unmistakable arcade character is the whole point.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. The pixel border, palette and blinking prompt are all real CSS.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Claymorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage claymorphism-stage"><div class="cl-wrap">
-  <div class="cl-card"><div class="cl-icon">🧸</div><h5>Claymorphism</h5><p>Puffy 3D as if molded from clay. Outer shadow + double inner shadow.</p></div>
-  <span class="cl-btn">Tap me</span>
+    <span style="margin-left:8px">Retro / Pixel · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage retropixel-stage"><div class="rt-screen">
+  <div class="rt-box">
+    <div class="rt-title">Pixel Quest</div>
+    <div class="rt-sub">- Press start -</div>
+    <ul class="rt-menu">
+      <li class="rt-active">▶ Start</li>
+      <li class="rt-dim">Options</li>
+      <li class="rt-dim">Quit</li>
+    </ul>
+    <br>
+    <button class="rt-btn">Press Start</button>
+  </div>
 </div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Puffy 3D</h4><p>Thick, rounded forms emphasize volume</p></div><div class="chip"><h4>Double inner shadow</h4><p>Light + dark &lt;code&gt;inset&lt;/code&gt; shadows make the clay texture</p></div><div class="chip"><h4>Large radius</h4><p>Generous &lt;code&gt;border-radius&lt;/code&gt; for soft silhouettes</p></div><div class="chip"><h4>Pastel &amp; lively</h4><p>Bright pastels paired with 3D icons</p></div></div>
+  <div class="chars"><div class="chip"><h4>Pixel / bitmap type</h4><p>Blocky, low-res lettering that mimics old game fonts</p></div><div class="chip"><h4>Hard edges</h4><p>No smoothing; crisp pixelated rendering throughout</p></div><div class="chip"><h4>Limited palette</h4><p>A few bold colors with high contrast</p></div><div class="chip"><h4>Chunky panels</h4><p>Thick pixel borders and dialog-box UI</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Friendly, playful mood — great for youthful/lifestyle brands</li><li>Strong depth makes elements easy to distinguish</li><li>Bright colors evoke joy and positivity</li><li>Blends naturally with 3D illustration and emoji</li><li>Higher contrast than neumorphism, so friendlier for a11y</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Playful tone doesn’t suit serious or professional services</li><li>Chunky forms eat space, lowering information density</li><li>Multiple shadows make CSS complex and can cost performance</li><li>Trend-driven — risk of looking dated quickly</li><li>Producing consistent 3D assets needs design resources</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Strong nostalgic, playful character</li><li>Very distinctive and memorable</li><li>Tiny assets — light and performant</li><li>Great fit for games and dev tools</li><li>Fun community and fan appeal</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Pixel fonts hurt legibility at small sizes</li><li>Accessibility and scaling challenges</li><li>Niche — appeals to a narrow audience</li><li>Hard to look “professional” or “serious”</li><li>Responsive / hi-dpi handling needs care</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Bright services for kids, education, games, playful fintech</li><li>Onboarding and illustration-led landing pages</li><li>Marketing using emoji / 3D icons</li><li>App-icon and illustration systems</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Finance, legal, B2B where trust/authority matters</li><li>Data- and table-heavy productivity screens</li><li>Minimal / luxury brand tones</li><li>Performance-sensitive low-end targets</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Indie games and game-adjacent products</li><li>Developer tools and hacker / retro brands</li><li>Playful campaigns and hobby projects</li><li>Communities that love the aesthetic</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Mainstream productivity or enterprise apps</li><li>Text-heavy, readability-first products</li><li>Accessibility-critical services</li><li>Brands needing a polished, modern tone</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
-  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
         <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
-        <div class="bar"><i style="width:40%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div><small>Pixel fonts are hard to read small — pair with a legible body font</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
         <div class="bar"><i style="width:100%"></i></div></div></div>
 </section>
 
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">
-        <div class="nm">Hype4 — Claymorphism article</div><div class="ds">The origin article that named it</div>
-        <span class="go">hype4.academy ↗</span></a><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">
-        <div class="nm">Dribbble — Claymorphism</div><div class="ds">Gallery of applied work</div>
-        <span class="go">dribbble.com ↗</span></a><a href="https://uxdesign.cc/" target="_blank" rel="noopener">
-        <div class="nm">UX Collective (Medium)</div><div class="ds">Trend analysis of claymorphism</div>
-        <span class="go">uxdesign.cc ↗</span></a></div>
+  <div class="ex"><a href="https://itch.io" target="_blank" rel="noopener">
+        <div class="nm">itch.io</div><div class="ds">Indie games hub steeped in pixel-art culture</div>
+        <span class="go">itch.io ↗</span></a><a href="https://nostalgic-css.github.io/NES.css/" target="_blank" rel="noopener">
+        <div class="nm">NES.css</div><div class="ds">A pixel UI framework styled after the NES</div>
+        <span class="go">nostalgic-css.github.io ↗</span></a><a href="https://en.wikipedia.org/wiki/Pixel_art" target="_blank" rel="noopener">
+        <div class="nm">Pixel art overview</div><div class="ds">Background on the pixel-art aesthetic and history</div>
+        <span class="go">en.wikipedia.org ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Claymorphism — Outsourcing brief (Upwork)</h3><ul><li>Key spec: large &lt;code&gt;border-radius&lt;/code&gt; + one outer drop shadow + two inner &lt;code&gt;inset&lt;/code&gt; shadows (light &amp; dark)</li><li>Give the dev a pastel palette and 3D icon assets (or a library)</li><li>Performance: cap shadow layers at 3–4 per component</li><li>Define radius/shadow values as design tokens for consistency</li><li>Require a separate dark-mode palette since pastels lose contrast</li></ul></div>
+  <div class="tip"><h3>Retro / Pixel — Outsourcing brief (Upwork)</h3><ul><li>Specify a licensed pixel font (e.g. “Press Start 2P”) plus a legible body-font fallback for long text</li><li>Require <code>image-rendering: pixelated</code> and integer scaling to avoid blur</li><li>Lock a small, fixed palette as <code>tokens</code> up front</li><li>Define chunky border / panel and blocky button specs precisely</li><li>Set minimum readable sizes and provide a non-pixel fallback for dense text (accessibility)</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">Hype4 Academy — Claymorphism in UI</a></li><li><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">Dribbble — Claymorphism</a></li><li><a href="https://uxdesign.cc/" target="_blank" rel="noopener">UX Collective</a></li></ul>
+  <ul class="src"><li><a href="https://nostalgic-css.github.io/NES.css/" target="_blank" rel="noopener">NES.css — NES-style CSS framework</a></li><li><a href="https://en.wikipedia.org/wiki/Pixel_art" target="_blank" rel="noopener">Wikipedia — Pixel art</a></li><li><a href="https://itch.io" target="_blank" rel="noopener">itch.io — indie game marketplace</a></li></ul>
 </section>
 
-<div class="nav"><a href="glassmorphism.html">← Glassmorphism<small>Prev</small></a><a class="r" href="minimalism.html">Minimalism →<small>Next</small></a></div>
+<div class="nav"><a href="memphis.html">← Memphis<small>Prev</small></a><a class="r" href="index.html">All styles →<small>&nbsp;</small></a></div>
 </div>
 </body>
 </html>
