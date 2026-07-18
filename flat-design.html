@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>01. Skeuomorphism — UI Style Guide</title>
+<title>11. Flat Design — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,79 +115,94 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.skeuomorphism-stage{background:radial-gradient(circle at 30% 15%,#3f8a4a,#2b5e34),#2b5e34}
-.sk-panel{display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:center}
-.sk-card{width:236px;background:linear-gradient(#fdfaf1,#efe6d0);border-radius:10px;padding:20px;
-  box-shadow:0 14px 26px rgba(0,0,0,.45),inset 0 1px 0 #fff;border:1px solid #d8cba8;position:relative;
-  font-family:Georgia,serif;color:#5a4a2a}
-.sk-card::before{content:"";position:absolute;inset:6px;border:1.5px dashed #cbb888;border-radius:6px;pointer-events:none}
-.sk-card h5{margin:0 0 8px;font-size:16px;color:#493a1d}
-.sk-card p{margin:0;font-size:12.5px;line-height:1.55;color:#7a6a45}
-.sk-btn{margin-top:16px;display:inline-block;padding:11px 20px;border-radius:9px;color:#fff;font-weight:700;
-  font-family:-apple-system,sans-serif;font-size:13px;cursor:pointer;background:linear-gradient(#7ec783,#3f9a4a);
-  border:1px solid #2f7d3a;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 4px 0 #2b6e33,0 9px 12px rgba(0,0,0,.32);transition:.08s}
-.sk-btn:active{transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 0 #2b6e33,0 3px 6px rgba(0,0,0,.3)}
-.sk-side{display:flex;flex-direction:column;gap:20px;align-items:center}
-.sk-switch{width:98px;height:46px;border-radius:999px;padding:4px;background:linear-gradient(#c6ccd3,#eef1f4);
-  box-shadow:inset 0 2px 6px rgba(0,0,0,.35),0 1px 0 #fff;display:flex;align-items:center;cursor:pointer}
-.sk-knob{width:38px;height:38px;border-radius:50%;margin-left:auto;background:radial-gradient(circle at 40% 30%,#fff,#c3c8cf);
-  box-shadow:0 2px 4px rgba(0,0,0,.45),inset 0 1px 0 #fff;transition:.22s}
-.sk-switch:hover .sk-knob{margin-left:0}
-.sk-badge{background:linear-gradient(#5a86ff,#3a5fd9);color:#fff}
+.flatdesign-stage{background:#ecf0f1}
+.fl-app{width:360px;background:#ffffff;border-radius:6px;overflow:hidden;
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#2c3e50}
+.fl-top{display:flex;align-items:center;gap:10px;background:#1abc9c;color:#fff;padding:14px 16px}
+.fl-dot2{width:14px;height:14px;border-radius:50%;background:#fff;opacity:.85}
+.fl-title{font-weight:700;font-size:15px;flex:1;letter-spacing:.01em}
+.fl-menu{font-size:18px;line-height:1}
+.fl-body{padding:16px}
+.fl-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fl-tile{border-radius:6px;padding:14px;color:#fff;display:flex;flex-direction:column;gap:1px;cursor:pointer;transition:.12s}
+.fl-tile:hover{filter:brightness(1.06)}
+.fl-tile .fl-ic{font-size:18px;margin-bottom:6px;line-height:1}
+.fl-tile b{font-size:14px}
+.fl-tile small{font-size:11px;opacity:.92}
+.fl-c1{background:#3498db}
+.fl-c2{background:#e74c3c}
+.fl-c3{background:#f1c40f;color:#2c3e50}
+.fl-c3 small{opacity:.75}
+.fl-c4{background:#9b59b6}
+.fl-row{display:flex;justify-content:space-between;align-items:center;margin:16px 2px 4px;font-size:14px}
+.fl-toggle{width:44px;height:24px;border-radius:999px;background:#bdc3c7;position:relative;transition:.2s;cursor:pointer;flex:none}
+.fl-toggle i{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.fl-toggle.fl-on{background:#2ecc71}
+.fl-toggle.fl-on i{left:23px}
+.fl-btn{margin-top:12px;width:100%;border:0;background:#1abc9c;color:#fff;font-weight:700;font-size:14px;
+  padding:13px;border-radius:6px;cursor:pointer;transition:.15s;letter-spacing:.02em}
+.fl-btn:hover{background:#16a085}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">01 / 11 · preview</span></div></div>
+<span class="pill">11 / 11 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">01</span> UI Design Style</span>
-  <h1 class="title">Skeuomorphism </h1>
-  <p class="tag">Design that imitates real-world objects — leather, metal and paper textures with 3D buttons make the screen feel touchable.</p>
-  <div class="meta"><span class="badge">Emerged: 2007–2013 (early iOS)</span><span class="badge">Mature · partial revival</span><span class="badge">Strong for native & onboarding</span></div>
+  <span class="kicker"><span class="num">11</span> UI Design Style</span>
+  <h1 class="title">Flat Design </h1>
+  <p class="tag">Strip away the 3D — no shadows, gradients or textures. Bold solid colors, crisp edges and simple shapes put clarity and speed first.</p>
+  <div class="meta"><span class="badge">Emerged: ~2012–2013 (Metro, iOS 7)</span><span class="badge">Mature · foundational</span><span class="badge">Basis of most modern UI in 2026</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Skeuomorphism represents digital elements as realistic imitations of physical objects. A calculator app looks like a real calculator, a notes app like a real notepad — so users can operate it intuitively without learning. It lost mainstream status when iOS 7 (2013) went flat, but it is seeing partial revival in onboarding, games and audio apps.</p>
+  <p class="def">Flat design is a minimalist visual style that removes skeuomorphic ornamentation — drop shadows, bevels, gradients and textures — in favor of two-dimensional, solid-color elements, simple geometric shapes and clean typography. Born as the reaction to skeuomorphism (Microsoft’s Metro, then Apple’s iOS 7 in 2013), it prioritizes clarity, fast loading and clean scaling across screens. “Flat 2.0” later reintroduced subtle shadows and depth to restore clickability cues.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering the tiles and button.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Skeuomorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage skeuomorphism-stage"><div class="sk-panel">
-  <div class="sk-card"><h5>📓 Field Notes</h5><p>Stitched edges, glossy buttons, paper grain — the UI imitates the real object it replaces.</p>
-  <span class="sk-btn">● Record</span></div>
-  <div class="sk-side"><div class="sk-switch"><div class="sk-knob"></div></div>
-  <span class="sk-btn sk-badge">Save</span></div>
+    <span style="margin-left:8px">Flat Design · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage flatdesign-stage"><div class="fl-app">
+  <div class="fl-top"><span class="fl-dot2"></span><span class="fl-title">Flat UI</span><span class="fl-menu">≡</span></div>
+  <div class="fl-body">
+    <div class="fl-tiles">
+      <div class="fl-tile fl-c1"><span class="fl-ic">✓</span><b>Tasks</b><small>12 done</small></div>
+      <div class="fl-tile fl-c2"><span class="fl-ic">◷</span><b>Focus</b><small>25 min</small></div>
+      <div class="fl-tile fl-c3"><span class="fl-ic">✎</span><b>Notes</b><small>3 new</small></div>
+      <div class="fl-tile fl-c4"><span class="fl-ic">★</span><b>Goals</b><small>this week</small></div>
+    </div>
+    <div class="fl-row"><span>Notifications</span><span class="fl-toggle fl-on"><i></i></span></div>
+    <button class="fl-btn">Get started</button>
+  </div>
 </div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Realistic textures</h4><p>Leather, wood, metal, paper recreated with gradients and noise</p></div><div class="chip"><h4>3D buttons</h4><p>Bevels, highlights and shadows depict physical, pressable controls</p></div><div class="chip"><h4>Real-world metaphor</h4><p>The shape and behavior of real objects mapped onto the UI</p></div><div class="chip"><h4>Rich detail</h4><p>Stitching, specular reflections and seams rendered meticulously</p></div></div>
+  <div class="chars"><div class="chip"><h4>No depth effects</h4><p>No shadows, bevels or gradients — elements are purely 2D</p></div><div class="chip"><h4>Bold solid color</h4><p>Bright, confident color blocks and a clear, limited palette</p></div><div class="chip"><h4>Simple geometry</h4><p>Clean shapes, crisp edges and flat, iconographic graphics</p></div><div class="chip"><h4>Clarity-first</h4><p>Legible type and strong hierarchy carry the whole UI</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Mimicking real objects makes usage intuitive (low learning curve)</li><li>Especially friendly to non-tech-savvy and older users</li><li>Delivers tactile, emotional satisfaction and a premium impression</li><li>Affordances (‘this can be pressed’) are unmistakable</li><li>Great vehicle for brand personality and storytelling</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Heavy and space-hungry, lowering information density</li><li>Many high-res assets create load-time and file-size overhead</li><li>Dated metaphors look old-fashioned (e.g. floppy-disk save icon)</li><li>Harder to make responsive across many screen sizes</li><li>Costly in graphic resources and production time</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Fast to load and render — no heavy textures or effects</li><li>Scales crisply across screen sizes and resolutions</li><li>Clean, uncluttered and easy to scan</li><li>Simple and cheap to build and maintain</li><li>Pairs naturally with responsive / mobile-first design</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Weak affordances — flat buttons can fail to look clickable</li><li>Can look generic; easy to resemble countless other flat apps</li><li>Leans hard on color + type, with little texture personality</li><li>Over-flattening hurts discoverability of interactive elements</li><li>“Pure flat” can feel dated next to depth-aware styles</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>First-run onboarding and tutorials</li><li>Apps centered on physical controls (instruments, audio, photo tools)</li><li>Products for kids or seniors</li><li>Landing pages emphasizing brand warmth and premium feel</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Information-dense dashboards and productivity tools</li><li>Services where fast, lightweight loading is critical</li><li>Large responsive web apps where fluidity is priority</li><li>Minimal, modern brand tones</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Content and utility apps where clarity and speed matter</li><li>Mobile-first and responsive products</li><li>Large systems needing a consistent, low-cost visual language</li><li>Dashboards, SaaS and productivity tools</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>The brand needs rich, tactile or premium texture</li><li>Interactive elements must be unmistakably obvious (use Flat 2.0)</li><li>You want strong visual differentiation from competitors</li><li>Depth and hierarchy are central to the experience</li></ul></div>
   </div>
 </section>
 
@@ -195,36 +210,36 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
   <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>5/5</span></div>
-        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>2/5</span></div>
-        <div class="bar"><i style="width:40%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>4/5</span></div>
-        <div class="bar"><i style="width:80%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>4/5</span></div>
-        <div class="bar"><i style="width:80%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div><small>Add clear state signifiers to protect clickability</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>1/5</span></div>
+        <div class="bar"><i style="width:20%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
         <div class="bar"><i style="width:100%"></i></div></div></div>
 </section>
 
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://www.interaction-design.org/literature/topics/skeuomorphism" target="_blank" rel="noopener">
-        <div class="nm">Interaction Design Foundation</div><div class="ds">Concept &amp; history reference (academic)</div>
-        <span class="go">www.interaction-design.org ↗</span></a><a href="https://en.wikipedia.org/wiki/Skeuomorph" target="_blank" rel="noopener">
-        <div class="nm">Wikipedia — Skeuomorph</div><div class="ds">Definition and archive of canonical examples</div>
-        <span class="go">en.wikipedia.org ↗</span></a><a href="https://www.nngroup.com/articles/flat-design/" target="_blank" rel="noopener">
-        <div class="nm">NN/g — Flat vs. Skeuomorphic</div><div class="ds">Analysis of affordance loss after the flat shift</div>
+  <div class="ex"><a href="https://www.microsoft.com" target="_blank" rel="noopener">
+        <div class="nm">Microsoft (Metro → Fluent)</div><div class="ds">The origin of modern flat design</div>
+        <span class="go">www.microsoft.com ↗</span></a><a href="https://m3.material.io" target="_blank" rel="noopener">
+        <div class="nm">Google Material Design</div><div class="ds">Flat foundations with purposeful depth</div>
+        <span class="go">m3.material.io ↗</span></a><a href="https://www.nngroup.com/articles/flat-design/" target="_blank" rel="noopener">
+        <div class="nm">NN/g — Flat Design & Its Problems</div><div class="ds">The key usability critique of pure flat</div>
         <span class="go">www.nngroup.com ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Skeuomorphism — Outsourcing brief (Upwork)</h3><ul><li>Explicitly brief the dev as ‘photorealistic / skeuomorphic UI’ and share reference images</li><li>Decide up front: textures via CSS gradients/&lt;code&gt;box-shadow&lt;/code&gt;/SVG vs. raster assets (big size difference)</li><li>Require high-res &lt;code&gt;@2x/@3x&lt;/code&gt; assets and confirm dark-mode handling</li><li>Recommend ‘partial’ skeuomorphism (only key buttons/icons realistic) to balance performance and feel</li><li>Accessibility: make WCAG AA 4.5:1 contrast of text over textures a contract requirement</li></ul></div>
+  <div class="tip"><h3>Flat Design — Outsourcing brief (Upwork)</h3><ul><li>Deliver a flat color palette and a type scale as <code>tokens</code> up front</li><li>Explicitly forbid gradients, drop-shadows and skeuomorphic textures unless agreed “Flat 2.0” cues are in scope</li><li>Require visible interactive states (<code>hover</code>/<code>focus</code>/<code>active</code>) so buttons read as clickable</li><li>Make WCAG AA contrast an acceptance criterion — flat leans heavily on color</li><li>Ship icons as one consistent flat SVG set, delivered as a reusable library</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://www.interaction-design.org/literature/topics/skeuomorphism" target="_blank" rel="noopener">Interaction Design Foundation — Skeuomorphism</a></li><li><a href="https://www.nngroup.com/articles/flat-design/" target="_blank" rel="noopener">Nielsen Norman Group — Flat Design</a></li><li><a href="https://en.wikipedia.org/wiki/Skeuomorph" target="_blank" rel="noopener">Wikipedia — Skeuomorph</a></li></ul>
+  <ul class="src"><li><a href="https://www.nngroup.com/articles/flat-design/" target="_blank" rel="noopener">Nielsen Norman Group — Flat Design: Its Origins, Its Problems, and Why Flat 2.0 Is Better</a></li><li><a href="https://www.interaction-design.org/literature/topics/flat-design" target="_blank" rel="noopener">Interaction Design Foundation — Flat Design</a></li><li><a href="https://m3.material.io" target="_blank" rel="noopener">Google Material Design</a></li></ul>
 </section>
 
-<div class="nav"><a href="index.html">← All styles<small>&nbsp;</small></a><a class="r" href="neumorphism.html">Neumorphism →<small>Next</small></a></div>
+<div class="nav"><a href="spatial-ui.html">← Spatial UI<small>Prev</small></a><a class="r" href="index.html">All styles →<small>&nbsp;</small></a></div>
 </div>
 </body>
 </html>

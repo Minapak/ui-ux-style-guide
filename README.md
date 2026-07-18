@@ -1,6 +1,6 @@
 # UI Design Styles — A Quick Reference Guide
 
-A neutral, at-a-glance reference to **10 common UI design styles**, built to share with
+A neutral, at-a-glance reference to **11 common UI design styles**, built to share with
 clients who don't yet have a UI/UX guide. Each style page includes a **live demo rendered
 with real CSS** (not a screenshot), honest **pros & cons**, real-world examples, neutral
 0–5 metrics, and a short note on when to use it.
@@ -19,7 +19,7 @@ https://minapak.github.io/ui-ux-style-guide/
 
 Open `index.html` to start.
 
-## 🎨 The 10 styles
+## 🎨 The styles
 
 | # | Style | One-line summary |
 |---|-------|------------------|
@@ -33,6 +33,7 @@ Open `index.html` to start.
 | 08 | [Liquid Glass](liquid-glass.html) | Apple's 2025 material — reflects/refracts like glass while flowing like liquid. |
 | 09 | [Bento Grid](bento-grid.html) | Modular grid of differently-sized cells, like a Japanese bento box. |
 | 10 | [Spatial UI](spatial-ui.html) | Interface placed in 3D depth — the language of spatial computing (visionOS). |
+| 11 | [Flat Design](flat-design.html) | No shadows, gradients or textures — bold solid color and simple shapes. The reaction to skeuomorphism. |
 
 Each page also carries an **outsourcing brief**: what to specify to a developer and which
 accessibility / performance conditions to put in the contract.

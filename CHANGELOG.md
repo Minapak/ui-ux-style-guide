@@ -7,6 +7,18 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
 - _Add new styles and changes here before publishing._
 
+## [1.1.0] — 2026-07-19
+
+### Added
+- **Flat Design** style page (`flat-design.html`) as #11 — live CSS demo, pros & cons,
+  0–5 metrics, real-world examples (Microsoft Metro/Fluent, Material, NN/g critique), and
+  an outsourcing brief.
+- Flat Design card + comparison-table row on `index.html`.
+
+### Changed
+- Bumped all page counts from `/10` to `/11` and the index title/hero to 11 styles.
+- Wired Spatial UI's "Next" nav to Flat Design.
+
 ## [1.0.0] — 2026-07-13
 
 ### Added

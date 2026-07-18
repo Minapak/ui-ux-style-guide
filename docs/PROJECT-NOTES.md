@@ -15,9 +15,9 @@ neutral 0–5 metrics, and an outsourcing brief.
 - **Tone:** neutral. No style is "best" — the right choice depends on the project.
 - **Tech:** self-contained HTML with inline CSS/JS. No build step, no dependencies.
 
-## Current contents (as of 2026-07-13)
+## Current contents (as of 2026-07-19)
 
-10 style pages, linked from `index.html`:
+11 style pages, linked from `index.html`:
 
 | # | Style | File |
 |---|-------|------|
@@ -31,6 +31,7 @@ neutral 0–5 metrics, and an outsourcing brief.
 | 08 | Liquid Glass | `liquid-glass.html` |
 | 09 | Bento Grid | `bento-grid.html` |
 | 10 | Spatial UI | `spatial-ui.html` |
+| 11 | Flat Design | `flat-design.html` |
 
 Supporting files: `index.html` (landing + full grid), `README.md`, `LICENSE` (MIT),
 `.nojekyll` (so GitHub Pages serves files as-is).
@@ -51,7 +52,8 @@ Supporting files: `index.html` (landing + full grid), `README.md`, `LICENSE` (MI
 
 ## Roadmap / ideas for later
 
-- [ ] Candidate styles to add: Flat Design, Material 3 / Material You, Swiss / International
+- [x] Flat Design — added 2026-07-19 as #11 (`flat-design.html`).
+- [ ] Candidate styles to add: Material 3 / Material You, Swiss / International
       Typographic, Y2K / Frutiger Aero, Dark Mode patterns, Retro / Pixel, Memphis.
 - [ ] Optional: a shared print/PDF export for handing the whole guide to a client offline.
 - [ ] Optional: light-theme toggle.
@@ -73,3 +75,5 @@ the page itself so clients can verify.
 
 - **2026-07-13** — Initial project notes created; 10 styles catalogued; repo published to
   GitHub under `Minapak`.
+- **2026-07-19** — Added Flat Design as style #11; bumped all page counts to /11 and wired
+  Spatial UI → Flat Design nav.
