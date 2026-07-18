@@ -7,6 +7,18 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
 - _Add new styles and changes here before publishing._
 
+## [1.3.0] — 2026-07-19
+
+### Added
+- **Fluent Design** (`fluent.html`, #20) and **iOS / Apple HIG** (`ios-hig.html`, #21),
+  each with a bespoke live CSS demo (Windows 11 acrylic panel; iOS grouped-inset Settings
+  screen), pros & cons, 0–5 metrics, real examples and an outsourcing brief. Added their
+  cards, comparison-table rows and mini-demo CSS to `index.html`.
+
+### Changed
+- Bumped all page counts from `/19` to `/21`; index title/hero now read 21 styles.
+- Chained "Next/Prev" nav to include the two new pages (Retro/Pixel → Fluent → iOS → index).
+
 ## [1.2.0] — 2026-07-19
 
 ### Added

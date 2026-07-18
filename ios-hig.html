@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>18. Memphis Design — UI Style Guide</title>
+<title>21. iOS (Human Interface Guidelines) — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,92 +115,67 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.memphis-stage{background:#2b2b3a}
-.mp-scene{position:relative;width:360px;height:248px;background:#fdf6ec;border-radius:10px;
-  overflow:hidden;border:3px solid #1a1a1a;
-  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-/* polka dot field */
-.mp-dots{position:absolute;top:0;left:0;width:120px;height:120px;
-  background-image:radial-gradient(#ff5c8a 26%,transparent 27%);
-  background-size:22px 22px;background-position:6px 6px;opacity:.9}
-/* zigzag strip bottom */
-.mp-zig{position:absolute;left:0;bottom:0;width:100%;height:20px;
-  background:linear-gradient(-45deg,#16c2c2 25%,transparent 25%) 0 0/16px 20px,
-            linear-gradient(45deg,#16c2c2 25%,transparent 25%) 0 0/16px 20px;
-  background-color:transparent}
-/* teal triangle */
-.mp-tri{position:absolute;top:14px;right:20px;width:0;height:0;
-  border-left:24px solid transparent;border-right:24px solid transparent;
-  border-bottom:42px solid #16c2c2;transform:rotate(15deg)}
-/* yellow squiggle */
-.mp-squig{position:absolute;bottom:34px;left:16px;width:70px;height:22px;
-  border:5px solid #ffd23f;border-top:none;border-bottom:none;
-  border-radius:0 0 40px 40px/0 0 26px 26px;
-  box-shadow:22px -22px 0 -5px #ffd23f}
-/* black plus */
-.mp-plus{position:absolute;top:120px;right:26px;width:30px;height:30px}
-.mp-plus::before,.mp-plus::after{content:"";position:absolute;background:#1a1a1a}
-.mp-plus::before{left:12px;top:0;width:6px;height:30px}
-.mp-plus::after{top:12px;left:0;width:30px;height:6px}
-/* small pink circle outline */
-.mp-ring{position:absolute;bottom:44px;right:16px;width:34px;height:34px;
-  border-radius:50%;border:5px solid #ff5c8a}
-/* yellow dot */
-.mp-blob{position:absolute;top:96px;left:8px;width:26px;height:26px;border-radius:50%;background:#ffd23f}
-/* center card */
-.mp-card{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:216px;background:#ffffff;border:3px solid #1a1a1a;border-radius:8px;
-  box-shadow:7px 7px 0 #1a1a1a;padding:18px 18px 16px;text-align:center;z-index:5}
-.mp-tape{position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-4deg);
-  background:#16c2c2;color:#fff;font-size:10px;font-weight:800;letter-spacing:.12em;
-  padding:3px 12px;border:2px solid #1a1a1a;border-radius:4px}
-.mp-h{margin:6px 0 4px;font-size:22px;font-weight:900;color:#1a1a1a;line-height:1.05;letter-spacing:-.01em}
-.mp-h em{font-style:normal;color:#ff5c8a}
-.mp-p{margin:0 0 12px;font-size:12px;color:#444;line-height:1.4}
-.mp-btn{border:2px solid #1a1a1a;background:#ffd23f;color:#1a1a1a;font-weight:800;
-  font-size:13px;padding:9px 20px;border-radius:6px;cursor:pointer;
-  box-shadow:3px 3px 0 #1a1a1a;transition:.12s;letter-spacing:.02em}
-.mp-btn:hover{background:#ff5c8a;color:#fff;transform:translate(-1px,-1px);box-shadow:4px 4px 0 #1a1a1a}
-.mp-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1a1a1a}
+.ioshig-stage{background:#f2f2f7}
+.io-app{width:340px;background:#f2f2f7;border-radius:14px;overflow:hidden;padding:14px 0 18px;
+  font-family:-apple-system,"SF Pro Text","SF Pro Display",BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:#000;-webkit-font-smoothing:antialiased}
+.io-nav{padding:2px 18px 10px}
+.io-nav .io-large{font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.1;color:#000}
+.io-seg{display:flex;margin:2px 16px 14px;background:#e3e3e8;border-radius:9px;padding:2px}
+.io-seg span{flex:1;text-align:center;font-size:12.5px;font-weight:500;color:#000;padding:5px 0;border-radius:7px}
+.io-seg span.io-sel{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);font-weight:600}
+.io-group{background:#fff;border-radius:11px;margin:0 16px 20px;overflow:hidden}
+.io-row{display:flex;align-items:center;gap:12px;padding:11px 14px;position:relative;min-height:44px}
+.io-row + .io-row::before{content:"";position:absolute;top:0;left:46px;right:0;height:1px;background:#e5e5ea}
+.io-ic{width:28px;height:28px;border-radius:7px;flex:none;display:grid;place-items:center;color:#fff;font-size:15px;line-height:1}
+.io-ic.io-b1{background:#34C759}.io-ic.io-b2{background:#007AFF}.io-ic.io-b3{background:#FF9500}
+.io-ic.io-b4{background:#FF3B30}.io-ic.io-b5{background:#8E8E93}.io-ic.io-b6{background:#AF52DE}
+.io-label{flex:1;font-size:15px;color:#000}
+.io-val{font-size:15px;color:#8e8e93}
+.io-chev{color:#c4c4c6;font-size:17px;font-weight:600;margin-left:2px;line-height:1}
+.io-link{color:#007AFF}
+.io-sw{width:44px;height:26px;border-radius:999px;background:#34C759;position:relative;flex:none}
+.io-sw i{position:absolute;top:2px;left:20px;width:22px;height:22px;border-radius:50%;background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.io-sw.io-off{background:#e5e5ea}.io-sw.io-off i{left:2px}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">18 / 21 · preview</span></div></div>
+<span class="pill">21 / 21 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">18</span> UI Design Style</span>
-  <h1 class="title">Memphis Design </h1>
-  <p class="tag">Playful 80s rebellion — clashing colors, squiggles, zigzags, polka dots and geometric confetti arranged with joyful, deliberate chaos.</p>
-  <div class="meta"><span class="badge">Origin: 1981 (Memphis Group, Milan)</span><span class="badge">Retro · recognizable</span><span class="badge">Used in branding & illustration</span></div>
+  <span class="kicker"><span class="num">21</span> UI Design Style</span>
+  <h1 class="title">iOS Design <span class="en">Apple HIG</span></h1>
+  <p class="tag">Apple's platform conventions — clarity, deference and depth. Legible SF typography, translucency and vibrancy, large titles, grouped inset lists and familiar system controls.</p>
+  <div class="meta"><span class="badge">Guidelines: Apple HIG (ongoing)</span><span class="badge">Mature · platform standard</span><span class="badge">Native language of iPhone & iPad</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Memphis design is the 1981 Milan movement led by Ettore Sottsass (the Memphis Group) that rejected “good taste” minimalism with bright clashing colors, bold geometric shapes, squiggles (“bacterio”), zigzags, polka dots and terrazzo patterns. In digital design it appears as playful decorative graphics — scattered geometric confetti behind clean UI — common in branding, illustration and youthful products.</p>
+  <p class="def">"iOS style" isn't an invented look — it means following Apple's Human Interface Guidelines (HIG), the conventions and components of iPhone and iPad. Its three themes are Clarity, Deference and Depth: content comes first while the UI recedes; legible San Francisco (SF) typography scales with Dynamic Type; and translucency, vibrancy and blur convey layering. Expect large navigation titles, grouped inset lists, standard controls (switches, segmented controls, tab bars, sheets), generous 44pt touch targets, semantic system colors that adapt to light and dark, and respect for safe areas. It is delivered natively through UIKit and SwiftUI.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering the button.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. A grouped iOS Settings fragment with a large title, inset lists and system controls.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Memphis Design · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage memphis-stage"><div class="mp-scene">
-  <div class="mp-dots"></div>
-  <div class="mp-zig"></div>
-  <div class="mp-tri"></div>
-  <div class="mp-squig"></div>
-  <div class="mp-plus"></div>
-  <div class="mp-ring"></div>
-  <div class="mp-blob"></div>
-  <div class="mp-card">
-    <span class="mp-tape">NEW DROP</span>
-    <h2 class="mp-h">Say <em>hello</em> loud</h2>
-    <p class="mp-p">Bold shapes, brighter energy. A little chaos, on purpose.</p>
-    <button class="mp-btn">Get funky →</button>
+    <span style="margin-left:8px">iOS (Apple HIG) · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage ioshig-stage"><div class="io-app">
+  <div class="io-nav"><div class="io-large">Settings</div></div>
+  <div class="io-seg"><span class="io-sel">All</span><span>Phone</span><span>Watch</span></div>
+  <div class="io-group">
+    <div class="io-row"><span class="io-ic io-b1">✈</span><span class="io-label">Airplane Mode</span><span class="io-sw io-off"><i></i></span></div>
+    <div class="io-row"><span class="io-ic io-b2">Wi</span><span class="io-label">Wi-Fi</span><span class="io-val">Home</span><span class="io-chev">›</span></div>
+    <div class="io-row"><span class="io-ic io-b6">✦</span><span class="io-label">Bluetooth</span><span class="io-val">On</span><span class="io-chev">›</span></div>
+  </div>
+  <div class="io-group">
+    <div class="io-row"><span class="io-ic io-b4">🔔</span><span class="io-label">Notifications</span><span class="io-sw"><i></i></span></div>
+    <div class="io-row"><span class="io-ic io-b3">☀</span><span class="io-label">Display & Brightness</span><span class="io-chev">›</span></div>
+    <div class="io-row"><span class="io-label io-link">Reset All Settings</span></div>
   </div>
 </div></div>
   </div>
@@ -208,33 +183,33 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Geometric confetti</h4><p>Squiggles, zigzags, triangles and dots scattered across the canvas</p></div><div class="chip"><h4>Clashing bright color</h4><p>Bold, anti-minimal palettes that deliberately fight for attention</p></div><div class="chip"><h4>Playful pattern</h4><p>Terrazzo, stripes and grids layered for texture and fun</p></div><div class="chip"><h4>Decorative energy</h4><p>Fun over restraint — expression valued above quiet order</p></div></div>
+  <div class="chars"><div class="chip"><h4>Clarity & deference</h4><p>Content comes first and the UI quietly recedes</p></div><div class="chip"><h4>SF typography & Dynamic Type</h4><p>Legible San Francisco text that users can scale</p></div><div class="chip"><h4>Standard components</h4><p>Grouped lists, tab bars, switches and sheets</p></div><div class="chip"><h4>Depth & vibrancy</h4><p>Translucent blur and layering convey hierarchy</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Fun, energetic and highly memorable</li><li>Builds a strong, youthful brand personality</li><li>Flexible decorative system that scales across assets</li><li>Stands out sharply from minimal competitors</li><li>Pairs with clean UI as an accent layer</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Busy — decoration can overwhelm the content</li><li>Clashing colors risk contrast and readability issues</li><li>Polarizing and can quickly feel dated</li><li>Hard to keep tasteful and consistent at scale</li><li>Wrong tone for serious or enterprise products</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Instantly familiar to the billions of iPhone users</li><li>Excellent built-in accessibility — Dynamic Type, VoiceOver, contrast</li><li>High polish for less effort via UIKit / SwiftUI</li><li>Consistent and trustworthy — behaves the way users expect</li><li>Adapts automatically to light/dark and every screen size</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>iOS-specific — conventions differ from Android and the Web</li><li>Little room for brand differentiation</li><li>You must follow Apple's rules to pass App Review</li><li>Faithfully reproducing it on the web is extra work</li><li>Can feel generic or "stock" without careful craft</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Youth, creative, events and food & lifestyle brands</li><li>Playful marketing and illustration work</li><li>Brand systems that want decorative flair</li><li>Social-first content that needs to pop</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Enterprise, finance or health products</li><li>Dense functional or data-heavy UIs</li><li>Accessibility-critical text sitting over patterns</li><li>Minimalist or luxury brand positioning</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Native iOS / iPadOS apps</li><li>Products prioritizing a platform-native feel</li><li>Accessibility-first apps</li><li>Teams building with SwiftUI / UIKit</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Cross-platform apps needing one shared identity</li><li>Strongly branded, custom-designed UIs</li><li>Android-first products</li><li>Web apps where iOS conventions would confuse users</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
-  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div><small>Keep decoration away from text; check contrast over patterns</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
         <div class="bar"><i style="width:60%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
         <div class="bar"><i style="width:100%"></i></div></div></div>
 </section>
@@ -242,26 +217,26 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://en.wikipedia.org/wiki/Memphis_Group" target="_blank" rel="noopener">
-        <div class="nm">Memphis Group</div><div class="ds">The 1981 Milan collective that launched the style</div>
-        <span class="go">en.wikipedia.org ↗</span></a><a href="https://en.wikipedia.org/wiki/Ettore_Sottsass" target="_blank" rel="noopener">
-        <div class="nm">Ettore Sottsass</div><div class="ds">Founder and leading figure of the movement</div>
-        <span class="go">en.wikipedia.org ↗</span></a><a href="https://www.interaction-design.org/literature" target="_blank" rel="noopener">
-        <div class="nm">Interaction Design Foundation</div><div class="ds">Design history reference and background reading</div>
-        <span class="go">www.interaction-design.org ↗</span></a></div>
+  <div class="ex"><a href="https://developer.apple.com/design/human-interface-guidelines" target="_blank" rel="noopener">
+        <div class="nm">Apple Human Interface Guidelines</div><div class="ds">The canonical source for iOS design conventions</div>
+        <span class="go">developer.apple.com ↗</span></a><a href="https://developer.apple.com/design/human-interface-guidelines/designing-for-ios" target="_blank" rel="noopener">
+        <div class="nm">Designing for iOS</div><div class="ds">Platform-specific guidance for iPhone & iPad</div>
+        <span class="go">developer.apple.com ↗</span></a><a href="https://developer.apple.com/xcode/swiftui/" target="_blank" rel="noopener">
+        <div class="nm">SwiftUI</div><div class="ds">Apple's framework for building native HIG UIs</div>
+        <span class="go">developer.apple.com ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Memphis Design — Outsourcing brief (Upwork)</h3><ul><li>Deliver a shape/pattern library (squiggle, zigzag, dot, triangle) and a bright palette as reusable <code>tokens</code>/SVGs</li><li>Keep decoration as a background layer, never behind body text (contrast)</li><li>Define spacing rules so it reads intentional, not messy</li><li>Provide reduced / plain variants for dense screens</li><li>Set AA contrast checks for any text near patterns</li></ul></div>
+  <div class="tip"><h3>iOS (Apple HIG) — Outsourcing brief (Upwork)</h3><ul><li>Build with <code>SwiftUI</code> / <code>UIKit</code> natively, or a faithful iOS-styled system on the web</li><li>Use system fonts (<code>-apple-system</code> / SF Pro) and support Dynamic Type</li><li>Use standard components and a <code>44pt</code> minimum touch target</li><li>Support light / dark through semantic system colors</li><li>Respect safe areas and HIG spacing, and follow the current HIG so it passes App Review</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://en.wikipedia.org/wiki/Memphis_Group" target="_blank" rel="noopener">Memphis Group — Wikipedia</a></li><li><a href="https://en.wikipedia.org/wiki/Ettore_Sottsass" target="_blank" rel="noopener">Ettore Sottsass — Wikipedia</a></li><li><a href="https://www.interaction-design.org/literature" target="_blank" rel="noopener">Interaction Design Foundation — Design history literature</a></li></ul>
+  <ul class="src"><li><a href="https://developer.apple.com/design/human-interface-guidelines" target="_blank" rel="noopener">Apple — Human Interface Guidelines</a></li><li><a href="https://developer.apple.com/design/human-interface-guidelines/designing-for-ios" target="_blank" rel="noopener">Apple — Designing for iOS</a></li><li><a href="https://developer.apple.com/design/human-interface-guidelines/accessibility" target="_blank" rel="noopener">Apple — Accessibility (Human Interface Guidelines)</a></li></ul>
 </section>
 
-<div class="nav"><a href="y2k-frutiger-aero.html">← Y2K / Frutiger Aero<small>Prev</small></a><a class="r" href="retro-pixel.html">Retro / Pixel →<small>Next</small></a></div>
+<div class="nav"><a href="fluent.html">← Fluent Design<small>Prev</small></a><a class="r" href="index.html">All styles →<small>&nbsp;</small></a></div>
 </div>
 </body>
 </html>

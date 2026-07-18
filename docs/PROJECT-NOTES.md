@@ -17,7 +17,7 @@ neutral 0–5 metrics, and an outsourcing brief.
 
 ## Current contents (as of 2026-07-19)
 
-19 style pages, linked from `index.html`:
+21 style pages, linked from `index.html`:
 
 | # | Style | File |
 |---|-------|------|
@@ -40,6 +40,8 @@ neutral 0–5 metrics, and an outsourcing brief.
 | 17 | Y2K / Frutiger Aero | `y2k-frutiger-aero.html` |
 | 18 | Memphis | `memphis.html` |
 | 19 | Retro / Pixel | `retro-pixel.html` |
+| 20 | Fluent Design | `fluent.html` |
+| 21 | iOS (Apple HIG) | `ios-hig.html` |
 
 Supporting files: `index.html` (landing + full grid), `README.md`, `LICENSE` (MIT),
 `.nojekyll` (so GitHub Pages serves files as-is).
@@ -63,8 +65,9 @@ Supporting files: `index.html` (landing + full grid), `README.md`, `LICENSE` (MI
 - [x] Flat Design — added 2026-07-19 as #11 (`flat-design.html`).
 - [x] Batch added 2026-07-19 as #12–#19: Material Design 3, Neo-Brutalism, Swiss Style,
       Dark Mode UI, Aurora / Mesh Gradient, Y2K / Frutiger Aero, Memphis, Retro / Pixel.
-- [ ] Candidate styles still to add: Fluent (Microsoft), iOS / Apple HIG, Corporate
-      Memphis / flat illustration, Duotone, Kinetic typography / motion UI, Vaporwave.
+- [x] Fluent Design & iOS (Apple HIG) — added 2026-07-19 as #20 and #21.
+- [ ] Candidate styles still to add: Material 2 / classic Material, Corporate Memphis /
+      flat illustration, Duotone, Kinetic typography / motion UI, Vaporwave, Cyberpunk / HUD.
 - [ ] Optional: a shared print/PDF export for handing the whole guide to a client offline.
 - [ ] Optional: light-theme toggle.
 - [ ] Optional: per-style "starter CSS" download button.
@@ -91,3 +94,5 @@ the page itself so clients can verify.
   Style, Dark Mode UI, Aurora Gradient, Y2K / Frutiger Aero, Memphis, Retro / Pixel).
   Bumped all page counts to /19, chained nav Flat Design → … → Retro/Pixel → index, and
   added their cards, comparison rows and mini-demo CSS to `index.html`.
+- **2026-07-19** — Added Fluent Design (#20) and iOS / Apple HIG (#21). Bumped all counts
+  to /21, chained Retro/Pixel → Fluent → iOS → index, added their cards, rows and demo CSS.

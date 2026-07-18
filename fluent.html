@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>20. Fluent Design — UI Style Guide</title>
+<style>
+:root{
+  --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
+  --ink:#eef2f9; --mut:#9aa7bd; --sub:#c3ccdd;
+  --acc:#6ea8ff; --acc2:#9d7bff; --good:#3ecf8e; --bad:#ff6b6b; --warn:#ffb454;
+  --rad:16px; --mw:1060px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,#1b2438 0,transparent 60%),var(--bg);
+  color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(13,16,23,.72);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.topbar .home{font-weight:600;color:var(--sub);font-size:14px}
+.topbar .pill{font-size:12px;color:var(--mut);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+header.hero{padding:52px 0 26px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);
+  border:1px solid var(--line);padding:5px 12px;border-radius:999px;margin-bottom:18px}
+.num{font-weight:800;font-size:13px;color:#0d1017;background:linear-gradient(120deg,var(--acc),var(--acc2));
+  width:24px;height:24px;border-radius:7px;display:grid;place-items:center;margin-right:2px}
+h1.title{font-size:clamp(32px,6vw,52px);line-height:1.08;margin:6px 0 10px;letter-spacing:-.02em}
+.title .en{color:var(--mut);font-weight:600;font-size:.5em;letter-spacing:0}
+.tag{font-size:clamp(16px,2.4vw,20px);color:var(--sub);max-width:760px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.badge{font-size:12.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
+  padding:6px 12px;border-radius:999px}
+.badge b{color:var(--ink)}
+section{padding:30px 0;border-top:1px solid var(--line)}
+h2{font-size:22px;margin:0 0 4px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;
+  background:var(--bg2);border:1px solid var(--line)}
+.lead{color:var(--mut);margin:0 0 20px;font-size:15px}
+.def{font-size:17.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
+  border-left:3px solid var(--acc);padding:18px 20px;border-radius:12px}
+/* demo stage */
+.stagewrap{border:1px solid var(--line);border-radius:var(--rad);overflow:hidden;background:var(--bg2)}
+.stagebar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);
+  font-size:12px;color:var(--mut);background:rgba(255,255,255,.02)}
+.dot{width:10px;height:10px;border-radius:50%}
+.stagebar .live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--good)}
+.stagebar .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 0 rgba(62,207,142,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,207,142,.55)}70%{box-shadow:0 0 0 8px rgba(62,207,142,0)}100%{box-shadow:0 0 0 0 rgba(62,207,142,0)}}
+.stage{min-height:320px;display:grid;place-items:center;padding:38px 22px}
+/* characteristics */
+.chars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.chip h4{margin:0 0 4px;font-size:14.5px}
+.chip p{margin:0;font-size:13.5px;color:var(--mut)}
+/* pros cons */
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.col{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--card)}
+.col.pro{border-top:3px solid var(--good)}
+.col.con{border-top:3px solid var(--bad)}
+.col h3{margin:0 0 12px;font-size:15px;display:flex;align-items:center;gap:8px}
+.col ul{margin:0;padding:0;list-style:none}
+.col li{position:relative;padding:7px 0 7px 26px;font-size:14px;color:var(--sub);border-bottom:1px dashed var(--line)}
+.col li:last-child{border-bottom:0}
+.col.pro li::before{content:"＋";position:absolute;left:2px;color:var(--good);font-weight:700}
+.col.con li::before{content:"－";position:absolute;left:2px;color:var(--bad);font-weight:700}
+/* usecase */
+.use{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.use .box{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--card)}
+.use .box.yes{background:linear-gradient(180deg,rgba(62,207,142,.06),transparent)}
+.use .box.no{background:linear-gradient(180deg,rgba(255,107,107,.06),transparent)}
+.use h3{margin:0 0 10px;font-size:15px}
+.use ul{margin:0;padding-left:18px}
+.use li{font-size:14px;color:var(--sub);margin:6px 0}
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px}
+.metric .top{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:8px}
+.metric .top b{color:var(--ink)}
+.metric .top span{color:var(--mut)}
+.bar{height:8px;border-radius:999px;background:var(--bg);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.metric.risk .bar i{background:linear-gradient(90deg,var(--warn),var(--bad))}
+.metric small{display:block;color:var(--mut);font-size:12px;margin-top:8px}
+/* examples */
+.ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.ex a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
+  transition:.18s;color:inherit}
+.ex a:hover{border-color:var(--acc);transform:translateY(-3px);text-decoration:none}
+.ex .nm{font-weight:700;font-size:15.5px;margin-bottom:5px;color:var(--ink)}
+.ex .ds{font-size:13.5px;color:var(--mut)}
+.ex .go{font-size:12.5px;color:var(--acc);margin-top:10px;display:inline-block}
+/* dev tip */
+.tip{background:linear-gradient(180deg,rgba(110,168,255,.08),transparent);border:1px solid var(--line);
+  border-radius:14px;padding:20px 22px}
+.tip h3{margin:0 0 10px;font-size:15px;color:var(--acc)}
+.tip ul{margin:0;padding-left:18px}
+.tip li{font-size:14px;color:var(--sub);margin:7px 0}
+.tip code{background:var(--bg);border:1px solid var(--line);padding:2px 7px;border-radius:6px;
+  font-size:12.5px;color:#ffd9a0;font-family:ui-monospace,Menlo,Consolas,monospace}
+/* sources + footer nav */
+.src{font-size:13.5px;color:var(--mut)}
+.src li{margin:6px 0}
+.nav{display:flex;justify-content:space-between;gap:12px;padding:26px 0 60px}
+.nav a{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:var(--sub)}
+.nav a:hover{border-color:var(--acc);text-decoration:none}
+.nav .r{text-align:right}
+.nav small{display:block;color:var(--mut);font-size:12px}
+@media(max-width:720px){.pc,.use{grid-template-columns:1fr}}
+
+/* ===== live demo css ===== */
+
+.fluent-stage{background:
+  radial-gradient(120% 90% at 15% 0%,#dbeafe 0,transparent 55%),
+  radial-gradient(120% 100% at 90% 100%,#cffafe 0,transparent 55%),
+  linear-gradient(135deg,#e8f0fb 0%,#dfeaf7 45%,#e6f4f4 100%)}
+.fu-win{width:360px;border-radius:8px;overflow:hidden;
+  background:rgba(252,253,255,.62);
+  -webkit-backdrop-filter:blur(30px) saturate(1.4);backdrop-filter:blur(30px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.75);
+  box-shadow:0 16px 40px rgba(15,40,80,.20),0 2px 6px rgba(15,40,80,.10),inset 0 1px 0 rgba(255,255,255,.6);
+  font-family:"Segoe UI Variable","Segoe UI",-apple-system,Roboto,Helvetica,Arial,sans-serif;color:#1b1b1f}
+.fu-titlebar{display:flex;align-items:center;gap:8px;padding:9px 12px;
+  background:rgba(255,255,255,.28);border-bottom:1px solid rgba(255,255,255,.5)}
+.fu-app-ic{width:16px;height:16px;border-radius:4px;flex:none;
+  background:linear-gradient(135deg,#0067C0,#00b7c3)}
+.fu-app-name{font-size:12.5px;font-weight:600;flex:1;color:#20232a}
+.fu-wc{display:inline-flex;gap:14px;color:#5a5f6a;font-size:11px}
+.fu-wc span{line-height:1}
+.fu-body{padding:14px 14px 16px}
+.fu-h{font-size:15px;font-weight:600;margin:2px 2px 12px;letter-spacing:-.01em}
+.fu-card{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);
+  border-radius:7px;overflow:hidden;box-shadow:0 1px 2px rgba(15,40,80,.06)}
+.fu-item{display:flex;align-items:center;gap:12px;padding:11px 13px;
+  border-bottom:1px solid rgba(120,140,170,.16);transition:background .12s}
+.fu-item:last-child{border-bottom:0}
+.fu-item:hover{background:rgba(0,103,192,.10)}
+.fu-dot{width:26px;height:26px;border-radius:6px;flex:none;display:grid;place-items:center;
+  font-size:13px;color:#fff;background:linear-gradient(135deg,#0067C0,#0091ff)}
+.fu-dot.g{background:linear-gradient(135deg,#0f9d58,#48c78e)}
+.fu-txt{flex:1;min-width:0}
+.fu-txt b{display:block;font-size:13px;font-weight:600;color:#1b1b1f}
+.fu-txt small{font-size:11px;color:#5f636e}
+.fu-toggle{width:40px;height:22px;border-radius:999px;background:#0067C0;position:relative;flex:none;
+  box-shadow:inset 0 0 0 1px rgba(0,60,120,.25);transition:background .18s}
+.fu-toggle i{position:absolute;top:4px;left:20px;width:14px;height:14px;border-radius:50%;
+  background:#fff;transition:left .18s;box-shadow:0 1px 2px rgba(0,0,0,.35)}
+.fu-toggle.off{background:rgba(120,135,160,.45)}
+.fu-toggle.off i{left:4px;width:12px;height:12px;top:5px}
+.fu-actions{display:flex;gap:9px;margin-top:14px}
+.fu-btn{border:0;border-radius:6px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;
+  font-family:inherit;transition:background .14s,box-shadow .14s}
+.fu-btn.primary{background:#0067C0;color:#fff;box-shadow:0 1px 2px rgba(0,60,120,.35),inset 0 1px 0 rgba(255,255,255,.22)}
+.fu-btn.primary:hover{background:#005FB8}
+.fu-btn.ghost{background:rgba(255,255,255,.6);color:#1b1b1f;border:1px solid rgba(120,140,170,.4)}
+.fu-btn.ghost:hover{background:rgba(255,255,255,.9)}
+.fu-spacer{flex:1}
+
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
+<span class="pill">20 / 21 · preview</span></div></div>
+
+<div class="wrap">
+<header class="hero">
+  <span class="kicker"><span class="num">20</span> UI Design Style</span>
+  <h1 class="title">Fluent Design <span class="en">Microsoft</span></h1>
+  <p class="tag">Microsoft's cross-platform system — translucent Acrylic and wallpaper-tinted Mica materials, soft depth and light, rounded Windows 11 geometry and an accent color.</p>
+  <div class="meta"><span class="badge">Introduced: 2017 (Fluent 2 · 2023)</span><span class="badge">Mature · system</span><span class="badge">Across Windows, Office, Teams &amp; Xbox</span></div>
+</header>
+
+<section>
+  <h2><span class="ic">👁</span>At a glance</h2>
+  <p class="def">Microsoft's Fluent Design System (introduced 2017, refreshed as “Fluent 2” in 2023 and central to Windows 11) is built on five fundamentals — Light, Depth, Motion, Material and Scale. Its signature materials are Acrylic (a translucent, blurred surface) and Mica (an opaque, wallpaper-tinted background); it adds soft layered depth, a Reveal highlight, rounded geometry, an OS accent color and Segoe UI Variable type. Fluent is used across Windows, Office, Teams and Xbox, and ships as open component libraries (WinUI, Fluent UI React).</p>
+</section>
+
+<section>
+  <h2><span class="ic">🎬</span>Live demo</h2>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering the list rows and the button.</p>
+  <div class="stagewrap">
+    <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
+    <span style="margin-left:8px">Fluent Design · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage fluent-stage"><div class="fu-win">
+  <div class="fu-titlebar"><span class="fu-app-ic"></span><span class="fu-app-name">Settings</span><span class="fu-wc"><span>─</span><span>▢</span><span>✕</span></span></div>
+  <div class="fu-body">
+    <div class="fu-h">Personalization</div>
+    <div class="fu-card">
+      <div class="fu-item"><span class="fu-dot">🎨</span><span class="fu-txt"><b>Accent color</b><small>Windows blue</small></span><span class="fu-toggle"><i></i></span></div>
+      <div class="fu-item"><span class="fu-dot g">◑</span><span class="fu-txt"><b>Transparency effects</b><small>Acrylic &amp; Mica</small></span><span class="fu-toggle"><i></i></span></div>
+      <div class="fu-item"><span class="fu-dot">🔔</span><span class="fu-txt"><b>Notifications</b><small>Focus assist off</small></span><span class="fu-toggle off"><i></i></span></div>
+    </div>
+    <div class="fu-actions"><span class="fu-spacer"></span><button class="fu-btn ghost">Cancel</button><button class="fu-btn primary">Apply</button></div>
+  </div>
+</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">🧬</span>Key characteristics</h2>
+  <div class="chars"><div class="chip"><h4>Acrylic &amp; Mica materials</h4><p>Translucent / wallpaper-tinted surfaces</p></div><div class="chip"><h4>Depth &amp; light</h4><p>Soft layering and a Reveal highlight</p></div><div class="chip"><h4>Rounded geometry</h4><p>Windows 11 corners &amp; spacing</p></div><div class="chip"><h4>Accent color &amp; motion</h4><p>Personalization + connected animation</p></div></div>
+</section>
+
+<section>
+  <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
+  <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
+  <div class="pc">
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Comprehensive, well-documented cross-Microsoft system</li><li>Strong built-in accessibility support</li><li>Native, familiar Windows feel</li><li>Open-source components (WinUI, Fluent UI React)</li><li>Coherent across desktop and web</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Acrylic / blur has a real performance cost</li><li>Can read as generically “Microsoft / Windows”</li><li>A heavy system to implement fully</li><li>Translucency risks text contrast</li><li>Less common outside the Microsoft ecosystem</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
+  <div class="use">
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Windows desktop apps</li><li>Microsoft-ecosystem products (Teams / Office add-ins)</li><li>Enterprise &amp; productivity tools</li><li>Cross-platform apps wanting a mature system</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Brands needing a highly distinctive custom look</li><li>iOS / Android-first native apps</li><li>Low-power / performance-sensitive contexts</li><li>When translucency would hurt readability</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
+  <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity &amp; stability</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div></div>
+</section>
+
+<section>
+  <h2><span class="ic">🏆</span>Notable real-world examples</h2>
+  <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
+  <div class="ex"><a href="https://fluent2.microsoft.design/" target="_blank" rel="noopener">
+        <div class="nm">Microsoft Fluent 2</div><div class="ds">The official Fluent 2 design system site</div>
+        <span class="go">fluent2.microsoft.design ↗</span></a><a href="https://www.microsoft.com/windows/windows-11" target="_blank" rel="noopener">
+        <div class="nm">Windows 11</div><div class="ds">Fluent materials and geometry across the OS</div>
+        <span class="go">microsoft.com/windows ↗</span></a><a href="https://react.fluentui.dev/" target="_blank" rel="noopener">
+        <div class="nm">Fluent UI React</div><div class="ds">Open-source Fluent components for the web</div>
+        <span class="go">react.fluentui.dev ↗</span></a></div>
+</section>
+
+<section>
+  <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
+  <div class="tip"><h3>Fluent Design — Outsourcing brief (Upwork)</h3><ul><li>Choose the Fluent library up front — <code>WinUI</code> for native, <code>Fluent UI React</code> for web</li><li>Specify Acrylic / Mica usage <em>and</em> solid fallbacks for each surface</li><li>Provide the accent color as a <code>token</code> shared across the app</li><li>Require AA contrast over translucent surfaces as an acceptance criterion</li><li>Budget blur for performance and honor <code>prefers-reduced-motion</code></li></ul></div>
+</section>
+
+<section>
+  <h2><span class="ic">🔗</span>Sources</h2>
+  <ul class="src"><li><a href="https://fluent2.microsoft.design/" target="_blank" rel="noopener">Fluent 2 Design — Microsoft</a></li><li><a href="https://www.microsoft.com/windows/windows-11" target="_blank" rel="noopener">Windows 11 design — Microsoft</a></li><li><a href="https://react.fluentui.dev/" target="_blank" rel="noopener">Fluent UI React</a></li></ul>
+</section>
+
+<div class="nav"><a href="retro-pixel.html">← Retro / Pixel<small>Prev</small></a><a class="r" href="ios-hig.html">iOS (Apple HIG) →<small>Next</small></a></div>
+</div>
+</body>
+</html>

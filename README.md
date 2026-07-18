@@ -1,6 +1,6 @@
 # UI Design Styles — A Quick Reference Guide
 
-A neutral, at-a-glance reference to **19 common UI design styles**, built to share with
+A neutral, at-a-glance reference to **21 common UI design styles**, built to share with
 clients who don't yet have a UI/UX guide. Each style page includes a **live demo rendered
 with real CSS** (not a screenshot), honest **pros & cons**, real-world examples, neutral
 0–5 metrics, and a short note on when to use it.
@@ -42,6 +42,8 @@ Open `index.html` to start.
 | 17 | [Y2K / Frutiger Aero](y2k-frutiger-aero.html) | Glossy early-2000s revival — aqua gloss, water droplets, bubbles and chrome. |
 | 18 | [Memphis](memphis.html) | Playful 80s design — clashing color, squiggles, zigzags and polka-dot geometric confetti. |
 | 19 | [Retro / Pixel](retro-pixel.html) | Blocky pixel type, hard edges and chunky bordered panels evoking 8- and 16-bit game UI. |
+| 20 | [Fluent Design](fluent.html) | Microsoft's system — translucent Acrylic/Mica materials, soft depth, rounded Windows 11 geometry and an accent color. |
+| 21 | [iOS (Apple HIG)](ios-hig.html) | Apple's platform conventions — SF typography, grouped inset lists, familiar system controls; clarity, deference, depth. |
 
 Each page also carries an **outsourcing brief**: what to specify to a developer and which
 accessibility / performance conditions to put in the contract.
