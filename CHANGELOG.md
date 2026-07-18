@@ -7,6 +7,19 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
 - _Add new styles and changes here before publishing._
 
+## [1.4.0] — 2026-07-19
+
+### Added
+- **Corporate Memphis** (`corporate-memphis.html`, #22) and **Vaporwave**
+  (`vaporwave.html`, #23), each with a bespoke live CSS demo (flat bendy-limbed figure
+  scene; neon sun + retro-grid "A E S T H E T I C" scene), pros & cons, 0–5 metrics, real
+  examples and an outsourcing brief. Added their cards, comparison-table rows and mini-demo
+  CSS to `index.html`.
+
+### Changed
+- Bumped all page counts from `/21` to `/23`; index title/hero now read 23 styles.
+- Extended "Next/Prev" nav (iOS → Corporate Memphis → Vaporwave → index).
+
 ## [1.3.0] — 2026-07-19
 
 ### Added
