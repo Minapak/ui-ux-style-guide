@@ -17,7 +17,7 @@ neutral 0–5 metrics, and an outsourcing brief.
 
 ## Current contents (as of 2026-07-19)
 
-23 style pages, linked from `index.html`:
+35 style pages, linked from `index.html`:
 
 | # | Style | File |
 |---|-------|------|
@@ -44,6 +44,18 @@ neutral 0–5 metrics, and an outsourcing brief.
 | 21 | iOS (Apple HIG) | `ios-hig.html` |
 | 22 | Corporate Memphis | `corporate-memphis.html` |
 | 23 | Vaporwave | `vaporwave.html` |
+| 24 | Duotone | `duotone.html` |
+| 25 | Cyberpunk / HUD | `cyberpunk.html` |
+| 26 | Material Design 2 | `material-2.html` |
+| 27 | Kinetic / Motion UI | `kinetic-typography.html` |
+| 28 | Isometric | `isometric.html` |
+| 29 | 3D / Render | `render-3d.html` |
+| 30 | Terminal / Monospace | `terminal-ui.html` |
+| 31 | Bauhaus | `bauhaus.html` |
+| 32 | Editorial / Magazine | `editorial.html` |
+| 33 | Organic / Blob | `organic-blob.html` |
+| 34 | Line Art | `line-art.html` |
+| 35 | Wireframe / Sketch | `wireframe.html` |
 
 Supporting files: `index.html` (landing + full grid), `README.md`, `LICENSE` (MIT),
 `.nojekyll` (so GitHub Pages serves files as-is).
@@ -69,8 +81,11 @@ Supporting files: `index.html` (landing + full grid), `README.md`, `LICENSE` (MI
       Dark Mode UI, Aurora / Mesh Gradient, Y2K / Frutiger Aero, Memphis, Retro / Pixel.
 - [x] Fluent Design & iOS (Apple HIG) — added 2026-07-19 as #20 and #21.
 - [x] Corporate Memphis & Vaporwave — added 2026-07-19 as #22 and #23.
-- [ ] Candidate styles still to add: Material 2 / classic Material, Duotone, Kinetic
-      typography / motion UI, Cyberpunk / HUD, Frosted / Aurora dark, Retro-futurism.
+- [x] Batch added 2026-07-19 as #24–#35: Duotone, Cyberpunk / HUD, Material Design 2,
+      Kinetic / Motion UI, Isometric, 3D / Render, Terminal / Monospace, Bauhaus,
+      Editorial / Magazine, Organic / Blob, Line Art, Wireframe / Sketch.
+- [ ] Candidate styles still to add: Art Deco, Kawaii / pastel, Grunge / zine,
+      Scandinavian / Nordic, Frosted dark, Retro-futurism / Atompunk, Duolingo-style playful.
 - [ ] Optional: a shared print/PDF export for handing the whole guide to a client offline.
 - [ ] Optional: light-theme toggle.
 - [ ] Optional: per-style "starter CSS" download button.
@@ -101,3 +116,7 @@ the page itself so clients can verify.
   to /21, chained Retro/Pixel → Fluent → iOS → index, added their cards, rows and demo CSS.
 - **2026-07-19** — Added Corporate Memphis (#22) and Vaporwave (#23). Bumped all counts to
   /23, chained iOS → Corporate Memphis → Vaporwave → index, added their cards, rows and CSS.
+- **2026-07-19** — Batch-added styles #24–#35 (Duotone, Cyberpunk / HUD, Material Design 2,
+  Kinetic / Motion UI, Isometric, 3D / Render, Terminal / Monospace, Bauhaus, Editorial /
+  Magazine, Organic / Blob, Line Art, Wireframe / Sketch). Bumped all counts to /35, chained
+  Vaporwave → … → Wireframe → index, and added their cards, rows and mini-demo CSS.

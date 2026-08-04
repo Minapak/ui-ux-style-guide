@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>04. Claymorphism — UI Style Guide</title>
+<title>27. Kinetic / Motion UI — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,106 +115,135 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.claymorphism-stage{background:linear-gradient(135deg,#e0c3fc,#8ec5fc)}
-.cl-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
-.cl-card{width:230px;padding:26px;border-radius:34px;background:#ffffff;color:#6b4fa0;text-align:center;
-  box-shadow:0 20px 40px rgba(140,110,200,.4),inset 8px 8px 16px rgba(255,255,255,.9),inset -8px -8px 16px rgba(180,150,220,.35)}
-.cl-icon{width:66px;height:66px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;font-size:30px;color:#fff;
-  background:#a78bfa;box-shadow:inset 6px 6px 10px rgba(255,255,255,.45),inset -6px -6px 10px rgba(90,60,160,.4),0 10px 20px rgba(120,80,200,.35)}
-.cl-card h5{margin:0 0 6px;font-size:16px}
-.cl-card p{margin:0;font-size:12.5px;color:#9a86c0;line-height:1.5}
-.cl-btn{margin-top:10px;display:inline-block;padding:12px 22px;border-radius:20px;font-weight:700;font-size:13px;color:#fff;cursor:pointer;
-  background:#ff9ec6;box-shadow:inset 5px 5px 9px rgba(255,255,255,.5),inset -5px -5px 9px rgba(200,90,150,.45),0 10px 18px rgba(230,120,170,.4);transition:.12s}
-.cl-btn:active{transform:translateY(2px)}
+.kinetic-stage{background:radial-gradient(120% 120% at 50% 0,#161a2c 0,#0b0d16 70%)}
+.kn-scene{width:360px;height:236px;position:relative;display:flex;flex-direction:column;
+  align-items:flex-start;justify-content:center;gap:2px;padding:0 30px;overflow:hidden;
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.kn-word{font-weight:900;letter-spacing:-.02em;line-height:.92;font-size:52px;
+  text-transform:uppercase;color:#eef2f9}
+.kn-word.kn-accent{background:linear-gradient(90deg,#6ea8ff,#9d7bff);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.kn-tag{margin-top:14px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;
+  color:#8a97b3;font-weight:700}
+.kn-bar{position:absolute;left:30px;bottom:26px;width:70px;height:4px;border-radius:999px;
+  background:linear-gradient(90deg,#6ea8ff,#9d7bff)}
+@media (prefers-reduced-motion: no-preference){
+  .kn-word{opacity:0;transform:translateY(26px) scaleY(1.15);
+    animation:knRise 4.2s cubic-bezier(.22,1,.36,1) infinite}
+  .kn-word:nth-child(1){animation-delay:0s}
+  .kn-word:nth-child(2){animation-delay:.22s}
+  .kn-word:nth-child(3){animation-delay:.44s}
+  .kn-tag{opacity:0;animation:knFade 4.2s ease infinite;animation-delay:.7s}
+  .kn-bar{transform-origin:left center;animation:knSweep 4.2s cubic-bezier(.65,0,.35,1) infinite}
+}
+@keyframes knRise{
+  0%{opacity:0;transform:translateY(26px) scaleY(1.15)}
+  14%,72%{opacity:1;transform:translateY(0) scaleY(1)}
+  90%,100%{opacity:0;transform:translateY(-18px) scaleY(1.05)}
+}
+@keyframes knFade{
+  0%,10%{opacity:0;letter-spacing:.2em}
+  26%,74%{opacity:1;letter-spacing:.34em}
+  92%,100%{opacity:0;letter-spacing:.5em}
+}
+@keyframes knSweep{
+  0%{transform:scaleX(0)}
+  20%{transform:scaleX(1)}
+  70%{transform:scaleX(1)}
+  100%{transform:scaleX(0)}
+}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">04 / 35 · preview</span></div></div>
+<span class="pill">27 / 35 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">04</span> UI Design Style</span>
-  <h1 class="title">Claymorphism </h1>
-  <p class="tag">A soft-clay 3D look — chunky rounded shapes with inner and outer shadows create a puffy, friendly feel.</p>
-  <div class="meta"><span class="badge">Emerged: 2021 (coined by Hype4)</span><span class="badge">Growing · niche</span><span class="badge">Pairs well with illustration & 3D</span></div>
+  <span class="kicker"><span class="num">27</span> UI Design Style</span>
+  <h1 class="title">Kinetic / Motion UI <span class="en">motion-led</span></h1>
+  <p class="tag">Motion as the medium — animated type and elements that move, scale and transition to direct attention and carry brand energy.</p>
+  <div class="meta"><span class="badge">Motion-led · award-site era</span><span class="badge">Trend · expressive</span><span class="badge">Common in launches & storytelling</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Claymorphism renders elements as if molded from clay — plump and soft. Large radii, an outer drop shadow, and two inner &lt;code&gt;inset&lt;/code&gt; shadows (one light, one dark) create the 3D clay texture. Combined with bright pastels and 3D illustration, it’s popular for friendly, playful brands.</p>
+  <p class="def">Kinetic typography and motion-led design treat animation as the primary design material: type and elements move, scale and transition — often scroll- or interaction-driven — to direct attention and express brand energy. It is seen in award-winning marketing sites, product launches, title design and video design, and is typically layered on top of any base visual style rather than replacing it.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. The headline animates in a gentle loop; reduced-motion users see a clean static version.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Claymorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage claymorphism-stage"><div class="cl-wrap">
-  <div class="cl-card"><div class="cl-icon">🧸</div><h5>Claymorphism</h5><p>Puffy 3D as if molded from clay. Outer shadow + double inner shadow.</p></div>
-  <span class="cl-btn">Tap me</span>
+    <span style="margin-left:8px">Kinetic / Motion UI · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage kinetic-stage"><div class="kn-scene">
+  <span class="kn-word">Design</span>
+  <span class="kn-word kn-accent">In</span>
+  <span class="kn-word">Motion</span>
+  <span class="kn-tag">kinetic · motion-led</span>
+  <span class="kn-bar"></span>
 </div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Puffy 3D</h4><p>Thick, rounded forms emphasize volume</p></div><div class="chip"><h4>Double inner shadow</h4><p>Light + dark &lt;code&gt;inset&lt;/code&gt; shadows make the clay texture</p></div><div class="chip"><h4>Large radius</h4><p>Generous &lt;code&gt;border-radius&lt;/code&gt; for soft silhouettes</p></div><div class="chip"><h4>Pastel &amp; lively</h4><p>Bright pastels paired with 3D icons</p></div></div>
+  <div class="chars"><div class="chip"><h4>Animated type</h4><p>Kinetic headlines where the words themselves move and carry the message</p></div><div class="chip"><h4>Interaction-driven motion</h4><p>Scroll and pointer trigger movement, parallax and reveal sequences</p></div><div class="chip"><h4>Transitions & choreography</h4><p>Elements enter, exit and hand off in a deliberately staged sequence</p></div><div class="chip"><h4>Timing as brand</h4><p>Easing, pacing and rhythm become a recognizable brand signature</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Friendly, playful mood — great for youthful/lifestyle brands</li><li>Strong depth makes elements easy to distinguish</li><li>Bright colors evoke joy and positivity</li><li>Blends naturally with 3D illustration and emoji</li><li>Higher contrast than neumorphism, so friendlier for a11y</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Playful tone doesn’t suit serious or professional services</li><li>Chunky forms eat space, lowering information density</li><li>Multiple shadows make CSS complex and can cost performance</li><li>Trend-driven — risk of looking dated quickly</li><li>Producing consistent 3D assets needs design resources</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Attention-grabbing and memorable</li><li>Expressive, high-energy brand personality</li><li>Guides focus and hierarchy through movement</li><li>Excellent for storytelling and launches</li><li>Conveys a premium, crafted feel</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Accessibility risk — vestibular / motion sensitivity</li><li>Performance cost on lower-end devices</li><li>Can distract from the actual content</li><li>Higher build effort and specialized skill</li><li>Easy to overdo and tip into gimmicky</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Bright services for kids, education, games, playful fintech</li><li>Onboarding and illustration-led landing pages</li><li>Marketing using emoji / 3D icons</li><li>App-icon and illustration systems</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Finance, legal, B2B where trust/authority matters</li><li>Data- and table-heavy productivity screens</li><li>Minimal / luxury brand tones</li><li>Performance-sensitive low-end targets</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Launches, portfolios and award-style marketing</li><li>Brand storytelling that benefits from energy</li><li>Video and title design</li><li>Hero sections that set the tone</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Dense functional or data-heavy UIs</li><li>Accessibility-critical or low-power contexts</li><li>Content users must read quickly</li><li>When motion adds no meaning</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
-  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
-        <div class="bar"><i style="width:40%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
-        <div class="bar"><i style="width:100%"></i></div></div></div>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>2/5</span></div>
+        <div class="bar"><i style="width:40%"></i></div><small>Always honor prefers-reduced-motion; large/looping motion can trigger vestibular issues</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div></div>
 </section>
 
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">
-        <div class="nm">Hype4 — Claymorphism article</div><div class="ds">The origin article that named it</div>
-        <span class="go">hype4.academy ↗</span></a><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">
-        <div class="nm">Dribbble — Claymorphism</div><div class="ds">Gallery of applied work</div>
-        <span class="go">dribbble.com ↗</span></a><a href="https://uxdesign.cc/" target="_blank" rel="noopener">
-        <div class="nm">UX Collective (Medium)</div><div class="ds">Trend analysis of claymorphism</div>
-        <span class="go">uxdesign.cc ↗</span></a></div>
+  <div class="ex"><a href="https://www.awwwards.com/" target="_blank" rel="noopener">
+        <div class="nm">Awwwards — motion sites</div><div class="ds">Curated award-winning motion-led marketing sites</div>
+        <span class="go">www.awwwards.com ↗</span></a><a href="https://en.wikipedia.org/wiki/Kinetic_typography" target="_blank" rel="noopener">
+        <div class="nm">Kinetic typography</div><div class="ds">Background on animated text as a medium</div>
+        <span class="go">en.wikipedia.org ↗</span></a><a href="https://m3.material.io/styles/motion/overview" target="_blank" rel="noopener">
+        <div class="nm">Material motion</div><div class="ds">Motion principles, easing and duration guidance</div>
+        <span class="go">m3.material.io ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Claymorphism — Outsourcing brief (Upwork)</h3><ul><li>Key spec: large &lt;code&gt;border-radius&lt;/code&gt; + one outer drop shadow + two inner &lt;code&gt;inset&lt;/code&gt; shadows (light &amp; dark)</li><li>Give the dev a pastel palette and 3D icon assets (or a library)</li><li>Performance: cap shadow layers at 3–4 per component</li><li>Define radius/shadow values as design tokens for consistency</li><li>Require a separate dark-mode palette since pastels lose contrast</li></ul></div>
+  <div class="tip"><h3>Kinetic / Motion UI — Outsourcing brief (Upwork)</h3><ul><li>Define motion principles (duration / easing / purpose) as reusable <code>tokens</code></li><li>Require <code>prefers-reduced-motion</code> fallbacks for every animated element</li><li>Budget performance — animate <code>transform</code> and <code>opacity</code> only</li><li>Specify exactly which elements animate and why each one moves</li><li>Ensure a meaningful static first paint before any motion runs</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">Hype4 Academy — Claymorphism in UI</a></li><li><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">Dribbble — Claymorphism</a></li><li><a href="https://uxdesign.cc/" target="_blank" rel="noopener">UX Collective</a></li></ul>
+  <ul class="src"><li><a href="https://en.wikipedia.org/wiki/Kinetic_typography" target="_blank" rel="noopener">Kinetic typography — Wikipedia</a></li><li><a href="https://www.awwwards.com/" target="_blank" rel="noopener">Awwwards — award-winning websites</a></li><li><a href="https://m3.material.io/styles/motion/overview" target="_blank" rel="noopener">Material Design — Motion overview</a></li></ul>
 </section>
 
-<div class="nav"><a href="glassmorphism.html">← Glassmorphism<small>Prev</small></a><a class="r" href="minimalism.html">Minimalism →<small>Next</small></a></div>
+<div class="nav"><a href="material-2.html">← Material Design 2<small>Prev</small></a><a class="r" href="isometric.html">Isometric →<small>Next</small></a></div>
 </div>
 </body>
 </html>

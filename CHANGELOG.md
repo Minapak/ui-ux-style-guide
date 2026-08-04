@@ -7,6 +7,23 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
 - _Add new styles and changes here before publishing._
 
+## [1.5.0] — 2026-07-19
+
+### Added
+- **12 new style pages (#24–#35):** Duotone (`duotone.html`), Cyberpunk / HUD
+  (`cyberpunk.html`), Material Design 2 (`material-2.html`), Kinetic / Motion UI
+  (`kinetic-typography.html`), Isometric (`isometric.html`), 3D / Render (`render-3d.html`),
+  Terminal / Monospace (`terminal-ui.html`), Bauhaus (`bauhaus.html`), Editorial / Magazine
+  (`editorial.html`), Organic / Blob (`organic-blob.html`), Line Art (`line-art.html`),
+  Wireframe / Sketch (`wireframe.html`).
+- Each has a bespoke live CSS demo, pros & cons, 0–5 metrics, real examples and an
+  outsourcing brief. Added their cards, comparison-table rows and mini-demo CSS to
+  `index.html`.
+
+### Changed
+- Bumped all page counts from `/23` to `/35`; index title/hero now read 35 styles.
+- Extended "Next/Prev" nav across all 35 pages (Vaporwave → Duotone → … → Wireframe → index).
+
 ## [1.4.0] — 2026-07-19
 
 ### Added

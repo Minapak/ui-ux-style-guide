@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>04. Claymorphism — UI Style Guide</title>
+<title>32. Editorial / Magazine — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,106 +115,130 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.claymorphism-stage{background:linear-gradient(135deg,#e0c3fc,#8ec5fc)}
-.cl-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
-.cl-card{width:230px;padding:26px;border-radius:34px;background:#ffffff;color:#6b4fa0;text-align:center;
-  box-shadow:0 20px 40px rgba(140,110,200,.4),inset 8px 8px 16px rgba(255,255,255,.9),inset -8px -8px 16px rgba(180,150,220,.35)}
-.cl-icon{width:66px;height:66px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;font-size:30px;color:#fff;
-  background:#a78bfa;box-shadow:inset 6px 6px 10px rgba(255,255,255,.45),inset -6px -6px 10px rgba(90,60,160,.4),0 10px 20px rgba(120,80,200,.35)}
-.cl-card h5{margin:0 0 6px;font-size:16px}
-.cl-card p{margin:0;font-size:12.5px;color:#9a86c0;line-height:1.5}
-.cl-btn{margin-top:10px;display:inline-block;padding:12px 22px;border-radius:20px;font-weight:700;font-size:13px;color:#fff;cursor:pointer;
-  background:#ff9ec6;box-shadow:inset 5px 5px 9px rgba(255,255,255,.5),inset -5px -5px 9px rgba(200,90,150,.45),0 10px 18px rgba(230,120,170,.4);transition:.12s}
-.cl-btn:active{transform:translateY(2px)}
+.editorial-stage{background:#e9e6df}
+.ed-mag{width:360px;background:#fffdf8;padding:22px 24px 24px;
+  font-family:Georgia,"Times New Roman",serif;color:#1a1a1a;
+  box-shadow:0 1px 0 #d8d3c7}
+.ed-kicker{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:#b03a2e;margin-bottom:10px}
+.ed-hl{font-size:32px;line-height:1.04;font-weight:700;letter-spacing:-.01em;margin:0 0 10px}
+.ed-hl em{font-style:italic;font-weight:400}
+.ed-byline{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:10.5px;letter-spacing:.04em;color:#6b6157;text-transform:uppercase;
+  padding-bottom:12px;border-bottom:2px solid #1a1a1a;margin-bottom:14px}
+.ed-cols{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.ed-col{font-size:11px;line-height:1.5;text-align:justify;color:#2a2620}
+.ed-col.ed-left{padding-right:14px;border-right:1px solid #cfc9bd}
+.ed-col.ed-right{padding-left:14px}
+.ed-col p{margin:0 0 8px}
+.ed-drop::first-letter{float:left;font-size:40px;line-height:.82;font-weight:700;
+  padding:2px 7px 0 0;color:#1a1a1a}
+.ed-quote{margin:2px 0 0;font-size:15px;line-height:1.25;font-style:italic;
+  color:#1a1a1a;border-top:1px solid #1a1a1a;padding-top:10px}
+.ed-quote span{display:block;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-style:normal;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:#b03a2e;margin-top:8px}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">04 / 35 · preview</span></div></div>
+<span class="pill">32 / 35 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">04</span> UI Design Style</span>
-  <h1 class="title">Claymorphism </h1>
-  <p class="tag">A soft-clay 3D look — chunky rounded shapes with inner and outer shadows create a puffy, friendly feel.</p>
-  <div class="meta"><span class="badge">Emerged: 2021 (coined by Hype4)</span><span class="badge">Growing · niche</span><span class="badge">Pairs well with illustration & 3D</span></div>
+  <span class="kicker"><span class="num">32</span> UI Design Style</span>
+  <h1 class="title">Editorial / Magazine <span class="en">print-inspired</span></h1>
+  <p class="tag">Print-magazine craft on screen — expressive display typography, multi-column grids, pull quotes and imagery-led layouts for storytelling.</p>
+  <div class="meta"><span class="badge">Print heritage · web</span><span class="badge">Timeless · content-led</span><span class="badge">Home of long-form & brand stories</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Claymorphism renders elements as if molded from clay — plump and soft. Large radii, an outer drop shadow, and two inner &lt;code&gt;inset&lt;/code&gt; shadows (one light, one dark) create the 3D clay texture. Combined with bright pastels and 3D illustration, it’s popular for friendly, playful brands.</p>
+  <p class="def">Editorial / magazine style brings print-magazine craft to screens: strong typographic hierarchy, large expressive (often serif or display) headlines mixed with sans body, multi-column grids, pull quotes, generous whitespace and imagery-led layouts. It is used by publications, blogs, portfolios and premium brand storytelling to make content feel considered, credible and worth reading.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. A magazine article fragment with a serif headline, byline and two justified columns.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Claymorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage claymorphism-stage"><div class="cl-wrap">
-  <div class="cl-card"><div class="cl-icon">🧸</div><h5>Claymorphism</h5><p>Puffy 3D as if molded from clay. Outer shadow + double inner shadow.</p></div>
-  <span class="cl-btn">Tap me</span>
+    <span style="margin-left:8px">Editorial / Magazine · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage editorial-stage"><div class="ed-mag">
+  <div class="ed-kicker">Design · Essay</div>
+  <h1 class="ed-hl">The Art of <em>the Grid</em></h1>
+  <div class="ed-byline">By Marguerite Vance · Photographs by A. Rossi</div>
+  <div class="ed-cols">
+    <div class="ed-col ed-left">
+      <p class="ed-drop">Every great page begins as an argument about space — where the eye should rest, and where it should be pulled onward through the story.</p>
+      <p>The column is not a cage but a rhythm. Set well, it lets long-form reading breathe and gives even the plainest sentence a sense of place.</p>
+    </div>
+    <div class="ed-col ed-right">
+      <p>Typographers speak of measure and leading the way musicians speak of tempo — quiet decisions that the reader feels but rarely sees.</p>
+      <blockquote class="ed-quote">Good layout is invisible; you notice only that reading feels effortless.<span>— On Typography</span></blockquote>
+    </div>
+  </div>
 </div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Puffy 3D</h4><p>Thick, rounded forms emphasize volume</p></div><div class="chip"><h4>Double inner shadow</h4><p>Light + dark &lt;code&gt;inset&lt;/code&gt; shadows make the clay texture</p></div><div class="chip"><h4>Large radius</h4><p>Generous &lt;code&gt;border-radius&lt;/code&gt; for soft silhouettes</p></div><div class="chip"><h4>Pastel &amp; lively</h4><p>Bright pastels paired with 3D icons</p></div></div>
+  <div class="chars"><div class="chip"><h4>Expressive typography</h4><p>Big serif or display headlines carry the mood and hierarchy</p></div><div class="chip"><h4>Magazine grids & columns</h4><p>Multi-column layouts and structured grids organise the page</p></div><div class="chip"><h4>Imagery-led layout</h4><p>Photography and artwork drive the composition and pacing</p></div><div class="chip"><h4>Pull quotes & hierarchy</h4><p>Pull quotes, captions and clear hierarchy guide the reader</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Friendly, playful mood — great for youthful/lifestyle brands</li><li>Strong depth makes elements easy to distinguish</li><li>Bright colors evoke joy and positivity</li><li>Blends naturally with 3D illustration and emoji</li><li>Higher contrast than neumorphism, so friendlier for a11y</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Playful tone doesn’t suit serious or professional services</li><li>Chunky forms eat space, lowering information density</li><li>Multiple shadows make CSS complex and can cost performance</li><li>Trend-driven — risk of looking dated quickly</li><li>Producing consistent 3D assets needs design resources</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Sophisticated, premium and credible feel</li><li>Excellent for long-form reading and engagement</li><li>Strong hierarchy makes storytelling clear and compelling</li><li>Flexible and characterful across many kinds of content</li><li>Timeless — draws on decades of print craft</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Demands real typographic craft to get right</li><li>Needs quality imagery and well-written content</li><li>Complex responsive layouts across breakpoints</li><li>Can feel heavy or slow for app-style UIs</li><li>Slower and more costly to build</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Bright services for kids, education, games, playful fintech</li><li>Onboarding and illustration-led landing pages</li><li>Marketing using emoji / 3D icons</li><li>App-icon and illustration systems</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Finance, legal, B2B where trust/authority matters</li><li>Data- and table-heavy productivity screens</li><li>Minimal / luxury brand tones</li><li>Performance-sensitive low-end targets</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Publications, blogs and long-form content</li><li>Brand storytelling and portfolios</li><li>Premium or luxury editorial experiences</li><li>Docs and content that benefit from personality</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Dense app or dashboard UIs</li><li>Content-light products with little to say</li><li>Teams without type or content resources</li><li>Utilitarian, task-first tools</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
-  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
-        <div class="bar"><i style="width:40%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>5/5</span></div>
+        <div class="bar"><i style="width:100%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
         <div class="bar"><i style="width:100%"></i></div></div></div>
 </section>
 
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">
-        <div class="nm">Hype4 — Claymorphism article</div><div class="ds">The origin article that named it</div>
-        <span class="go">hype4.academy ↗</span></a><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">
-        <div class="nm">Dribbble — Claymorphism</div><div class="ds">Gallery of applied work</div>
-        <span class="go">dribbble.com ↗</span></a><a href="https://uxdesign.cc/" target="_blank" rel="noopener">
-        <div class="nm">UX Collective (Medium)</div><div class="ds">Trend analysis of claymorphism</div>
-        <span class="go">uxdesign.cc ↗</span></a></div>
+  <div class="ex"><a href="https://www.nytimes.com/" target="_blank" rel="noopener">
+        <div class="nm">The New York Times</div><div class="ds">Digital editorial craft at newsroom scale</div>
+        <span class="go">www.nytimes.com ↗</span></a><a href="https://medium.com/" target="_blank" rel="noopener">
+        <div class="nm">Medium</div><div class="ds">Clean, type-led long-form reading</div>
+        <span class="go">medium.com ↗</span></a><a href="https://practicaltypography.com/" target="_blank" rel="noopener">
+        <div class="nm">Butterick&#x27;s Practical Typography</div><div class="ds">Editorial typography as its own argument</div>
+        <span class="go">practicaltypography.com ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Claymorphism — Outsourcing brief (Upwork)</h3><ul><li>Key spec: large &lt;code&gt;border-radius&lt;/code&gt; + one outer drop shadow + two inner &lt;code&gt;inset&lt;/code&gt; shadows (light &amp; dark)</li><li>Give the dev a pastel palette and 3D icon assets (or a library)</li><li>Performance: cap shadow layers at 3–4 per component</li><li>Define radius/shadow values as design tokens for consistency</li><li>Require a separate dark-mode palette since pastels lose contrast</li></ul></div>
+  <div class="tip"><h3>Editorial / Magazine — Outsourcing brief (Upwork)</h3><ul><li>Deliver a type system (display + body pairing and a type scale) and the grid as <code>tokens</code></li><li>Specify pull-quote, caption and column components up front</li><li>Require responsive columns and Dynamic Type support</li><li>Set explicit line-length (measure) and leading rules</li><li>Ensure AA contrast across text, captions and overlays</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">Hype4 Academy — Claymorphism in UI</a></li><li><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">Dribbble — Claymorphism</a></li><li><a href="https://uxdesign.cc/" target="_blank" rel="noopener">UX Collective</a></li></ul>
+  <ul class="src"><li><a href="https://practicaltypography.com/" target="_blank" rel="noopener">Butterick&#x27;s Practical Typography</a></li><li><a href="https://www.nytimes.com/" target="_blank" rel="noopener">The New York Times</a></li><li><a href="https://medium.com/" target="_blank" rel="noopener">Medium</a></li></ul>
 </section>
 
-<div class="nav"><a href="glassmorphism.html">← Glassmorphism<small>Prev</small></a><a class="r" href="minimalism.html">Minimalism →<small>Next</small></a></div>
+<div class="nav"><a href="bauhaus.html">← Bauhaus<small>Prev</small></a><a class="r" href="organic-blob.html">Organic / Blob →<small>Next</small></a></div>
 </div>
 </body>
 </html>

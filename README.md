@@ -1,6 +1,6 @@
 # UI Design Styles — A Quick Reference Guide
 
-A neutral, at-a-glance reference to **23 common UI design styles**, built to share with
+A neutral, at-a-glance reference to **35 common UI design styles**, built to share with
 clients who don't yet have a UI/UX guide. Each style page includes a **live demo rendered
 with real CSS** (not a screenshot), honest **pros & cons**, real-world examples, neutral
 0–5 metrics, and a short note on when to use it.
@@ -46,6 +46,18 @@ Open `index.html` to start.
 | 21 | [iOS (Apple HIG)](ios-hig.html) | Apple's platform conventions — SF typography, grouped inset lists, familiar system controls; clarity, deference, depth. |
 | 22 | [Corporate Memphis](corporate-memphis.html) | Big-Tech flat illustration — faceless bendy-limbed figures, bright flat color blocks and simple shapes (aka Alegria). |
 | 23 | [Vaporwave](vaporwave.html) | 80s–90s nostalgia turned surreal — neon magenta/cyan gradients, retro grids, sunsets, chrome text and glitch. |
+| 24 | [Duotone](duotone.html) | A bold two-color treatment mapping an image's shadows and highlights to two contrasting hues (Spotify-style). |
+| 25 | [Cyberpunk / HUD](cyberpunk.html) | Neon-on-dark sci-fi futurism — angular HUD frames, glitch, scanlines and technical readouts. |
+| 26 | [Material Design 2](material-2.html) | Google's original paper-and-ink system — elevation shadows, bold color, Roboto, FAB and ripple. |
+| 27 | [Kinetic / Motion UI](kinetic-typography.html) | Motion as the medium — animated type and elements that move and transition to carry brand energy. |
+| 28 | [Isometric](isometric.html) | Clean 2.5D depth on 30° axes — perfect for showing systems, servers and workflows. |
+| 29 | [3D / Render](render-3d.html) | Rendered 3D hero visuals — glossy shapes, soft lighting and rich materials, often interactive. |
+| 30 | [Terminal / Monospace](terminal-ui.html) | The command-line look — monospace type, prompts, cursors and minimal chrome for a dev aesthetic. |
+| 31 | [Bauhaus](bauhaus.html) | Form follows function — geometric primitives, primary colors, grids and clean sans-serif type. |
+| 32 | [Editorial / Magazine](editorial.html) | Print-magazine craft on screen — expressive display type, multi-column grids and pull quotes. |
+| 33 | [Organic / Blob](organic-blob.html) | Soft irregular blob shapes and flowing curves that add warmth and friendliness to a layout. |
+| 34 | [Line Art](line-art.html) | Thin uniform strokes and outlined shapes instead of filled forms — minimal, elegant, lightweight. |
+| 35 | [Wireframe / Sketch](wireframe.html) | Deliberately low-fidelity — grayscale boxes, placeholders and sketchy strokes focused on structure. |
 
 Each page also carries an **outsourcing brief**: what to specify to a developer and which
 accessibility / performance conditions to put in the contract.

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>04. Claymorphism — UI Style Guide</title>
+<title>33. Organic / Blob — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,79 +115,105 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.claymorphism-stage{background:linear-gradient(135deg,#e0c3fc,#8ec5fc)}
-.cl-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
-.cl-card{width:230px;padding:26px;border-radius:34px;background:#ffffff;color:#6b4fa0;text-align:center;
-  box-shadow:0 20px 40px rgba(140,110,200,.4),inset 8px 8px 16px rgba(255,255,255,.9),inset -8px -8px 16px rgba(180,150,220,.35)}
-.cl-icon{width:66px;height:66px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;font-size:30px;color:#fff;
-  background:#a78bfa;box-shadow:inset 6px 6px 10px rgba(255,255,255,.45),inset -6px -6px 10px rgba(90,60,160,.4),0 10px 20px rgba(120,80,200,.35)}
-.cl-card h5{margin:0 0 6px;font-size:16px}
-.cl-card p{margin:0;font-size:12.5px;color:#9a86c0;line-height:1.5}
-.cl-btn{margin-top:10px;display:inline-block;padding:12px 22px;border-radius:20px;font-weight:700;font-size:13px;color:#fff;cursor:pointer;
-  background:#ff9ec6;box-shadow:inset 5px 5px 9px rgba(255,255,255,.5),inset -5px -5px 9px rgba(200,90,150,.45),0 10px 18px rgba(230,120,170,.4);transition:.12s}
-.cl-btn:active{transform:translateY(2px)}
+.organic-stage{background:#fef6f0}
+.ob-scene{position:relative;width:360px;height:250px;border-radius:22px;overflow:hidden;
+  background:linear-gradient(160deg,#fff4ec 0%,#eef7f5 100%);
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.ob-blob{position:absolute;filter:blur(.3px)}
+.ob-b1{width:170px;height:170px;top:-46px;left:-40px;
+  border-radius:42% 58% 63% 37% / 45% 38% 62% 55%;
+  background:linear-gradient(135deg,#ffb5a7,#ff8fab);opacity:.9;
+  animation:ob-float 7s ease-in-out infinite}
+.ob-b2{width:150px;height:150px;bottom:-52px;right:-36px;
+  border-radius:63% 37% 44% 56% / 55% 60% 40% 45%;
+  background:linear-gradient(135deg,#a0e7e5,#7fd8d3);opacity:.9;
+  animation:ob-float 9s ease-in-out infinite reverse}
+.ob-b3{width:110px;height:110px;top:120px;left:20px;
+  border-radius:50% 50% 38% 62% / 58% 46% 54% 42%;
+  background:linear-gradient(135deg,#cdb4f6,#b8a3f0);opacity:.85;
+  animation:ob-float 8s ease-in-out infinite}
+@keyframes ob-float{0%,100%{transform:translate(0,0) rotate(0deg)}
+  50%{transform:translate(6px,-10px) rotate(8deg)}}
+.ob-card{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:230px;background:#ffffff;border-radius:20px;padding:22px 24px;
+  box-shadow:0 14px 34px rgba(80,60,90,.16);text-align:center}
+.ob-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.03em;
+  color:#e0658a;background:#ffe3ec;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.ob-h{margin:0 0 6px;font-size:20px;font-weight:800;color:#3b3350;line-height:1.2;letter-spacing:-.01em}
+.ob-p{margin:0 0 16px;font-size:12.5px;color:#8a839a;line-height:1.5}
+.ob-btn{display:inline-block;border:0;background:linear-gradient(135deg,#ff8fab,#ff7a9c);
+  color:#fff;font-weight:700;font-size:13px;padding:11px 26px;border-radius:999px;
+  cursor:pointer;transition:.15s;box-shadow:0 6px 16px rgba(255,138,171,.4)}
+.ob-btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(255,138,171,.5)}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">04 / 35 · preview</span></div></div>
+<span class="pill">33 / 35 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">04</span> UI Design Style</span>
-  <h1 class="title">Claymorphism </h1>
-  <p class="tag">A soft-clay 3D look — chunky rounded shapes with inner and outer shadows create a puffy, friendly feel.</p>
-  <div class="meta"><span class="badge">Emerged: 2021 (coined by Hype4)</span><span class="badge">Growing · niche</span><span class="badge">Pairs well with illustration & 3D</span></div>
+  <span class="kicker"><span class="num">33</span> UI Design Style</span>
+  <h1 class="title">Organic / Blob <span class="en">soft shapes</span></h1>
+  <p class="tag">Soft, irregular, hand-drawn-feeling shapes and flowing curves that add warmth, friendliness and gentle movement to a layout.</p>
+  <div class="meta"><span class="badge">Trend · friendly marketing</span><span class="badge">Common · SaaS &amp; wellness</span><span class="badge">Decorative shape system</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Claymorphism renders elements as if molded from clay — plump and soft. Large radii, an outer drop shadow, and two inner &lt;code&gt;inset&lt;/code&gt; shadows (one light, one dark) create the 3D clay texture. Combined with bright pastels and 3D illustration, it’s popular for friendly, playful brands.</p>
+  <p class="def">Organic / blob design uses soft, irregular, hand-drawn-feeling shapes (“blobs”), flowing curves and natural asymmetry, often paired with gentle gradients, to add friendliness, warmth and movement to a layout. It shows up most often as decorative backgrounds and section dividers in modern marketing sites, where the loose, rounded forms soften an otherwise flat or minimal interface.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Hover the button and watch the blobs drift.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Claymorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage claymorphism-stage"><div class="cl-wrap">
-  <div class="cl-card"><div class="cl-icon">🧸</div><h5>Claymorphism</h5><p>Puffy 3D as if molded from clay. Outer shadow + double inner shadow.</p></div>
-  <span class="cl-btn">Tap me</span>
+    <span style="margin-left:8px">Organic / Blob · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage organic-stage"><div class="ob-scene">
+  <div class="ob-blob ob-b1"></div>
+  <div class="ob-blob ob-b2"></div>
+  <div class="ob-blob ob-b3"></div>
+  <div class="ob-card">
+    <span class="ob-badge">HELLO THERE</span>
+    <h3 class="ob-h">Made to feel friendly</h3>
+    <p class="ob-p">Soft blobs and flowing curves keep the mood warm and approachable.</p>
+    <button class="ob-btn">Get started</button>
+  </div>
 </div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Puffy 3D</h4><p>Thick, rounded forms emphasize volume</p></div><div class="chip"><h4>Double inner shadow</h4><p>Light + dark &lt;code&gt;inset&lt;/code&gt; shadows make the clay texture</p></div><div class="chip"><h4>Large radius</h4><p>Generous &lt;code&gt;border-radius&lt;/code&gt; for soft silhouettes</p></div><div class="chip"><h4>Pastel &amp; lively</h4><p>Bright pastels paired with 3D icons</p></div></div>
+  <div class="chars"><div class="chip"><h4>Blobby organic shapes</h4><p>Soft, irregular “blob” forms instead of hard rectangles</p></div><div class="chip"><h4>Flowing curves &amp; asymmetry</h4><p>Loose, natural curves and deliberate off-balance forms</p></div><div class="chip"><h4>Soft gradients &amp; pastels</h4><p>Gentle color blends in warm pastel tones</p></div><div class="chip"><h4>Friendly, natural feel</h4><p>Warm, human and approachable overall mood</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Friendly, playful mood — great for youthful/lifestyle brands</li><li>Strong depth makes elements easy to distinguish</li><li>Bright colors evoke joy and positivity</li><li>Blends naturally with 3D illustration and emoji</li><li>Higher contrast than neumorphism, so friendlier for a11y</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Playful tone doesn’t suit serious or professional services</li><li>Chunky forms eat space, lowering information density</li><li>Multiple shadows make CSS complex and can cost performance</li><li>Trend-driven — risk of looking dated quickly</li><li>Producing consistent 3D assets needs design resources</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Warm, friendly and approachable in feel</li><li>Adds movement and softness to flat layouts</li><li>Flexible decorative system for many sections</li><li>On-trend and modern for consumer brands</li><li>Pairs naturally with flat / minimal UI</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Decorative, not structural — adds little function</li><li>Can feel trendy or generic if overused</li><li>Text placed over shapes risks poor contrast</li><li>Overuse quickly feels busy and cluttered</li><li>Hard to keep brand-distinct from other blob sites</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Bright services for kids, education, games, playful fintech</li><li>Onboarding and illustration-led landing pages</li><li>Marketing using emoji / 3D icons</li><li>App-icon and illustration systems</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Finance, legal, B2B where trust/authority matters</li><li>Data- and table-heavy productivity screens</li><li>Minimal / luxury brand tones</li><li>Performance-sensitive low-end targets</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Friendly consumer or SaaS marketing sites</li><li>Wellness, education and kids-focused products</li><li>Section backgrounds and dividers need softening</li><li>The brand wants to feel approachable and human</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Serious enterprise or finance products</li><li>Dense, functional UIs with lots of data</li><li>Precision and formality matter most</li><li>Text-over-shape contrast is critical to legibility</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
-  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity &amp; stability</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div><small>Keep blobs as a background layer, never directly under body text</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
         <div class="bar"><i style="width:40%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
         <div class="bar"><i style="width:100%"></i></div></div></div>
 </section>
@@ -195,26 +221,26 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">
-        <div class="nm">Hype4 — Claymorphism article</div><div class="ds">The origin article that named it</div>
-        <span class="go">hype4.academy ↗</span></a><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">
-        <div class="nm">Dribbble — Claymorphism</div><div class="ds">Gallery of applied work</div>
-        <span class="go">dribbble.com ↗</span></a><a href="https://uxdesign.cc/" target="_blank" rel="noopener">
-        <div class="nm">UX Collective (Medium)</div><div class="ds">Trend analysis of claymorphism</div>
-        <span class="go">uxdesign.cc ↗</span></a></div>
+  <div class="ex"><a href="https://www.blobmaker.app/" target="_blank" rel="noopener">
+        <div class="nm">Blobmaker</div><div class="ds">Generate free organic SVG blob shapes</div>
+        <span class="go">www.blobmaker.app ↗</span></a><a href="https://haikei.app/" target="_blank" rel="noopener">
+        <div class="nm">Haikei</div><div class="ds">Blobs, waves and organic backgrounds as SVG</div>
+        <span class="go">haikei.app ↗</span></a><a href="https://getwaves.io/" target="_blank" rel="noopener">
+        <div class="nm">Get Waves / organic shapes</div><div class="ds">Flowing SVG wave and divider generator</div>
+        <span class="go">getwaves.io ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Claymorphism — Outsourcing brief (Upwork)</h3><ul><li>Key spec: large &lt;code&gt;border-radius&lt;/code&gt; + one outer drop shadow + two inner &lt;code&gt;inset&lt;/code&gt; shadows (light &amp; dark)</li><li>Give the dev a pastel palette and 3D icon assets (or a library)</li><li>Performance: cap shadow layers at 3–4 per component</li><li>Define radius/shadow values as design tokens for consistency</li><li>Require a separate dark-mode palette since pastels lose contrast</li></ul></div>
+  <div class="tip"><h3>Organic / Blob — Outsourcing brief (Upwork)</h3><ul><li>Deliver reusable SVG blob shapes plus palette and gradient <code>tokens</code></li><li>Keep blobs as a background layer — never directly under body text</li><li>Define placement and rhythm so shapes feel intentional, not random</li><li>Provide responsive and simplified variants for small screens</li><li>Check text contrast anywhere copy sits near a shape</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">Hype4 Academy — Claymorphism in UI</a></li><li><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">Dribbble — Claymorphism</a></li><li><a href="https://uxdesign.cc/" target="_blank" rel="noopener">UX Collective</a></li></ul>
+  <ul class="src"><li><a href="https://www.blobmaker.app/" target="_blank" rel="noopener">Blobmaker — free organic SVG blob generator</a></li><li><a href="https://haikei.app/" target="_blank" rel="noopener">Haikei — SVG blob, wave and organic background generator</a></li><li><a href="https://getwaves.io/" target="_blank" rel="noopener">Get Waves — SVG wave generator</a></li></ul>
 </section>
 
-<div class="nav"><a href="glassmorphism.html">← Glassmorphism<small>Prev</small></a><a class="r" href="minimalism.html">Minimalism →<small>Next</small></a></div>
+<div class="nav"><a href="editorial.html">← Editorial / Magazine<small>Prev</small></a><a class="r" href="line-art.html">Line Art →<small>Next</small></a></div>
 </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>16. Aurora Gradient — UI Style Guide</title>
+<title>29. 3D / Render — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,99 +115,105 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.aurora-stage{background:#0a0a14;padding:0}
-.au-scene{position:relative;width:360px;height:240px;border-radius:14px;overflow:hidden;
-  background:#0a0a14;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-.au-blob{position:absolute;border-radius:50%;filter:blur(46px);opacity:.85;will-change:transform}
-.au-b1{width:230px;height:230px;top:-70px;left:-50px;background:#7c3aed;
-  animation:au-drift1 14s ease-in-out infinite alternate}
-.au-b2{width:210px;height:210px;top:-40px;right:-60px;background:#2563eb;
-  animation:au-drift2 16s ease-in-out infinite alternate}
-.au-b3{width:220px;height:220px;bottom:-80px;left:-30px;background:#ec4899;
-  animation:au-drift3 15s ease-in-out infinite alternate}
-.au-b4{width:200px;height:200px;bottom:-70px;right:-40px;background:#14b8a6;
-  animation:au-drift4 18s ease-in-out infinite alternate}
-.au-grain{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,transparent 40%,rgba(10,10,20,.55) 100%)}
-.au-fg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;padding:24px;gap:11px}
-.au-eyebrow{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
-  color:rgba(255,255,255,.72)}
-.au-h{margin:0;font-size:27px;line-height:1.1;font-weight:800;letter-spacing:-.02em;
-  background:linear-gradient(100deg,#fff 20%,#d9c7ff 55%,#a5e8ff 90%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#fff}
-.au-sub{margin:0;font-size:12.5px;color:rgba(233,236,247,.82);max-width:250px}
-.au-btn{margin-top:5px;display:inline-flex;align-items:center;gap:7px;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
-  color:#fff;font-weight:700;font-size:12.5px;padding:9px 18px;border-radius:999px;
-  cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:.15s}
-.au-btn:hover{background:rgba(255,255,255,.2)}
-.au-btn i{width:6px;height:6px;border-radius:50%;background:#3ecf8e;box-shadow:0 0 8px #3ecf8e}
-@keyframes au-drift1{from{transform:translate(0,0)}to{transform:translate(34px,26px)}}
-@keyframes au-drift2{from{transform:translate(0,0)}to{transform:translate(-30px,32px)}}
-@keyframes au-drift3{from{transform:translate(0,0)}to{transform:translate(28px,-24px)}}
-@keyframes au-drift4{from{transform:translate(0,0)}to{transform:translate(-26px,-28px)}}
-@media(prefers-reduced-motion:reduce){.au-blob{animation:none}}
+.render3d-stage{background:radial-gradient(120% 120% at 20% 0%,#2a2350 0,#141033 45%,#0a0820 100%)}
+.r3-hero{position:relative;width:360px;height:242px;border-radius:14px;overflow:hidden;
+  background:radial-gradient(140% 120% at 78% 12%,#3a2f6e 0,#1a1440 48%,#0c0925 100%);
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#f4f1ff}
+.r3-copy{position:absolute;left:22px;top:22px;z-index:3;max-width:170px}
+.r3-eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#b9a7ff;margin-bottom:8px}
+.r3-head{font-size:23px;line-height:1.12;font-weight:800;letter-spacing:-.02em;margin:0 0 10px;
+  text-shadow:0 2px 18px rgba(90,60,220,.5)}
+.r3-cta{display:inline-block;font-size:11px;font-weight:700;color:#1a1440;
+  padding:8px 15px;border-radius:999px;
+  background:linear-gradient(180deg,#fff 0,#d8ccff 100%);
+  box-shadow:0 6px 16px rgba(120,90,255,.45),inset 0 1px 0 rgba(255,255,255,.9)}
+/* glossy rendered sphere built from layered radial-gradients */
+.r3-sphere{position:absolute;right:34px;top:52px;width:132px;height:132px;border-radius:50%;z-index:2;
+  background:
+    radial-gradient(38px 30px at 36% 28%,rgba(255,255,255,.95) 0,rgba(255,255,255,0) 62%),
+    radial-gradient(18px 14px at 30% 22%,#ffffff 0,rgba(255,255,255,0) 70%),
+    radial-gradient(120px 120px at 68% 78%,#3d1e86 0,rgba(61,30,134,0) 60%),
+    radial-gradient(150px 150px at 32% 30%,#a98bff 0,#7a4ff0 34%,#5b2fd0 62%,#2c1470 100%);
+  box-shadow:
+    inset -14px -20px 34px rgba(20,8,64,.75),
+    inset 10px 12px 22px rgba(255,255,255,.28),
+    0 26px 40px -8px rgba(60,20,150,.6);
+  animation:r3-float 5.5s ease-in-out infinite}
+/* soft contact shadow beneath the sphere */
+.r3-shadow{position:absolute;right:52px;top:182px;width:96px;height:22px;border-radius:50%;z-index:1;
+  background:radial-gradient(closest-side,rgba(15,6,45,.85),rgba(15,6,45,0) 78%);
+  filter:blur(3px);animation:r3-shadowpulse 5.5s ease-in-out infinite}
+/* second rounded 3D cube */
+.r3-cube{position:absolute;left:150px;top:150px;width:60px;height:60px;border-radius:15px;z-index:2;
+  background:
+    radial-gradient(26px 20px at 32% 26%,rgba(255,255,255,.9) 0,rgba(255,255,255,0) 65%),
+    linear-gradient(150deg,#63e6c6 0,#2bb4d6 52%,#1b6ad6 100%);
+  box-shadow:
+    inset -8px -10px 18px rgba(10,40,70,.6),
+    inset 6px 6px 12px rgba(255,255,255,.35),
+    0 16px 26px -6px rgba(20,120,190,.55);
+  transform:rotate(-12deg);animation:r3-float2 6.5s ease-in-out infinite}
+@keyframes r3-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes r3-float2{0%,100%{transform:rotate(-12deg) translateY(0)}50%{transform:rotate(-12deg) translateY(-6px)}}
+@keyframes r3-shadowpulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(.86);opacity:.6}}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">16 / 35 · preview</span></div></div>
+<span class="pill">29 / 35 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">16</span> UI Design Style</span>
-  <h1 class="title">Aurora Gradient <span class="en">Mesh Gradient</span></h1>
-  <p class="tag">Soft, luminous color fields — blurred multi-color mesh gradients that glow behind clean typography, the signature look of modern SaaS and AI products.</p>
-  <div class="meta"><span class="badge">Popularized: ~2020–2023</span><span class="badge">Trend · widespread</span><span class="badge">Common in SaaS &amp; AI landing pages</span></div>
+  <span class="kicker"><span class="num">29</span> UI Design Style</span>
+  <h1 class="title">3D / Render <span class="en">Spline · Blender</span></h1>
+  <p class="tag">Rendered three-dimensional hero visuals — glossy shapes, soft global-illumination light and rich materials for a premium, tactile, often interactive feel.</p>
+  <div class="meta"><span class="badge">Tooling: Blender · C4D · Spline</span><span class="badge">Trend · premium heroes</span><span class="badge">Big in SaaS, AI &amp; crypto</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Aurora — or “mesh” — gradient is a look built from large, soft, blurred blobs of blended color (violet, blue, pink, teal) that overlap into a luminous “aurora” field, usually placed behind clean, minimal typography and a simple card. Popularized by Stripe, Linear, Vercel and a wave of AI products in the early 2020s, it adds depth, mood and brand-color energy without any ornament — the color itself does the work.</p>
+  <p class="def">The 3D / render style uses realistic or stylized three-dimensional rendered objects — modeled in Blender, Cinema 4D or Spline — as hero visuals: glossy shapes, soft global-illumination lighting, depth of field and rich materials such as glass, clay, metal. It is common in modern SaaS, AI and crypto landing pages for a premium, tactile, futuristic feel, and is often interactive via WebGL or Spline so the object responds to scroll and cursor.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. The blurred color blobs slowly drift behind the text.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. The sphere and cube are layered CSS gradients simulating a rendered 3D hero.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Aurora Gradient · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage aurora-stage"><div class="au-scene">
-  <div class="au-blob au-b1"></div>
-  <div class="au-blob au-b2"></div>
-  <div class="au-blob au-b3"></div>
-  <div class="au-blob au-b4"></div>
-  <div class="au-grain"></div>
-  <div class="au-fg">
-    <span class="au-eyebrow">Introducing</span>
-    <h3 class="au-h">Build at the speed of thought</h3>
-    <p class="au-sub">A calmer workspace for modern teams — designed to feel effortless.</p>
-    <button class="au-btn"><i></i>Get early access</button>
+    <span style="margin-left:8px">3D / Render · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage render3d-stage"><div class="r3-hero">
+  <div class="r3-copy">
+    <div class="r3-eyebrow">New · 2026</div>
+    <h3 class="r3-head">Build in three dimensions</h3>
+    <span class="r3-cta">Get started →</span>
   </div>
+  <div class="r3-shadow"></div>
+  <div class="r3-sphere"></div>
+  <div class="r3-cube"></div>
 </div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Blended color fields</h4><p>Multiple soft radial blobs bleed into one another</p></div><div class="chip"><h4>Heavy blur &amp; glow</h4><p>Dreamy, luminous edges with no hard boundaries</p></div><div class="chip"><h4>Minimal foreground</h4><p>Clean, sparse type sitting over the rich color</p></div><div class="chip"><h4>Motion optional</h4><p>Slow drifting or animated gradients add life</p></div></div>
+  <div class="chars"><div class="chip"><h4>Rendered 3D objects</h4><p>Glossy, soft-lit shapes rendered as the visual centerpiece</p></div><div class="chip"><h4>Realistic materials &amp; light</h4><p>Glass, clay and metal under soft global-illumination lighting</p></div><div class="chip"><h4>Real depth &amp; dimensionality</h4><p>Depth of field and volume give a tangible, physical presence</p></div><div class="chip"><h4>Often interactive</h4><p>Reacts to scroll and cursor via WebGL / Spline embeds</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Eye-catching, modern and premium in feel</li><li>Strong expression of brand color and mood</li><li>Pairs well with minimal type and glassmorphism</li><li>Cheap to produce with pure CSS gradients</li><li>Flexible mood — swap the palette to reset the tone</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Text contrast over bright gradients is risky</li><li>Can look trendy and samey across products</li><li>Animated gradients cost performance and battery</li><li>Hard to keep tightly brand-consistent</li><li>Overuse reads as generic “AI startup”</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Premium, eye-catching and tactile — a strong first impression</li><li>Creates real depth and a clear focal hero</li><li>Flexible range — from abstract shapes to detailed product renders</li><li>Reads as trendy and modern in 2026</li><li>Interactive 3D adds a memorable wow-factor</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Heavy assets add real performance cost</li><li>Needs 3D skills and tools (Blender, C4D, Spline)</li><li>An elaborate render can distract from the content</li><li>Accessibility is harder for interactive 3D</li><li>Long production time to model, light and render</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>SaaS / AI landing and hero sections</li><li>Product launches and marketing pages</li><li>Brands with vivid, expressive color identities</li><li>Dark backgrounds where the glow really pops</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Dense functional UIs and long-form reading</li><li>Accessibility-critical text sitting over imagery</li><li>Conservative or enterprise contexts</li><li>Low-power or performance-sensitive contexts (if animated)</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>SaaS, AI or crypto landing-page heroes</li><li>Product showcases that benefit from a tangible object</li><li>Premium brand launches and campaigns</li><li>Portfolios that want to stand out visually</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Content- or data-dense UIs</li><li>Low-power or performance-sensitive contexts</li><li>Accessibility-first products</li><li>Tight budgets or short timelines</li></ul></div>
   </div>
 </section>
 
@@ -216,35 +222,35 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
   <div class="metrics"><div class="metric "><div class="top"><b>Maturity &amp; stability</b><span>4/5</span></div>
         <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>4/5</span></div>
-        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div><small>Guarantee text contrast — put type on solid/overlay, not raw gradient</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
-        <div class="bar"><i style="width:40%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div><small>Provide a static image fallback and alt text; interactive 3D needs keyboard/reduced-motion care</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Support &amp; ecosystem</b><span>4/5</span></div>
         <div class="bar"><i style="width:80%"></i></div></div></div>
 </section>
 
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://stripe.com" target="_blank" rel="noopener">
-        <div class="nm">Stripe</div><div class="ds">Signature animated mesh-gradient hero backdrops</div>
-        <span class="go">stripe.com ↗</span></a><a href="https://linear.app" target="_blank" rel="noopener">
-        <div class="nm">Linear</div><div class="ds">Dark aurora glows behind minimal product type</div>
-        <span class="go">linear.app ↗</span></a><a href="https://vercel.com" target="_blank" rel="noopener">
-        <div class="nm">Vercel</div><div class="ds">Luminous gradient fields across marketing pages</div>
-        <span class="go">vercel.com ↗</span></a></div>
+  <div class="ex"><a href="https://spline.design/" target="_blank" rel="noopener">
+        <div class="nm">Spline</div><div class="ds">Browser-based 3D design and interactive web embeds</div>
+        <span class="go">spline.design ↗</span></a><a href="https://threejs.org/" target="_blank" rel="noopener">
+        <div class="nm">three.js</div><div class="ds">The WebGL library behind most interactive 3D on the web</div>
+        <span class="go">threejs.org ↗</span></a><a href="https://dribbble.com/tags/3d" target="_blank" rel="noopener">
+        <div class="nm">Dribbble — 3D</div><div class="ds">A broad gallery of 3D / render UI work</div>
+        <span class="go">dribbble.com ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Aurora Gradient — Outsourcing brief (Upwork)</h3><ul><li>Specify the gradient palette and blob positions up front as <code>tokens</code></li><li>Require foreground text to sit on a solid, overlay or card so contrast passes <code>AA</code> — never raw over a bright gradient</li><li>Cap or disable animation and honor <code>prefers-reduced-motion</code></li><li>Export a static image fallback of the gradient for performance</li><li>Keep the foreground minimal so the gradient does the work</li></ul></div>
+  <div class="tip"><h3>3D / Render — Outsourcing brief (Upwork)</h3><ul><li>Specify the tool (<code>Spline</code> / <code>Blender</code>) and whether the hero is interactive or static</li><li>Require optimized assets plus a static image fallback for slow devices</li><li>Budget for performance — set a <code>poly count</code> ceiling and lazy-load the 3D</li><li>Provide <code>alt text</code> and reduced-motion handling for the render</li><li>Define the lighting and material style as <code>tokens</code> up front</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://www.joshwcomeau.com/css/backgrounds/" target="_blank" rel="noopener">Josh W. Comeau — The Magic of CSS Backgrounds &amp; Gradients</a></li><li><a href="https://stripe.com" target="_blank" rel="noopener">Stripe — mesh-gradient hero design in practice</a></li><li><a href="https://linear.app" target="_blank" rel="noopener">Linear — dark aurora-gradient marketing design</a></li></ul>
+  <ul class="src"><li><a href="https://spline.design/" target="_blank" rel="noopener">Spline — 3D design tool for the web</a></li><li><a href="https://threejs.org/" target="_blank" rel="noopener">three.js — JavaScript 3D library</a></li><li><a href="https://dribbble.com/tags/3d" target="_blank" rel="noopener">Dribbble — 3D tag gallery</a></li></ul>
 </section>
 
-<div class="nav"><a href="dark-mode.html">← Dark Mode<small>Prev</small></a><a class="r" href="y2k-frutiger-aero.html">Y2K / Frutiger Aero →<small>Next</small></a></div>
+<div class="nav"><a href="isometric.html">← Isometric<small>Prev</small></a><a class="r" href="terminal-ui.html">Terminal / Monospace →<small>Next</small></a></div>
 </div>
 </body>
 </html>

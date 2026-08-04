@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>04. Claymorphism — UI Style Guide</title>
+<title>34. Line Art — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,79 +115,93 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.claymorphism-stage{background:linear-gradient(135deg,#e0c3fc,#8ec5fc)}
-.cl-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
-.cl-card{width:230px;padding:26px;border-radius:34px;background:#ffffff;color:#6b4fa0;text-align:center;
-  box-shadow:0 20px 40px rgba(140,110,200,.4),inset 8px 8px 16px rgba(255,255,255,.9),inset -8px -8px 16px rgba(180,150,220,.35)}
-.cl-icon{width:66px;height:66px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;font-size:30px;color:#fff;
-  background:#a78bfa;box-shadow:inset 6px 6px 10px rgba(255,255,255,.45),inset -6px -6px 10px rgba(90,60,160,.4),0 10px 20px rgba(120,80,200,.35)}
-.cl-card h5{margin:0 0 6px;font-size:16px}
-.cl-card p{margin:0;font-size:12.5px;color:#9a86c0;line-height:1.5}
-.cl-btn{margin-top:10px;display:inline-block;padding:12px 22px;border-radius:20px;font-weight:700;font-size:13px;color:#fff;cursor:pointer;
-  background:#ff9ec6;box-shadow:inset 5px 5px 9px rgba(255,255,255,.5),inset -5px -5px 9px rgba(200,90,150,.45),0 10px 18px rgba(230,120,170,.4);transition:.12s}
-.cl-btn:active{transform:translateY(2px)}
+.lineart-stage{background:#f6f4ef}
+.la-card{width:360px;background:#faf8f3;border:2px solid #1a1a1a;border-radius:8px;
+  padding:22px 22px 20px;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a}
+.la-eyebrow{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:#1a1a1a;border:1.5px solid #1a1a1a;border-radius:999px;padding:4px 11px;margin-bottom:16px}
+.la-icons{display:flex;gap:14px;align-items:center;margin-bottom:18px}
+.la-icon{width:44px;height:44px;border:2px solid #1a1a1a;border-radius:10px;
+  display:grid;place-items:center}
+.la-icon svg{display:block}
+.la-head{font-size:22px;line-height:1.2;font-weight:400;letter-spacing:-.01em;margin:0 0 6px;
+  -webkit-text-stroke:.4px #1a1a1a}
+.la-sub{font-size:13px;color:#5a564d;margin:0 0 18px}
+.la-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#1a1a1a;
+  background:transparent;border:2px solid #1a1a1a;border-radius:999px;padding:9px 18px;cursor:pointer;
+  transition:.15s}
+.la-btn:hover{background:#1a1a1a;color:#faf8f3}
+.la-btn:hover svg *{stroke:#faf8f3}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">04 / 35 · preview</span></div></div>
+<span class="pill">34 / 35 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">04</span> UI Design Style</span>
-  <h1 class="title">Claymorphism </h1>
-  <p class="tag">A soft-clay 3D look — chunky rounded shapes with inner and outer shadows create a puffy, friendly feel.</p>
-  <div class="meta"><span class="badge">Emerged: 2021 (coined by Hype4)</span><span class="badge">Growing · niche</span><span class="badge">Pairs well with illustration & 3D</span></div>
+  <span class="kicker"><span class="num">34</span> UI Design Style</span>
+  <h1 class="title">Line Art <span class="en">outline / monoline</span></h1>
+  <p class="tag">Thin, uniform strokes and outlined shapes instead of filled forms — a minimal, elegant, lightweight look for icons and illustration.</p>
+  <div class="meta"><span class="badge">Monoline · outline</span><span class="badge">Common · icons & minimal UI</span><span class="badge">Elegant and lightweight</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">Claymorphism renders elements as if molded from clay — plump and soft. Large radii, an outer drop shadow, and two inner &lt;code&gt;inset&lt;/code&gt; shadows (one light, one dark) create the 3D clay texture. Combined with bright pastels and 3D illustration, it’s popular for friendly, playful brands.</p>
+  <p class="def">Line art (outline style) uses thin, uniform strokes and outlined, unfilled shapes to draw icons and illustrations rather than filled, solid forms. The result is minimal, elegant and light — a delicate visual language that reads clearly without heavy fills. It is common for iconography, monoline illustration and refined, minimal UIs where restraint and precision matter.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Try hovering.</p>
+  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. Notice the thin strokes and outlined, unfilled shapes.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">Claymorphism · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage claymorphism-stage"><div class="cl-wrap">
-  <div class="cl-card"><div class="cl-icon">🧸</div><h5>Claymorphism</h5><p>Puffy 3D as if molded from clay. Outer shadow + double inner shadow.</p></div>
-  <span class="cl-btn">Tap me</span>
+    <span style="margin-left:8px">Line Art · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage lineart-stage"><div class="la-card">
+  <span class="la-eyebrow">Outline · monoline</span>
+  <div class="la-icons">
+    <span class="la-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
+    <span class="la-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19h18L15 8l-4 6-2-3-6 8Z"/></svg></span>
+    <span class="la-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L12 16.9l-5.25 2.75 1-5.85L3.5 9.65l5.9-.85Z"/></svg></span>
+    <span class="la-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </div>
+  <h3 class="la-head">Drawn in a single line</h3>
+  <p class="la-sub">Thin, even strokes. Outlined shapes, no fills.</p>
+  <button class="la-btn">Explore<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
 </div></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Puffy 3D</h4><p>Thick, rounded forms emphasize volume</p></div><div class="chip"><h4>Double inner shadow</h4><p>Light + dark &lt;code&gt;inset&lt;/code&gt; shadows make the clay texture</p></div><div class="chip"><h4>Large radius</h4><p>Generous &lt;code&gt;border-radius&lt;/code&gt; for soft silhouettes</p></div><div class="chip"><h4>Pastel &amp; lively</h4><p>Bright pastels paired with 3D icons</p></div></div>
+  <div class="chars"><div class="chip"><h4>Thin uniform strokes</h4><p>Consistent, even line weight throughout every mark</p></div><div class="chip"><h4>Outlined shapes & icons</h4><p>Forms are drawn as outlines, not filled solids</p></div><div class="chip"><h4>Minimal & airy</h4><p>Light, uncluttered compositions with plenty of space</p></div><div class="chip"><h4>Elegant monoline illustration</h4><p>Refined, delicate line drawing for icons and art</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Friendly, playful mood — great for youthful/lifestyle brands</li><li>Strong depth makes elements easy to distinguish</li><li>Bright colors evoke joy and positivity</li><li>Blends naturally with 3D illustration and emoji</li><li>Higher contrast than neumorphism, so friendlier for a11y</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Playful tone doesn’t suit serious or professional services</li><li>Chunky forms eat space, lowering information density</li><li>Multiple shadows make CSS complex and can cost performance</li><li>Trend-driven — risk of looking dated quickly</li><li>Producing consistent 3D assets needs design resources</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Clean, elegant and lightweight visual language</li><li>Scales crisply as SVG at any size</li><li>Forms a cohesive icon and illustration system</li><li>Pairs naturally with minimal and editorial design</li><li>Timeless — resists trend-driven aging</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Low visual weight and contrast on the page</li><li>Can feel sparse or cold without warmth</li><li>Less punchy and bold than filled forms</li><li>Fine lines vanish at small sizes / low-dpi screens</li><li>Limited expressiveness compared with richer styles</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Bright services for kids, education, games, playful fintech</li><li>Onboarding and illustration-led landing pages</li><li>Marketing using emoji / 3D icons</li><li>App-icon and illustration systems</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Finance, legal, B2B where trust/authority matters</li><li>Data- and table-heavy productivity screens</li><li>Minimal / luxury brand tones</li><li>Performance-sensitive low-end targets</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Minimal or premium brands with a refined tone</li><li>Icon systems and consistent line illustration</li><li>Editorial accents and delicate detailing</li><li>Elegant marketing and quiet, confident layouts</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>High-impact, bold brands that need visual weight</li><li>Low-contrast-sensitive contexts and users</li><li>Very small sizes or low-dpi displays</li><li>Playful, loud identities that want energy</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
-  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>3/5</span></div>
-        <div class="bar"><i style="width:60%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div><small>Use adequate stroke weight and contrast; thin lines fail at small sizes</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>2/5</span></div>
         <div class="bar"><i style="width:40%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
         <div class="bar"><i style="width:100%"></i></div></div></div>
 </section>
@@ -195,26 +209,26 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">
-        <div class="nm">Hype4 — Claymorphism article</div><div class="ds">The origin article that named it</div>
-        <span class="go">hype4.academy ↗</span></a><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">
-        <div class="nm">Dribbble — Claymorphism</div><div class="ds">Gallery of applied work</div>
-        <span class="go">dribbble.com ↗</span></a><a href="https://uxdesign.cc/" target="_blank" rel="noopener">
-        <div class="nm">UX Collective (Medium)</div><div class="ds">Trend analysis of claymorphism</div>
-        <span class="go">uxdesign.cc ↗</span></a></div>
+  <div class="ex"><a href="https://feathericons.com/" target="_blank" rel="noopener">
+        <div class="nm">Feather Icons</div><div class="ds">A widely used monoline outline icon set</div>
+        <span class="go">feathericons.com ↗</span></a><a href="https://lucide.dev/" target="_blank" rel="noopener">
+        <div class="nm">Lucide</div><div class="ds">Community fork of Feather, consistent stroke system</div>
+        <span class="go">lucide.dev ↗</span></a><a href="https://en.wikipedia.org/wiki/Line_art" target="_blank" rel="noopener">
+        <div class="nm">Monoline illustration overview</div><div class="ds">Background on line art and outline drawing</div>
+        <span class="go">en.wikipedia.org ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>Claymorphism — Outsourcing brief (Upwork)</h3><ul><li>Key spec: large &lt;code&gt;border-radius&lt;/code&gt; + one outer drop shadow + two inner &lt;code&gt;inset&lt;/code&gt; shadows (light &amp; dark)</li><li>Give the dev a pastel palette and 3D icon assets (or a library)</li><li>Performance: cap shadow layers at 3–4 per component</li><li>Define radius/shadow values as design tokens for consistency</li><li>Require a separate dark-mode palette since pastels lose contrast</li></ul></div>
+  <div class="tip"><h3>Line Art — Outsourcing brief (Upwork)</h3><ul><li>Deliver an SVG stroke system with consistent weight, caps and joins as <code>tokens</code></li><li>Set a minimum stroke weight so lines stay legible and meet AA at target sizes</li><li>Keep all outline icons and illustrations visually consistent across the set</li><li>Provide filled variants for emphasis where extra weight is needed</li><li>Test every mark at small sizes to confirm thin lines survive</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://hype4.academy/articles/design/claymorphism-in-user-interfaces" target="_blank" rel="noopener">Hype4 Academy — Claymorphism in UI</a></li><li><a href="https://dribbble.com/tags/claymorphism" target="_blank" rel="noopener">Dribbble — Claymorphism</a></li><li><a href="https://uxdesign.cc/" target="_blank" rel="noopener">UX Collective</a></li></ul>
+  <ul class="src"><li><a href="https://feathericons.com/" target="_blank" rel="noopener">Feather Icons</a></li><li><a href="https://lucide.dev/" target="_blank" rel="noopener">Lucide</a></li><li><a href="https://en.wikipedia.org/wiki/Line_art" target="_blank" rel="noopener">Line art — Wikipedia</a></li></ul>
 </section>
 
-<div class="nav"><a href="glassmorphism.html">← Glassmorphism<small>Prev</small></a><a class="r" href="minimalism.html">Minimalism →<small>Next</small></a></div>
+<div class="nav"><a href="organic-blob.html">← Organic / Blob<small>Prev</small></a><a class="r" href="wireframe.html">Wireframe / Sketch →<small>Next</small></a></div>
 </div>
 </body>
 </html>

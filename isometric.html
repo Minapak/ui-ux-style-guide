@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>21. iOS (Human Interface Guidelines) — UI Style Guide</title>
+<title>28. Isometric — UI Style Guide</title>
 <style>
 :root{
   --bg:#0d1017; --bg2:#141925; --card:#1a2130; --line:#28303f;
@@ -115,67 +115,61 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 /* ===== live demo css ===== */
 
-.ioshig-stage{background:#f2f2f7}
-.io-app{width:340px;background:#f2f2f7;border-radius:14px;overflow:hidden;padding:14px 0 18px;
-  font-family:-apple-system,"SF Pro Text","SF Pro Display",BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  color:#000;-webkit-font-smoothing:antialiased}
-.io-nav{padding:2px 18px 10px}
-.io-nav .io-large{font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.1;color:#000}
-.io-seg{display:flex;margin:2px 16px 14px;background:#e3e3e8;border-radius:9px;padding:2px}
-.io-seg span{flex:1;text-align:center;font-size:12.5px;font-weight:500;color:#000;padding:5px 0;border-radius:7px}
-.io-seg span.io-sel{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);font-weight:600}
-.io-group{background:#fff;border-radius:11px;margin:0 16px 20px;overflow:hidden}
-.io-row{display:flex;align-items:center;gap:12px;padding:11px 14px;position:relative;min-height:44px}
-.io-row + .io-row::before{content:"";position:absolute;top:0;left:46px;right:0;height:1px;background:#e5e5ea}
-.io-ic{width:28px;height:28px;border-radius:7px;flex:none;display:grid;place-items:center;color:#fff;font-size:15px;line-height:1}
-.io-ic.io-b1{background:#34C759}.io-ic.io-b2{background:#007AFF}.io-ic.io-b3{background:#FF9500}
-.io-ic.io-b4{background:#FF3B30}.io-ic.io-b5{background:#8E8E93}.io-ic.io-b6{background:#AF52DE}
-.io-label{flex:1;font-size:15px;color:#000}
-.io-val{font-size:15px;color:#8e8e93}
-.io-chev{color:#c4c4c6;font-size:17px;font-weight:600;margin-left:2px;line-height:1}
-.io-link{color:#007AFF}
-.io-sw{width:44px;height:26px;border-radius:999px;background:#34C759;position:relative;flex:none}
-.io-sw i{position:absolute;top:2px;left:20px;width:22px;height:22px;border-radius:50%;background:#fff;
-  box-shadow:0 1px 3px rgba(0,0,0,.25)}
-.io-sw.io-off{background:#e5e5ea}.io-sw.io-off i{left:2px}
+.isometric-stage{background:radial-gradient(120% 120% at 30% 10%,#eef2ff 0,#e0e7ff 55%,#c7d2fe 100%)}
+.iso-scene{position:relative;width:360px;height:250px;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+/* orthographic camera = true isometric, no perspective convergence */
+.iso-cam{position:absolute;left:184px;top:140px;transform-style:preserve-3d;transform:rotateX(60deg) rotateZ(45deg)}
+.iso-floor{position:absolute;left:50%;top:50%;width:196px;height:196px;
+  transform:translate(-50%,-50%) translateZ(-27px);
+  background:rgba(79,70,229,.10);border:1px solid rgba(79,70,229,.22);border-radius:12px}
+.iso-cube{position:absolute;width:52px;height:52px;left:-26px;top:-26px;transform-style:preserve-3d}
+.iso-cube .f{position:absolute;inset:0;width:52px;height:52px}
+.iso-cube .top{transform:translateZ(26px);background:var(--ct)}
+.iso-cube .sx {transform:rotateY( 90deg) translateZ(26px);background:var(--cr)}
+.iso-cube .sx2{transform:rotateY(-90deg) translateZ(26px);background:var(--cr)}
+.iso-cube .sy {transform:rotateX( 90deg) translateZ(26px);background:var(--cl)}
+.iso-cube .sy2{transform:rotateX(-90deg) translateZ(26px);background:var(--cl)}
+.iso-indigo{--ct:#a5b4fc;--cl:#4f46e5;--cr:#3730a3}
+.iso-teal  {--ct:#5eead4;--cl:#14b8a6;--cr:#0f766e}
+.iso-coral {--ct:#fda4af;--cl:#fb7185;--cr:#be123c}
+.iso-label{position:absolute;left:18px;top:16px;color:#3730a3;font-weight:800;font-size:16px;letter-spacing:-.01em;z-index:2}
+.iso-label small{display:block;color:#6366f1;font-weight:600;font-size:11px;letter-spacing:.02em;margin-top:2px}
 
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap"><a class="home" href="index.html">← All styles</a>
-<span class="pill">21 / 35 · preview</span></div></div>
+<span class="pill">28 / 35 · preview</span></div></div>
 
 <div class="wrap">
 <header class="hero">
-  <span class="kicker"><span class="num">21</span> UI Design Style</span>
-  <h1 class="title">iOS Design <span class="en">Apple HIG</span></h1>
-  <p class="tag">Apple's platform conventions — clarity, deference and depth. Legible SF typography, translucency and vibrancy, large titles, grouped inset lists and familiar system controls.</p>
-  <div class="meta"><span class="badge">Guidelines: Apple HIG (ongoing)</span><span class="badge">Mature · platform standard</span><span class="badge">Native language of iPhone & iPad</span></div>
+  <span class="kicker"><span class="num">28</span> UI Design Style</span>
+  <h1 class="title">Isometric <span class="en">2.5D illustration</span></h1>
+  <p class="tag">Clean 2.5D depth — objects and scenes drawn on 30° isometric axes with no perspective convergence, perfect for showing systems and space.</p>
+  <div class="meta"><span class="badge">Technical projection · illustration</span><span class="badge">Common · SaaS & infographics</span><span class="badge">Explainer-visual staple</span></div>
 </header>
 
 <section>
   <h2><span class="ic">👁</span>At a glance</h2>
-  <p class="def">"iOS style" isn't an invented look — it means following Apple's Human Interface Guidelines (HIG), the conventions and components of iPhone and iPad. Its three themes are Clarity, Deference and Depth: content comes first while the UI recedes; legible San Francisco (SF) typography scales with Dynamic Type; and translucency, vibrancy and blur convey layering. Expect large navigation titles, grouped inset lists, standard controls (switches, segmented controls, tab bars, sheets), generous 44pt touch targets, semantic system colors that adapt to light and dark, and respect for safe areas. It is delivered natively through UIKit and SwiftUI.</p>
+  <p class="def">Isometric illustration renders scenes and objects in an isometric projection — roughly 30° axes with parallel lines that do not converge — giving clean, technical yet playful 2.5D depth. It is ubiquitous in tech marketing, infographics and product explainers to depict systems, servers, cities and workflows in a single readable frame.</p>
 </section>
 
 <section>
   <h2><span class="ic">🎬</span>Live demo</h2>
-  <p class="lead">This is not a description — it is a screen built with this style&#x27;s actual CSS. A grouped iOS Settings fragment with a large title, inset lists and system controls.</p>
+  <p class="lead">This is not a description — it is a scene built with this style&#x27;s actual CSS. Cubes are drawn on 30° isometric axes with no perspective convergence.</p>
   <div class="stagewrap">
     <div class="stagebar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-    <span style="margin-left:8px">iOS (Apple HIG) · demo</span><span class="live">Live-rendered with real CSS</span></div>
-    <div class="stage ioshig-stage"><div class="io-app">
-  <div class="io-nav"><div class="io-large">Settings</div></div>
-  <div class="io-seg"><span class="io-sel">All</span><span>Phone</span><span>Watch</span></div>
-  <div class="io-group">
-    <div class="io-row"><span class="io-ic io-b1">✈</span><span class="io-label">Airplane Mode</span><span class="io-sw io-off"><i></i></span></div>
-    <div class="io-row"><span class="io-ic io-b2">Wi</span><span class="io-label">Wi-Fi</span><span class="io-val">Home</span><span class="io-chev">›</span></div>
-    <div class="io-row"><span class="io-ic io-b6">✦</span><span class="io-label">Bluetooth</span><span class="io-val">On</span><span class="io-chev">›</span></div>
-  </div>
-  <div class="io-group">
-    <div class="io-row"><span class="io-ic io-b4">🔔</span><span class="io-label">Notifications</span><span class="io-sw"><i></i></span></div>
-    <div class="io-row"><span class="io-ic io-b3">☀</span><span class="io-label">Display & Brightness</span><span class="io-chev">›</span></div>
-    <div class="io-row"><span class="io-label io-link">Reset All Settings</span></div>
+    <span style="margin-left:8px">Isometric · demo</span><span class="live">Live-rendered with real CSS</span></div>
+    <div class="stage isometric-stage"><div class="iso-scene">
+  <div class="iso-label">System map<small>ISOMETRIC 2.5D</small></div>
+  <div class="iso-cam">
+    <div class="iso-floor"></div>
+    <div class="iso-cube iso-indigo" style="transform:translate3d(-52px,-52px,0)"><div class="f sx2"></div><div class="f sy2"></div><div class="f sx"></div><div class="f sy"></div><div class="f top"></div></div>
+    <div class="iso-cube iso-teal"   style="transform:translate3d(0px,-52px,0)"><div class="f sx2"></div><div class="f sy2"></div><div class="f sx"></div><div class="f sy"></div><div class="f top"></div></div>
+    <div class="iso-cube iso-coral"  style="transform:translate3d(-52px,0px,0)"><div class="f sx2"></div><div class="f sy2"></div><div class="f sx"></div><div class="f sy"></div><div class="f top"></div></div>
+    <div class="iso-cube iso-teal"   style="transform:translate3d(0px,0px,0)"><div class="f sx2"></div><div class="f sy2"></div><div class="f sx"></div><div class="f sy"></div><div class="f top"></div></div>
+    <div class="iso-cube iso-indigo" style="transform:translate3d(0px,0px,52px)"><div class="f sx2"></div><div class="f sy2"></div><div class="f sx"></div><div class="f sy"></div><div class="f top"></div></div>
+    <div class="iso-cube iso-coral"  style="transform:translate3d(0px,0px,104px)"><div class="f sx2"></div><div class="f sy2"></div><div class="f sx"></div><div class="f sy"></div><div class="f top"></div></div>
   </div>
 </div></div>
   </div>
@@ -183,33 +177,33 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 
 <section>
   <h2><span class="ic">🧬</span>Key characteristics</h2>
-  <div class="chars"><div class="chip"><h4>Clarity & deference</h4><p>Content comes first and the UI quietly recedes</p></div><div class="chip"><h4>SF typography & Dynamic Type</h4><p>Legible San Francisco text that users can scale</p></div><div class="chip"><h4>Standard components</h4><p>Grouped lists, tab bars, switches and sheets</p></div><div class="chip"><h4>Depth & vibrancy</h4><p>Translucent blur and layering convey hierarchy</p></div></div>
+  <div class="chars"><div class="chip"><h4>Isometric projection</h4><p>Roughly 30° axes with parallel lines that never converge</p></div><div class="chip"><h4>Clean 2.5D depth</h4><p>Geometric, technical volume without true perspective</p></div><div class="chip"><h4>Bright or soft shading</h4><p>Flat bright fills or gentle face-by-face shading for form</p></div><div class="chip"><h4>Systems & scenes</h4><p>Servers, cities, buildings and workflows in one frame</p></div></div>
 </section>
 
 <section>
   <h2><span class="ic">⚖️</span>Strengths vs Limitations</h2>
   <p class="lead">Presented neutrally. Weigh them against your project&#x27;s goals.</p>
   <div class="pc">
-    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Instantly familiar to the billions of iPhone users</li><li>Excellent built-in accessibility — Dynamic Type, VoiceOver, contrast</li><li>High polish for less effort via UIKit / SwiftUI</li><li>Consistent and trustworthy — behaves the way users expect</li><li>Adapts automatically to light/dark and every screen size</li></ul></div>
-    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>iOS-specific — conventions differ from Android and the Web</li><li>Little room for brand differentiation</li><li>You must follow Apple's rules to pass App Review</li><li>Faithfully reproducing it on the web is extra work</li><li>Can feel generic or "stock" without careful craft</li></ul></div>
+    <div class="col pro"><h3>✅ Strengths</h3><ul><li>Shows complex systems and space clearly in one view</li><li>Reads as modern, techy and approachable</li><li>Scales into a reusable illustration system</li><li>Great for infographics and explainer visuals</li><li>Distinctive and richer than plain flat graphics</li></ul></div>
+    <div class="col con"><h3>⚠️ Limitations</h3><ul><li>Can feel generic — stock isometric is everywhere</li><li>Time-consuming to craft well by hand</li><li>Weak for emotional or human-centered stories</li><li>Decorative — the real content lives elsewhere</li><li>Overused across SaaS marketing pages</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">🎯</span>When it fits / when to avoid</h2>
   <div class="use">
-    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>Native iOS / iPadOS apps</li><li>Products prioritizing a platform-native feel</li><li>Accessibility-first apps</li><li>Teams building with SwiftUI / UIKit</li></ul></div>
-    <div class="box no"><h3>👎 Avoid when</h3><ul><li>Cross-platform apps needing one shared identity</li><li>Strongly branded, custom-designed UIs</li><li>Android-first products</li><li>Web apps where iOS conventions would confuse users</li></ul></div>
+    <div class="box yes"><h3>👍 Good fit when</h3><ul><li>SaaS / tech explainers and infographics</li><li>Landing-page heroes that need a techy visual</li><li>Docs and architecture / system visuals</li><li>Product marketing that depicts workflows</li></ul></div>
+    <div class="box no"><h3>👎 Avoid when</h3><ul><li>The story is human or emotional</li><li>The brand is minimal or editorial</li><li>Real photography would communicate better</li><li>Heavy, detailed scenes must run on low-power devices</li></ul></div>
   </div>
 </section>
 
 <section>
   <h2><span class="ic">📊</span>Neutral metrics (0–5)</h2>
   <p class="lead">Relative scores as of July 2026, kept as objective as possible.</p>
-  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>5/5</span></div>
-        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>5/5</span></div>
-        <div class="bar"><i style="width:100%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>5/5</span></div>
-        <div class="bar"><i style="width:100%"></i></div></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
+  <div class="metrics"><div class="metric "><div class="top"><b>Maturity & stability</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div></div><div class="metric "><div class="top"><b>2026 demand</b><span>3/5</span></div>
+        <div class="bar"><i style="width:60%"></i></div></div><div class="metric "><div class="top"><b>Accessibility safety</b><span>4/5</span></div>
+        <div class="bar"><i style="width:80%"></i></div><small>Illustrations are decorative — keep real information in accessible text</small></div><div class="metric risk"><div class="top"><b>Implementation effort</b><span>3/5</span></div>
         <div class="bar"><i style="width:60%"></i></div><small>Higher = more dev effort / cost</small></div><div class="metric "><div class="top"><b>Browser / device support</b><span>5/5</span></div>
         <div class="bar"><i style="width:100%"></i></div></div></div>
 </section>
@@ -217,26 +211,26 @@ h2 .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
 <section>
   <h2><span class="ic">🏆</span>Notable real-world examples</h2>
   <p class="lead">Real usage by credible brands and products. Click to open the source.</p>
-  <div class="ex"><a href="https://developer.apple.com/design/human-interface-guidelines" target="_blank" rel="noopener">
-        <div class="nm">Apple Human Interface Guidelines</div><div class="ds">The canonical source for iOS design conventions</div>
-        <span class="go">developer.apple.com ↗</span></a><a href="https://developer.apple.com/design/human-interface-guidelines/designing-for-ios" target="_blank" rel="noopener">
-        <div class="nm">Designing for iOS</div><div class="ds">Platform-specific guidance for iPhone & iPad</div>
-        <span class="go">developer.apple.com ↗</span></a><a href="https://developer.apple.com/xcode/swiftui/" target="_blank" rel="noopener">
-        <div class="nm">SwiftUI</div><div class="ds">Apple's framework for building native HIG UIs</div>
-        <span class="go">developer.apple.com ↗</span></a></div>
+  <div class="ex"><a href="https://en.wikipedia.org/wiki/Isometric_projection" target="_blank" rel="noopener">
+        <div class="nm">Isometric projection</div><div class="ds">The technical projection behind the look</div>
+        <span class="go">en.wikipedia.org ↗</span></a><a href="https://blush.design/" target="_blank" rel="noopener">
+        <div class="nm">Blush illustrations</div><div class="ds">Reusable illustration systems, many isometric</div>
+        <span class="go">blush.design ↗</span></a><a href="https://en.wikipedia.org/wiki/Isometric_video_game_graphics" target="_blank" rel="noopener">
+        <div class="nm">Isometric in game graphics</div><div class="ds">Where the isometric look became iconic</div>
+        <span class="go">en.wikipedia.org ↗</span></a></div>
 </section>
 
 <section>
   <h2><span class="ic">🧾</span>Outsourcing brief (Upwork)</h2>
-  <div class="tip"><h3>iOS (Apple HIG) — Outsourcing brief (Upwork)</h3><ul><li>Build with <code>SwiftUI</code> / <code>UIKit</code> natively, or a faithful iOS-styled system on the web</li><li>Use system fonts (<code>-apple-system</code> / SF Pro) and support Dynamic Type</li><li>Use standard components and a <code>44pt</code> minimum touch target</li><li>Support light / dark through semantic system colors</li><li>Respect safe areas and HIG spacing, and follow the current HIG so it passes App Review</li></ul></div>
+  <div class="tip"><h3>Isometric — Outsourcing brief (Upwork)</h3><ul><li>Deliver an isometric grid / system plus reusable SVG blocks and a palette as <code>tokens</code></li><li>Keep illustrations decorative and pair them with real, readable text alongside</li><li>Maintain one consistent projection angle and a single light source across every scene</li><li>Provide responsive / simplified variants for small screens and low-power devices</li><li>Watch file weight — optimise SVGs and avoid overly detailed scenes</li></ul></div>
 </section>
 
 <section>
   <h2><span class="ic">🔗</span>Sources</h2>
-  <ul class="src"><li><a href="https://developer.apple.com/design/human-interface-guidelines" target="_blank" rel="noopener">Apple — Human Interface Guidelines</a></li><li><a href="https://developer.apple.com/design/human-interface-guidelines/designing-for-ios" target="_blank" rel="noopener">Apple — Designing for iOS</a></li><li><a href="https://developer.apple.com/design/human-interface-guidelines/accessibility" target="_blank" rel="noopener">Apple — Accessibility (Human Interface Guidelines)</a></li></ul>
+  <ul class="src"><li><a href="https://en.wikipedia.org/wiki/Isometric_projection" target="_blank" rel="noopener">Wikipedia — Isometric projection</a></li><li><a href="https://blush.design/" target="_blank" rel="noopener">Blush — Illustrations for design</a></li><li><a href="https://en.wikipedia.org/wiki/Isometric_video_game_graphics" target="_blank" rel="noopener">Wikipedia — Isometric video game graphics</a></li></ul>
 </section>
 
-<div class="nav"><a href="fluent.html">← Fluent Design<small>Prev</small></a><a class="r" href="corporate-memphis.html">Corporate Memphis →<small>Next</small></a></div>
+<div class="nav"><a href="kinetic-typography.html">← Kinetic / Motion UI<small>Prev</small></a><a class="r" href="render-3d.html">3D / Render →<small>Next</small></a></div>
 </div>
 </body>
 </html>
